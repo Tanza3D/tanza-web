@@ -39,7 +39,7 @@ include("routing.php");
 $page_name = $request[0];
 
 $meta_template = [
-    "name" => "Osekai Admin Panel - Unknown Page",
+    "name" => "Tanza - Unknown Page",
     "description" => "We don't know what this page is."
 ];
 
