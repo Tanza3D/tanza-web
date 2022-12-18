@@ -1,0 +1,98 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+@keyframes fadein {
+    0% {
+        filter: blur(50px);
+        transform: scale(1.4);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url("/public/img/general/background.png");
+    background-position: center;
+    background-size: auto;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    animation-name: fadein;
+    animation-duration: 1s;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar__inner {
+    display: flex;
+    align-items: center;
+    padding: 0px 13px;
+    background: linear-gradient(0deg, rgba(61, 16, 118, 0.5), rgba(61, 16, 118, 0.5)), rgba(0, 0, 0, 0.25);
+backdrop-filter: blur(16px);
+}
+
+.navbar__right {
+    padding: 17px 0px;
+    margin-left: auto;
+}
+
+.navbar__trim {
+    height: 8px;
+    background: linear-gradient(90deg, #EB00FF 3.64%, #FFB800 51.82%, #EB00FF 100%);
+}
+
+.page {
+    margin-top: var(--navbar-height);
+}
+.page-with-cover {
+    margin-top: 0px;
+}
+.cover {
+    height: 100vh;
+    width: 100vw;
+    background-color: #0004;
+    overflow: hidden;
+    padding: 100px;
+}
+
+@media (max-width: 900px) {
+    /* mobile stuffs */
+    #desktop {
+        display: none !important;
+    }
+
+    .desktop {
+        display: none !important;
+    }
+}
+
+@media (min-width: 901px) {
+    #mobile {
+        display: none !important;
+    }
+
+    .mobile {
+        display: none !important;
+    }
+}
