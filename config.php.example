@@ -3,3 +3,4 @@ define("DB_USER", "tanza");
 define("DB_PASSWORD", "password");
 define("DB_NAME", "tanza-web");
 define("DB_HOSTNAME", "localhost");
+define("UTAUTH_KEY", "untone_utauth_key");

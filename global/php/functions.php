@@ -7,3 +7,12 @@ function Js($path) {
 function Css($path) {
     echo '<link rel="stylesheet" href="/'.$path.'">';
 }
+function Redirect($url) {
+    // redirects by placing js on the page
+    // usage: redirect("url");
+
+    echo "<script>
+    window.location.href = '" . $url . "';
+    </script>";
+    exit;
+}

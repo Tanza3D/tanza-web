@@ -1,0 +1,1 @@
+Logged in as <?php echo $_SESSION['username']; ?>
