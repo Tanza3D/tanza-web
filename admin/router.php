@@ -2,7 +2,6 @@
 <html>
 
 <?php
-echo "<h1>ADMIN</h1>";
 $time_start = microtime(true);
 $request_time = $_SERVER['REQUEST_TIME_FLOAT'];
 

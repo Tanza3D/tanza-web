@@ -6,3 +6,7 @@ function positionNav() {
 positionNav();
 window.onresize = positionNav;
 window.onload = positionNav();
+
+window.addEventListener("load", function() {
+    document.body.classList.add("loaded");
+})

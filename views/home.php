@@ -33,11 +33,9 @@ LIMIT 1");
 
 <svg width="0" height="0" style="position: absolute;">
     <!-- even though its 0x0 width it still shoves the cover down around 30px, so have to hide it. idk -->
-    <defs>
-        <clipPath id="svgclip">
-            <path fill="#FFFFFF" stroke="#000000" stroke-width="1.5794" stroke-miterlimit="10" d="M889 0V557H136.313L120.509 555.025L105.89 548.704L92.456 534.088L0 135.497L54.1302 11.8511L70.7249 0H889Z" fill="#D9D9D9" />
-        </clipPath>
-    </defs>
+    <clipPath id="svgclip" clipPathUnits="objectBoundingBox">
+        <path d="M1 0V1H0.153333L0.135556 0.996454L0.119111 0.985106L0.104 0.958865L0 0.243262L0.0608889 0.0212766L0.0795556 0H1Z"/>
+    </clipPath>
 </svg>
 
 
@@ -71,5 +69,11 @@ LIMIT 1");
     <div class="cover-background"></div>
     <div class="cover-inner">
         COVER FOR MOBILE
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="page-inner">
+        uwu page
     </div>
 </div>

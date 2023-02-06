@@ -1,0 +1,116 @@
+.gallery__item-info h3 {
+    font-weight: 600;
+font-size: 26px;
+}
+.gallery__item-info p {
+    font-weight: 700;
+font-size: 17px;
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.gallery__item img {
+    width: 200px;
+    border-radius: 4px;
+    
+
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to bottom right, #fff1 8%, #fff6 38%, #fff1 54%);
+    background-size: 1000px 640px;
+}
+.gallery__item {
+    padding: 12px;
+    background: #542196;
+border-radius: 8px;
+display: flex;
+align-items: center;
+position: relative;
+margin-bottom: 12px;
+transition: all 0.4s ease;
+min-height: 150px;
+}
+
+
+.gallery__item-info p span {
+    font-weight: 400;
+    font-size: 17.4324px;
+    line-height: 89%;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.gallery__item-info p strong {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 17.4324px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+.gallery__item-info, .gallery__item-controls {
+    transition: all 0.4s ease;
+    padding-left: 12px;
+    padding-right: 40px;
+}
+
+.gallery__item-controls {
+    position: absolute;
+    padding: 20px 0px;
+}
+
+
+.gallery__item-options {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.gallery__item-buttons-edit, .gallery__item-buttons-info {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hidden {
+    opacity: 0;
+    transform: scale(0.7);
+    pointer-events: none;
+}
+
+.gallery__item-controls {
+    padding-left: 12px;
+}
+
+
+input, textarea {
+    color: white;
+    background-color: #fff2;
+    border-radius: 8px;
+    padding: 8px;
+    font-family: inherit;
+    border: 0px solid white;
+    font-size: 14px;
+}
+
+textarea {
+    font-size: 12px;
+}
+
+.gallery__item-editing {
+    min-height: 210px;
+}
