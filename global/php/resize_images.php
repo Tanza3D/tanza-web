@@ -60,6 +60,11 @@ function doResize($directory)
     $files1 = scandir($dir);
 
     foreach ($files1 as $image) {
+        if(isset($_REQUEST['id'])) {
+            if(!str_contains($image, $_REQUEST['id'])) {
+                continue;
+            }
+        }
         $image_orig = $directory . "original/" . $image;
         if (str_contains($image, ".png") || str_contains($image, ".jpg")) {
             // let's say it's 1920x1080. 1920/1080 1.7777777777777...

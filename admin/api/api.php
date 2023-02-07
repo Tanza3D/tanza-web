@@ -19,9 +19,8 @@ function addendpoint($name, $file, $needskey = false, $keyperms = 0)
 
 // * Base *
 addendpoint("gallery/items", "gallery/items.php");
-
-
-
+addendpoint("gallery/update", "gallery/update.php");
+addendpoint("gallery/upload", "gallery/upload.php");
 
 
 

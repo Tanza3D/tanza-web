@@ -103,3 +103,72 @@
 .page__content {
     padding: 15px;
 }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+    background-color: #251736aa;
+}
+
+.modal-inner {
+    width: 90vw;
+    max-width: 800px;
+
+    background: rgba(61, 16, 118, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-toolbar {
+    padding: 20px;
+    background-color: rgba(39, 23, 61, 0.7);
+    border-radius: 0px 0px 8px 8px;
+}
+
+.upload-modal .modal-right {
+    flex: 1;
+}
+.upload-modal .modal-content {
+    display: flex;
+    align-items: center;
+}
+.upload-modal .modal-left {
+    width: 400px;
+    min-height: 120px;
+    background-color: #0004;
+    border-radius: 8px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.upload-modal .modal-left img {
+    width: 100%;
+}
+
+.upload-modal .modal-right input {
+    width: 100%;
+}
+
+.modal-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-toolbar {
+    display: flex;
+    gap: 8px;
+}

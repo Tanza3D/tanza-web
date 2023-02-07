@@ -3,7 +3,7 @@
         <p class="title">Gallery</p>
     </div>
     <div class="page__controlbar-right">
-        <div class="button">Add Item</div>
+        <div class="button" onclick="toggleUploadModal();">Add Item</div>
     </div>
 </div>
 
@@ -41,6 +41,32 @@
                 <div class="button">Canel</div>
                 <div class="button">Save</div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal upload-modal modal-hidden" id="upload-modal">
+    <div class="modal-inner">
+        <div class="modal-content">
+            <div class="modal-left">
+                <img id="preview">
+            </div>
+            <div class="modal-right">
+                <p>Select image to upload:</p>
+                <input type="file" name="file" id="file">
+                <br>
+                <p>Name (will be automatically filled out)</p>
+                <input type="text" name="name" id="name">
+                <br>
+                <p>Date (will be automatically filled out)</p>
+                <input type="date" name="date" id="date">
+            </div>
+        </div>
+        <div class="modal-toolbar">
+
+        <div class="button" onclick="uploadImage()">Upload</div>
+        <div class="button" onclick="toggleUploadModal();">Close</div>
+
         </div>
     </div>
 </div>

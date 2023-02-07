@@ -5,7 +5,7 @@ function loadGallery() {
     req.addEventListener("load", function () {
         items = JSON.parse(req.responseText)
         html = "";
-        for(var x = 0; x < items.length; x++) {
+        for (var x = 0; x < items.length; x++) {
             var item = items[x];
             html += `<div class="gallery__item" gallery-id="${item.Id}" selector="gallery-item">
             <img src="/img/gallery/thumbnail/${item.Filename}" style="aspect-ratio: ${item.Ratio.replace(":", "/")};">
@@ -46,22 +46,33 @@ function loadGallery() {
 
         var domitems = document.querySelectorAll("[selector='gallery-item']");
         console.log(domitems);
-        for(var y = 0; y < domitems.length; y++) {
+        for (var y = 0; y < domitems.length; y++) {
             let item = domitems[y];
             let referencedItem = null;
-            for(var x = 0; x < items.length; x++) {
-                if(items[x].Id == item.getAttribute("gallery-id")) {
+            for (var x = 0; x < items.length; x++) {
+                if (items[x].Id == item.getAttribute("gallery-id")) {
                     referencedItem = items[x];
                 }
             }
-            if(referencedItem == null) 
-            {
+            if (referencedItem == null) {
                 console.log("could not find referenced art item for id " + item.getAttribute("gallery-id"));
                 continue
             };
             let updateData = function (galleryItem) {
                 console.log("updating data");
-                // ! TODO: actually upload new data
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/admin/api/gallery/update", true);
+
+                var fd = new FormData();
+                fd.append("Date", galleryItem.Date);
+                fd.append("Name", galleryItem.Name);
+                fd.append("Description", galleryItem.Description);
+                fd.append("Tags", galleryItem.Tags);
+                fd.append("Id", galleryItem.Id);
+
+                xhr.send(fd);
+
                 item.querySelector("[selector='edit-description']").innerHTML = galleryItem.Description;
                 item.querySelector("[selector='edit-name']").value = galleryItem.Name;
                 item.querySelector("[selector='edit-tags']").value = galleryItem.Tags;
@@ -71,15 +82,15 @@ function loadGallery() {
                 item.querySelector("[selector='info']").innerHTML = `${galleryItem.Date} <span>/ ${galleryItem.Filename}</span> <strong>${galleryItem.Tags}</strong>`;
                 item.querySelector("[selector='description']").innerHTML = galleryItem.Description;
             }
-            referencedItem.Name = "test";
-            let beginEdit  = function() {
+
+            let beginEdit = function () {
                 item.classList.add("gallery__item-editing");
                 item.querySelector(".gallery__item-controls").classList.remove("hidden");
                 item.querySelector(".gallery__item-buttons-edit").classList.remove("hidden");
                 item.querySelector(".gallery__item-info").classList.add("hidden");
                 item.querySelector(".gallery__item-buttons-info").classList.add("hidden");
             }
-            let finishEdit = function(refitem) {
+            let finishEdit = function (refitem) {
                 item.classList.remove("gallery__item-editing");
                 item.querySelector(".gallery__item-controls").classList.add("hidden");
                 item.querySelector(".gallery__item-buttons-edit").classList.add("hidden");
@@ -95,12 +106,16 @@ function loadGallery() {
                 referencedItem.Tags = item.querySelector("[selector='edit-tags']").value;
                 referencedItem.Name = item.querySelector("[selector='edit-name']").value;
                 referencedItem.Date = item.querySelector("[selector='edit-date']").value;
-                referencedItem.Description = item.querySelector("[selector='edit-description']").innerHTML;
+                referencedItem.Description = item.querySelector("[selector='edit-description']").value;
                 console.log(referencedItem);
                 finishEdit(referencedItem);
             });
             item.querySelector("[selector='cancel-button']").addEventListener("click", (event) => {
                 finishEdit(referencedItem);
+                item.querySelector("[selector='edit-description']").value = galleryItem.Description;
+                item.querySelector("[selector='edit-name']").value = galleryItem.Name;
+                item.querySelector("[selector='edit-tags']").value = galleryItem.Tags;
+                item.querySelector("[selector='edit-date']").value = galleryItem.Date;
             });
             //updateData(referencedItem);
         }
@@ -109,3 +124,55 @@ function loadGallery() {
     req.send();
 }
 loadGallery();
+
+
+const output = document.getElementById('date');
+const name = document.getElementById("name");
+const filepicker = document.getElementById('file');
+var pickedFile = null;
+
+filepicker.addEventListener('change', (event) => {
+    const files = event.target.files;
+    const now = new Date();
+    output.textContent = '';
+
+    for (const file of files) {
+        pickedFile = file;
+        const date = new Date(file.lastModified);
+        console.log(date);
+        output.valueAsDate = date;
+        name.value = file.name.replace(/\.[^/.]+$/, "");
+        document.getElementById('preview').src = window.URL.createObjectURL(file)
+    }
+});
+
+function uploadImage() {
+    let xhr = new XMLHttpRequest();
+
+    let formData = new FormData();
+    formData.append("Image", pickedFile);
+    formData.append("Name", document.getElementById("name").value);
+    formData.append("Date", document.getElementById("date").value);
+
+    xhr.onload = (event) => {
+        var response = JSON.parse(xhr.responseText);
+        if(response['Id'] != undefined) {
+            let xhr2 = new XMLHttpRequest();
+            xhr2.open("POST", `/global/php/resize_images.php?id=${response['Id']}`);
+            xhr2.send();
+            xhr2.onload = (event) => {
+                location.reload();
+            }
+        } else {
+            console.log(response);
+            // TODO: show error
+        }
+    }
+
+    xhr.open("POST", "/admin/api/gallery/upload");
+    xhr.send(formData);
+}
+
+function toggleUploadModal() {
+    document.getElementById("upload-modal").classList.toggle("modal-hidden");
+}
