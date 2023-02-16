@@ -13,3 +13,5 @@ function addPage($name, $displayname, $page="404.php", $template="basic", $extra
 }
 
 addPage("home", "Home", "home.php", "basic", ["page-with-cover"]);
+
+addPage("jsitest", "jsitest", "jsitest.php", "basic");

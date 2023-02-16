@@ -1,0 +1,1 @@
+<p onclick="ShutApp()" class="button">Shut app</p>
