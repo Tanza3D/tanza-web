@@ -74,7 +74,7 @@ LIMIT 1");
 
 <div class="page-content" aload="home" loadelement="window">
     <div class="page-inner">
-        <div class="home__panels">
+        <div class="home__panels" id="homepanelsarea">
             <div class="home__panels-left">
                 <div hover="big" click="big" class="home__panel home__panel-large">
                     <div class="home__panel-sheen"></div>
