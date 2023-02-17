@@ -72,16 +72,16 @@ LIMIT 1");
     </div>
 </div>
 
-<div class="page-content">
+<div class="page-content" aload="home" loadelement="window">
     <div class="page-inner">
         <div class="home__panels">
             <div class="home__panels-left">
-                <div class="home__panel home__panel-large">
+                <div hover="big" click="big" class="home__panel home__panel-large">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-photo-video"></i></div>
                     <h1>Gallery</h1>
                 </div>
-                <div class="home__panel home__panel-large" style="
+                <div hover="big" click="big" class="home__panel home__panel-large" style="
                 --col1: #2400FF;
                 --col2: #0094FF;
                 --col3: #2400FF;
@@ -90,7 +90,7 @@ LIMIT 1");
                     <div class="icon"><i class="fas fa-layer-group"></i></div>
                     <h1>Portfolio</h1>
                 </div>
-                <div class="home__panel home__panel-large" style="
+                <div hover="big" click="big" class="home__panel home__panel-large" style="
                 --col1: #00D1FF;
                 --col2: #2FC37C;
                 --col3: #00FFE0;
@@ -101,7 +101,7 @@ LIMIT 1");
                 </div>
             </div>
             <div class="home__panels-right">
-                <div class="home__panel home__panel-medium" style="
+                <div hover="small" click="big" class="home__panel home__panel-medium" style="
                 --col1: #0066FF;
                 --col2: #F042FF;
                 --col3: #2400FF;
@@ -111,7 +111,7 @@ LIMIT 1");
                     <h1>About Me</h1>
                     <p>Learn all about me, my history, and my plans for the future!</p>
                 </div>
-                <div class="home__panel home__panel-medium" style="
+                <div hover="small" click="big" class="home__panel home__panel-medium" style="
                 --col1: #8F00FF;
                 --col2: #FF2F6D;
                 --col3: #FF5C00;
@@ -121,7 +121,7 @@ LIMIT 1");
                     <h1>Refsheet</h1>
                     <p>Check out my Protogen’s refsheet here! It’s super long!</p>
                 </div>
-                <div class="home__panel home__panel-medium" style="
+                <div hover="small" click="big" class="home__panel home__panel-medium" style="
                 --col1: #FF007A;
                 --col2: #9712FF;
                 --col3: #0047FF;
@@ -131,7 +131,7 @@ LIMIT 1");
                     <h1>Work / Contact</h1>
                     <p>Want some design work done? Contact me here!</p>
                 </div>
-                <div class="home__panel home__panel-small" style="
+                <div hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #6261E1;
                 --col2: #469ACD;
                 --col3: #43C3B8;
@@ -140,7 +140,7 @@ LIMIT 1");
                     <div class="icon"><i class="fab fa-twitter"></i></div>
                     <h1>Twitter</h1>
                 </div>
-                <div class="home__panel home__panel-small" style="
+                <div hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #8B3DE7;
                 --col2: #6F7DD4;
                 --col3: #64ACBD;
@@ -149,7 +149,7 @@ LIMIT 1");
                     <div class="icon"><i class="fab fa-discord"></i></div>
                     <h1>Discord</h1>
                 </div>
-                <div class="home__panel home__panel-small" style="
+                <div hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #5C4EE4;
                 --col2: #4E78E4;
                 --col3: #AB4EE4;
