@@ -7,6 +7,12 @@
 body {
     color: white;
     font-family: 'Red Hat Display', sans-serif;
+    --page-width: 1330px;
+    --smooth: linear-gradient(93.25deg, #EB00FF 3.44%, #FD3DBD 15.51%, #FF6B6B 27.58%, #FFAA3E 39.65%, #FFC32B 51.72%, #FFAA3E 63.79%, #FF6D6D 75.86%, #FD3DBD 87.93%, #EB00FF 100%);
+}
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .page {
@@ -111,6 +117,7 @@ body {
     width: 100%;
     height: 100%;
 }
+
 .loaded .cover-background {
     animation: 1.5s ease 0s 1 load-cover;
 }
@@ -159,11 +166,106 @@ body {
 
 .page-inner {
     width: 100%;
-    max-width: 1330px;
+    max-width: var(--page-width);
     margin: 0px 20px;
 }
 
 .preload, .preload * {
     transition-delay: 9999s;
     opacity: 0 !important;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 50px;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #160c22aa;
+    backdrop-filter: blur(20px);
+    z-index: 822;
+    transition: all 0.5s ease;
+}
+
+.layer__close-layer {
+    z-indeX: 823;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.layer__content {
+    z-index: 824;
+    width: 100%;
+    max-width: calc(var(--page-width) + 20px);
+    background: linear-gradient(#3F006F, #602560, #68067A);
+    border-radius: 30px;
+    padding: 30px;
+    margin: auto;
+    height: auto;
+    transition: all 0.75s ease;
+}
+
+.layer__header {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: -6px;
+    margin-bottom: 10px;
+}
+
+.layer__header h1 {
+    background: var(--smooth);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.layer__header i {
+    font-size: 24px;
+    margin-left: auto;
+}
+
+p a {
+    text-decoration: none;
+    color: #f479ff;
+}
+
+.layer__content img {
+    width: 100%;
+    margin: 10px 0px;
+    border-radius: 12px;
+    border: 1px solid #fff4;
+}
+
+.layer-closed {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.layer-closed .layer__content {
+    transform: translateY(90px);
+}
+.layer-text-content p {
+    margin-top: 5px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+.layer-text-content h1 {
+    margin-top: 8px;
 }

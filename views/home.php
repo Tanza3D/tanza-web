@@ -101,46 +101,46 @@ LIMIT 1");
                 </div>
             </div>
             <div class="home__panels-right">
-                <div hover="small" click="big" class="home__panel home__panel-medium" style="
+                <div hover="small" click="layer" class="home__panel home__panel-medium" style="
                 --col1: #0066FF;
                 --col2: #F042FF;
                 --col3: #2400FF;
-                ">
+                " onclick="openLayer('layer_aboutme')">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-info-circle"></i></div>
                     <h1>About Me</h1>
                     <p>Learn all about me, my history, and my plans for the future!</p>
                 </div>
-                <div hover="small" click="big" class="home__panel home__panel-medium" style="
+                <div hover="small" click="layer" class="home__panel home__panel-medium" style="
                 --col1: #8F00FF;
                 --col2: #FF2F6D;
                 --col3: #FF5C00;
-                ">
+                " onclick="openLayer('layer_refsheet')">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-paint-brush"></i></div>
                     <h1>Refsheet</h1>
                     <p>Check out my Protogen’s refsheet here! It’s super long!</p>
                 </div>
-                <div hover="small" click="big" class="home__panel home__panel-medium" style="
+                <div hover="small" click="layer" class="home__panel home__panel-medium" style="
                 --col1: #FF007A;
                 --col2: #9712FF;
                 --col3: #0047FF;
-                ">
+                " onclick="openLayer('layer_contact')">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-envelope"></i></div>
                     <h1>Work / Contact</h1>
                     <p>Want some design work done? Contact me here!</p>
                 </div>
-                <div hover="smaller" click="normal" class="home__panel home__panel-small" style="
+                <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #6261E1;
                 --col2: #469ACD;
                 --col3: #43C3B8;
-                ">
+                " href="https://twitter.com/@tanza3d">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fab fa-twitter"></i></div>
                     <h1>Twitter</h1>
-                </div>
-                <div hover="smaller" click="normal" class="home__panel home__panel-small" style="
+                </a>
+                <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #8B3DE7;
                 --col2: #6F7DD4;
                 --col3: #64ACBD;
@@ -148,17 +148,53 @@ LIMIT 1");
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fab fa-discord"></i></div>
                     <h1>Discord</h1>
-                </div>
-                <div hover="smaller" click="normal" class="home__panel home__panel-small" style="
+                </a>
+                <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #5C4EE4;
                 --col2: #4E78E4;
                 --col3: #AB4EE4;
-                ">
+                " href="https://social.untone.uk/@tanza">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fab fa-mastodon"></i></div>
                     <h1>Mastodon</h1>
-                </div>
+                </a>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="layer layer-closed" id="layer_refsheet">
+    <div class="layer__close-layer" onclick="closeLayer()"></div>
+    <div class="layer__content">
+        <div class="layer__header">
+            <h1>Refsheet</h1>
+            <i class="fas fa-times-circle" onclick="closeLayer()"></i>
+        </div>
+        <p>This is the refsheet for Tanza! The colours can be a bit confusing. For more reference, please check <a href="/gallery">the Gallery</a> for more references!</a>
+            <img src="/public/img/refsheet.png">
+    </div>
+</div>
+
+
+<div class="layer layer-closed" id="layer_aboutme">
+    <div class="layer__close-layer" onclick="closeLayer()"></div>
+    <div class="layer__content">
+        <div class="layer__header">
+            <h1>About Me</h1>
+            <i class="fas fa-times-circle" onclick="closeLayer()"></i>
+        </div>
+        <div class="layer-text-content">
+            <h1>About</h1>
+            <p>Hey, I’m Tanza! I was formerly known as Hubz, but recently switched over my name. I’m primarily a Developer and Designer, leading development on projects such as Osekai, Cubey, and more, and doing design for projects such as GTS, osu!, and more. To see the designs I’ve worked on, please check out <a href="/portfolio">my Portfolio</a>! And for projects I actively lead or help out on, check out the <a href="/projects">Projects page!</a></p>
+            <p>On the side, I also enjoy 3d modelling, working on my Protogen scenes, and also various other characters like Sergals and others! I’m not that good at 3d modelling them yet, but I’m definitely getting better! If you’re interested in having a look at the 3D art I’ve made, have a look at my <a href="/gallery">Gallery page</a>!</p>
+            <p>Some other general info about me: I’m currently a minor, and I’m also gay. I think dragons are cute. Protogens are cool. And I’m taken by <a href="https://twitter.com/@ThatFlyingFurry">a cutie</a> (Dragonick) :3</p>
+
+            <h1>History</h1>
+            <p>A while ago, in August of 2021, I created a Protogen (Tanza), along with a new email, twitter account, and much more for it. I meant for this to be a completely separate account, and had no plans to link it to my, at the time, primary account (Hubz).</p>
+            <p>I had been known as Hubz for most my life, joining Twitter under that username in 2017, Youtube in 2014, and getting a Gmail account under the username in 2013. The primary issue I had, is that at the time that account was quite professional. I was getting geared up to start accepting commissions, and I knew alot of people, so I had fears that just, well, “becoming a furry” there would have ended up with less people wanting to commission me, and some friends possibly even leaving due to it. So I instead created a brand new, separate account.</p>
+            <p>Skip ahead a year, to August 2022, and late at night (2am), I made an impulse decision to rename my osu! account (at the time named Hubz) to Tanza3D, I did this, switched over my me! page, and went to sleep. The day after, I made tweets on both accounts talking about it, and linked the accounts together in their bios. This was somewhat of a scary moment for me, but no one seemed to mind that I was a furry, and things luckily carried on as usual!</p>
+            <p>Over the coming months, I slowly renamed any accounts I had under Hubz to Tanza, such as my GitHub (Hubza > Tanza3D), Twitch (Hubzaa -> Tanza_Live), and more. I intended to keep two separate websites, Twitters, and Discords. One more oriented to the furry side, labelled as Tanza, and the the other oriented more to professional work, labeled as Hubz.</p>
+            <p>Later on, I decided to finally completely remove the name Hubz from the picture, releasing a final album under the name labeled “A Final Goodbye.”, and afterwards abandoned the Hubz accounts, in some cases renaming them to Tanza, and in others just leaving them behind, as a kind of archive and legacy of my past. To this day, though, I still use two Discord accounts, both named Tanza, one for work and one for more personal usage. You can tell which one’s which, because the work one is always on DND!</p>
         </div>
     </div>
 </div>

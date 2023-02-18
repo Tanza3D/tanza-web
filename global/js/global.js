@@ -30,9 +30,9 @@ var audioSystem = {
     },
     registerAudios: function () {
         this.registerAudioDOM({
-            "big": "tz_sf_BigHover",
-            "small": "tz_sf_SmallHover",
-            "smaller": "tz_sf_SmallerHover",
+            "big": "tr_tz_sf_BigHover",
+            "small": "tr_tz_sf_SmallHover",
+            "smaller": "tr_tz_sf_SmallerHover"
         }, "hover", "small", function (el, file) {
             el.addEventListener("mouseover", function () {
                 audioSystem.play(file);
@@ -40,8 +40,9 @@ var audioSystem = {
         });
 
         this.registerAudioDOM({
-            "normal": "tz_sf_Click",
-            "big": "tz_sf_TriumphantLoad"
+            "normal": "tr_tz_sf_Click",
+            "big": "tr_tz_sf_TriumphantLoad",
+            "layer": "tr_tz_sf_LayerOpen"
         }, "click", "normal", function (el, file) {
             el.addEventListener("click", function () {
                 audioSystem.play(file);
@@ -49,7 +50,7 @@ var audioSystem = {
         });
 
         this.registerAudioDOM({
-            "home": "tz_sf_HomeLoad",
+            "home": "tr_tz_sf_HomeLoad",
         }, "aload", "home", function (el, file) {
             if (el.getAttribute("loadelement") == "window") {
                 window.addEventListener("load", function () {
@@ -64,3 +65,25 @@ var audioSystem = {
     }
 }
 audioSystem.registerAudios();
+
+function closeLayer() {
+    document.body.classList.remove("noscroll");
+    var layers = document.getElementsByClassName("layer");
+    for (var element of layers) {
+        if (!element.classList.contains("layer-closed")) {
+            element.classList.add("layer-closed");
+            audioSystem.play("tr_tz_sf_LayerClose"); // this has to be done in here, because this function can be called when hitting ESC even if there's none open
+        }
+    }
+
+}
+function openLayer(id) {
+    document.getElementById(id).classList.remove("layer-closed");
+    document.body.classList.add("noscroll");
+}
+
+document.body.addEventListener('keypress', function (e) {
+    if (e.key == "Escape") {
+        closeLayer();
+    }
+});
