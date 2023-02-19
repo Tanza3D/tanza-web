@@ -22,6 +22,10 @@ addendpoint("gallery/items", "gallery/items.php");
 addendpoint("gallery/update", "gallery/update.php");
 addendpoint("gallery/upload", "gallery/upload.php");
 
+addendpoint("projects/items", "projects/items.php");
+addendpoint("projects/update", "projects/update.php");
+addendpoint("projects/upload", "projects/upload.php");
+
 
 
 $requestedPage = $_SERVER['REQUEST_URI'];

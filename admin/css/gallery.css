@@ -97,20 +97,11 @@ min-height: 150px;
 }
 
 
-input, textarea {
-    color: white;
-    background-color: #fff2;
-    border-radius: 8px;
-    padding: 8px;
-    font-family: inherit;
-    border: 0px solid white;
-    font-size: 14px;
-}
 
-textarea {
-    font-size: 12px;
-}
 
 .gallery__item-editing {
     min-height: 210px;
+}
+.upload-modal .modal-left img {
+    width: 100%;
 }

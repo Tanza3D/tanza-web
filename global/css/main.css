@@ -269,3 +269,7 @@ p a {
 .layer-text-content h1 {
     margin-top: 8px;
 }
+
+.cover-small {
+    height: 400px;
+}

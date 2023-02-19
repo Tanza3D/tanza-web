@@ -136,6 +136,14 @@ foreach ($pages as $page) {
 </body>
 
 <?php
+foreach($ref_page['js'] as $js) {
+    Js($js);
+}
+
+foreach($ref_page['css'] as $css) {
+    Css($css);
+}
+
 Js("global/js/global.js");
 Js("admin/global/js/global.js");
 Js("admin/js/" . $ref_page['name'] . ".js");

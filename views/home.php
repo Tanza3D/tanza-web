@@ -76,29 +76,29 @@ LIMIT 1");
     <div class="page-inner">
         <div class="home__panels" id="homepanelsarea">
             <div class="home__panels-left">
-                <div hover="big" click="big" class="home__panel home__panel-large">
+                <a hover="big" click="big" class="home__panel home__panel-large" href="/gallery">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-photo-video"></i></div>
                     <h1>Gallery</h1>
-                </div>
-                <div hover="big" click="big" class="home__panel home__panel-large" style="
+                </a>
+                <a hover="big" click="big" class="home__panel home__panel-large" style="
                 --col1: #2400FF;
                 --col2: #0094FF;
                 --col3: #2400FF;
-                ">
+                " href="/portfolio">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-layer-group"></i></div>
                     <h1>Portfolio</h1>
-                </div>
-                <div hover="big" click="big" class="home__panel home__panel-large" style="
+                </a>
+                <a hover="big" click="big" class="home__panel home__panel-large" style="
                 --col1: #00D1FF;
                 --col2: #2FC37C;
                 --col3: #00FFE0;
-                ">
+                " href="/projects">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-project-diagram"></i></div>
                     <h1>Projects</h1>
-                </div>
+                </a>
             </div>
             <div class="home__panels-right">
                 <div hover="small" click="layer" class="home__panel home__panel-medium" style="
