@@ -14,6 +14,7 @@ projectPanelTemplate = {
     },
     "size": "big",
     "date": new Date(),
+    "order": 0
 }
 
 
@@ -49,10 +50,10 @@ function cleanDataDirect(data) {
         }
     }
 
-    if(data['background'] != undefined) finalData['background'] = data['background'];
-    else finalData['background'] = `/img/projects/${finaldata['internal-name']}/background.jpg`;
+    if(data['background'] != undefined && data['background'] != "") finalData['background'] = data['background'];
+    else finalData['background'] = `/img/projects/${finalData['internalName']}/background.jpg`;
 
-    return data;
+    return finalData;
 }
 
 function cleanData(data) {

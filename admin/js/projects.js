@@ -12,7 +12,8 @@ function updateData() {
     projectUploadItem['badge'] = document.getElementById("badge").value;
     projectUploadItem['internalName'] = document.getElementById("internalName").value;
     projectUploadItem['description'] = document.getElementById("description").value;
-
+    projectUploadItem['order'] = document.getElementById("order").value;
+    
     var e = document.getElementById("size").value;
     projectUploadItem['size'] = e;
     if (document.getElementById("logo").files.length == 1) {
@@ -45,6 +46,7 @@ function uploadProject() {
     formData.append("description", projectUploadItem.description);
     formData.append("badge", projectUploadItem.badge);
     formData.append("size", projectUploadItem.size);
+    formData.append("order", projectUploadItem.order);
     formData.append("date", projectUploadItem.date.toISOString().slice(0, 19).replace('T', ' '));
     if(projectUploadItem.popupData.html == null) {
         formData.append("popupData", "link:"+projectUploadItem.popupData.link);

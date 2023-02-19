@@ -34,6 +34,7 @@ $badge = $_REQUEST['badge'];
 $popup = $_REQUEST['popupData'];
 $size = $_REQUEST['size'];
 $date = $_REQUEST['date'];
+$order = $_REQUEST['order'];
 
 $root .= $internalName . "/";
 
@@ -76,8 +77,8 @@ if ($_FILES["background"] != null) {
 
 echo $date;
 
-Database::execOperation("INSERT INTO `Projects` (`InternalName`, `Name`, `Description`, `Background`, `Logo`, `Badge`, `Popup`, `Size`, `Date`)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", "sssssssss",
+Database::execOperation("INSERT INTO `Projects` (`InternalName`, `Name`, `Description`, `Background`, `Logo`, `Badge`, `Popup`, `Size`, `Date`, `Order`)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", "sssssssssi",
 [
     $internalName,
     $name,
@@ -87,5 +88,6 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", "sssssssss",
     $badge,
     $popup,
     $size,
-    $date
+    $date,
+    $order
 ]);

@@ -39,6 +39,9 @@
                 <p>Project Date</p>
                 <input type="date" name="date" id="date" onchange="updateData()">
                 <br>
+                <p>Order</p>
+                <input type="number" name="order" id="order" onkeyup="updateData()">
+                <br>
                 <p>Size</p>
                 <select name="size" id="size" onchange="updateData()">
                     <option value="big">Big</option>

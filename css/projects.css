@@ -1,0 +1,16 @@
+.page-inner.desktop {
+    display: flex;
+}
+
+.page-inner.desktop .col:first-child {
+    flex: 1;
+}
+
+.page-inner.desktop .col:last-child {
+    flex: 0.8;
+    margin-left: 20px;
+}
+
+.page-inner .project-panel {
+    margin-bottom: 20px;
+}
