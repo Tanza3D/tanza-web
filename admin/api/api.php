@@ -18,13 +18,13 @@ function addendpoint($name, $file, $needskey = false, $keyperms = 0)
 
 
 // * Base *
-addendpoint("gallery/items", "gallery/items.php");
-addendpoint("gallery/update", "gallery/update.php");
-addendpoint("gallery/upload", "gallery/upload.php");
+addendpoint("gallery/items", "endpoints/gallery/items.php");
+addendpoint("gallery/update", "endpoints/gallery/update.php");
+addendpoint("gallery/upload", "endpoints/gallery/upload.php");
 
-addendpoint("projects/items", "projects/items.php");
-addendpoint("projects/update", "projects/update.php");
-addendpoint("projects/upload", "projects/upload.php");
+addendpoint("projects/items", "endpoints/projects/items.php");
+addendpoint("projects/update", "endpoints/projects/update.php");
+addendpoint("projects/upload", "endpoints/projects/upload.php");
 
 
 

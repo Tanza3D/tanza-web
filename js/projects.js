@@ -46,29 +46,6 @@ element.style.width = "100%";
 
 projects.appendChild(element); */
 
-function parseProject(item) {
-    var newItem = clone(projectPanelTemplate);
-    newItem.internalName = item['InternalName'];
-    newItem.name = item['Name'];
-    newItem.description = item['Description'];
-    newItem.background = item['Background'];
-    newItem.logo = item['Logo'];
-    newItem.badge = item['Badge'];
-    newItem.popupData = {};
-    if(item['Popup'].startsWith("link:")) {
-        newItem.popupData = {
-            "link": item['Popup'].replace("link:", "")
-        }
-    } else {
-        newItem.popupData = {
-            "html": item['Popup'].replace("html:", "")
-        }
-    }
-    newItem.size = item['Size'];
-    newItem.date = item['Date'];
-    newItem.order = item['Order'];
-    return newItem;
-}
 
 function loadProjects() {
     var xhr = new XMLHttpRequest();

@@ -3,12 +3,17 @@
         <p class="title">Projects</p>
     </div>
     <div class="page__controlbar-right">
-        <div class="button" onclick="toggleUploadModal();">Add Item</div>
+        <div class="button" onclick="editing = false; toggleUploadModal();">Add Item</div>
     </div>
 </div>
 
 <div class="page__content">
+    <div id="col_1" class="col">
 
+    </div>
+    <div id="col_2" class="col">
+
+    </div>
 </div>
 
 <div class="modal upload-modal modal-hidden" id="upload-modal">
@@ -18,15 +23,17 @@
                 
             </div>
             <div class="modal-right">
+                <div noshowineditor>
                 <p>Internal name (example: project-loved)</p>
                 <input type="text" name="internalName" id="internalName" onkeyup="updateData()">
                 <br>
                 <p>Background Image</p>
-                <input type="file" name="background" id="background" onchange="updateData()">
+                <input noshowineditor type="file" name="background" id="background" onchange="updateData()">
                 <br>
                 <p>Logo Image</p>
-                <input type="file" name="logo" id="logo" onchange="updateData()">
+                <input noshowineditor type="file" name="logo" id="logo" onchange="updateData()">
                 <br>
+                </div>
                 <p>Project Name (example; Project Loved. used just for screenreaders)</p>
                 <input type="text" name="name" id="name" onkeyup="updateData()">
                 <br>

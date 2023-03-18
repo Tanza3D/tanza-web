@@ -1,5 +1,5 @@
 var homepanels = document.querySelectorAll(`.home__panel`);
-for(var x = 0; x < homepanels.length; x++) {
+for (var x = 0; x < homepanels.length; x++) {
     homepanels[x].addEventListener("animationend", function(el) {
         el.target.style.opacity = "1";
         el.target.classList.add("home__panel-finished");
@@ -16,15 +16,19 @@ function isInViewport(element) {
     );
 }
 
-function checkScroll() {
-    if(isInViewport(document.getElementById("homepanelsarea"))) {
-        for(var x = 0; x < homepanels.length; x++) {
-            homepanels[x].classList.add("home__panel-animate");
-        }
+function doLoad() {
+    for (var x = 0; x < homepanels.length; x++) {
+        homepanels[x].classList.add("home__panel-animate");
     }
 }
 
-document.addEventListener('scroll', function () {
+function checkScroll() {
+    if (isInViewport(document.getElementById("homepanelsarea"))) {
+        doLoad();
+    }
+}
+
+document.addEventListener('scroll', function() {
     checkScroll();
 });
 checkScroll();
@@ -32,3 +36,10 @@ checkScroll();
 document.addEventListener("load", function() {
     checkScroll();
 });
+
+console.log(getCookie("do_load_anim"));
+if (getCookie("do_load_anim") == "false") {
+    doLoad();
+    console.log("probably came back from another page, skipping load anim...");
+    eraseCookie("do_load_anim");
+}

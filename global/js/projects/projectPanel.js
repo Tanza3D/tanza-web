@@ -19,7 +19,7 @@ projectPanelTemplate = {
 
 
 function cleanDataDirect(data) {
-    var finalData = projectPanelTemplate;
+    var finalData = clone(projectPanelTemplate);
 
     if(data['internalName'] != undefined) finalData['internalName'] = data['internalName'];
     else return {"error":"Internal Name not set"};
@@ -65,6 +65,33 @@ function cleanData(data) {
         return response;
     }
 }
+
+function parseProject(item) {
+    // to parse project from DB structure
+    // don't ask why this isn't done serverside...
+    var newItem = clone(projectPanelTemplate);
+    newItem.internalName = item['InternalName'];
+    newItem.name = item['Name'];
+    newItem.description = item['Description'];
+    newItem.background = item['Background'];
+    newItem.logo = item['Logo'];
+    newItem.badge = item['Badge'];
+    newItem.popupData = {};
+    if(item['Popup'].startsWith("link:")) {
+        newItem.popupData = {
+            "link": item['Popup'].replace("link:", "")
+        }
+    } else {
+        newItem.popupData = {
+            "html": item['Popup'].replace("html:", "")
+        }
+    }
+    newItem.size = item['Size'];
+    newItem.date = item['Date'];
+    newItem.order = item['Order'];
+    return newItem;
+}
+
 
 function createProjectPanel(data) {
     data = cleanData(data);

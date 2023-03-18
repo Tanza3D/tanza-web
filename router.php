@@ -68,6 +68,9 @@ foreach ($pages as $page) {
     Css("global/css/main.css");
     Css("css/" . $ref_page['name'] . ".css");
     ?>
+    <script>
+        const page = "<?=$ref_page['name']?>";
+        </script>
 </head>
 
 <body>

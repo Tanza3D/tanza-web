@@ -10,7 +10,7 @@ function addendpoint($name, $file, $needskey = false, $keyperms = 0)
 
 
 
-addendpoint("projects/items", "projects/items.php");
+addendpoint("projects/items", "endpoints/projects/items.php");
 
 
 

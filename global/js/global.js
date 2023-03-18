@@ -8,17 +8,17 @@ positionNav();
 window.onresize = positionNav;
 window.onload = positionNav();
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
     document.body.classList.add("loaded");
 })
 
 
 var audioSystem = {
-    play: function (file) {
+    play: function(file) {
         var audio = new Audio('/public/audio/' + file + ".mp3");
         audio.play();
     },
-    registerAudioDOM: function (files, attribute, defaultFile, callback) {
+    registerAudioDOM: function(files, attribute, defaultFile, callback) {
         var all = document.querySelectorAll(`[${attribute}]`);
         for (var x = 0; x < all.length; x++) {
             var attr = all[x].getAttribute(attribute);
@@ -28,13 +28,13 @@ var audioSystem = {
             callback(all[x], files[attr]);
         }
     },
-    registerAudios: function () {
+    registerAudios: function() {
         this.registerAudioDOM({
             "big": "tr_tz_sf_BigHover",
             "small": "tr_tz_sf_SmallHover",
             "smaller": "tr_tz_sf_SmallerHover"
-        }, "hover", "small", function (el, file) {
-            el.addEventListener("mouseover", function () {
+        }, "hover", "small", function(el, file) {
+            el.addEventListener("mouseover", function() {
                 audioSystem.play(file);
             });
         });
@@ -43,21 +43,21 @@ var audioSystem = {
             "normal": "tr_tz_sf_Click",
             "big": "tr_tz_sf_TriumphantLoad",
             "layer": "tr_tz_sf_LayerOpen"
-        }, "click", "normal", function (el, file) {
-            el.addEventListener("click", function () {
+        }, "click", "normal", function(el, file) {
+            el.addEventListener("click", function() {
                 audioSystem.play(file);
             });
         });
 
         this.registerAudioDOM({
             "home": "tr_tz_sf_HomeLoad",
-        }, "aload", "home", function (el, file) {
+        }, "aload", "home", function(el, file) {
             if (el.getAttribute("loadelement") == "window") {
-                window.addEventListener("load", function () {
+                window.addEventListener("load", function() {
                     audioSystem.play(file);
                 });
             } else {
-                el.addEventListener("load", function () {
+                el.addEventListener("load", function() {
                     audioSystem.play(file);
                 });
             }
@@ -77,12 +77,13 @@ function closeLayer() {
     }
 
 }
+
 function openLayer(id) {
     document.getElementById(id).classList.remove("layer-closed");
     document.body.classList.add("noscroll");
 }
 
-document.body.addEventListener('keypress', function (e) {
+document.body.addEventListener('keypress', function(e) {
     if (e.key == "Escape") {
         closeLayer();
     }
@@ -118,4 +119,33 @@ function clone(obj) {
     }
 
     throw new Error("Unable to copy obj! Its type isn't supported.");
+}
+
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+if (page != "home") {
+    setCookie("do_load_anim", "false", 1);
 }

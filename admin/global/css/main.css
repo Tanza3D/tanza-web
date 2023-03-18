@@ -184,3 +184,7 @@ input, textarea {
 textarea {
     font-size: 12px;
 }
+
+.hidden {
+    display: none;
+}

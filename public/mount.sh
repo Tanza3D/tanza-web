@@ -1,1 +1,1 @@
-sudo mount --bind "/home/tanza/Documents/REAPER Media/tz_sf" audio
+sudo mount --bind "/mnt/old2/home/tanza/Documents/REAPER Media/tz_sf" audio

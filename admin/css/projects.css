@@ -21,3 +21,28 @@
 	border: 1px solid rgba(255, 255, 255, 0.25);
 	border-radius: 8px;
 }
+
+.page__content {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+}
+
+.col:last-child {
+    margin-left: 15px;
+}
+
+.project-panel__edit {
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #fff1;
+    margin-bottom: 10px;
+}
+.project-panel__controlbar {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
