@@ -1,0 +1,77 @@
+.page-content {
+    max-width: 100vw;
+}
+
+.gallery {
+    max-width: 60vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.item img {
+    border-radius: 9px;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--ratio);
+    background-color: #fff2;
+}
+
+.item-batch-single {
+    width: 100%;
+    padding: 0.4rem 0rem;
+}
+
+.item-batch-single .item {
+    width: 100%;
+}
+
+.item-batch-double {
+    --modifier: calc((30rem - 100%) * 999);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    width: 100%;
+    margin-inline: auto;
+    padding: 0.4rem 0rem;
+}
+
+.item-batch-double,
+.item-batch-single {
+    position: relative;
+}
+
+.item-batch-double .item {
+    flex-basis: max(var(--modifier), 0px);
+    flex-grow: calc(var(--ratio));
+}
+
+.gallery h1,
+.gallery h2 {
+    position: absolute;
+    right: 100%;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.gallery h2.first {
+    transform: translateY(40px);
+}
+
+.gallery h1 {
+    transform: translateY(-10px);
+    margin-right: 10px;
+    background: linear-gradient(45deg, #EB00FF 3.64%, #FFB800 51.82%, #EB00FF 100%);
+    padding: 4px 12px;
+    color: #4B0061;
+    border-radius: 19px;
+}
+
+.gallery .year-section {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 19px;
+    border: 2px solid #fff2;
+    border-top: 4px solid #FEB00A;
+    position: relative;
+}
