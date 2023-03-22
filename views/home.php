@@ -170,8 +170,10 @@ LIMIT 1");
             <h1>Refsheet</h1>
             <i class="fas fa-times-circle" onclick="closeLayer()"></i>
         </div>
+        <div class="layer-text-content">
         <p>This is the refsheet for Tanza! The colours can be a bit confusing. For more reference, please check <a href="/gallery">the Gallery</a> for more references!</a>
             <img src="/public/img/refsheet.png">
+</div>
     </div>
 </div>
 

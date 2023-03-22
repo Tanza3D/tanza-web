@@ -27,29 +27,57 @@ $request = (array)explode("/", $request);
 $arguments = $request;
 array_shift($arguments);
 
-if ($request[0] == "auth" && $request[1] == "login") {
-    if (isset($_GET['key'])) {
-        $post = [
-            'client_secret' => UTAUTH_KEY,
-            'user_secret'   => $_GET['key'],
-        ];
+function logIn()
+{
+    $post = [
+        'client_id' => "86535999",
+        'client_secret' => OAUTH_SECRET,
+        'code'   => $_GET['code'],
+        'grant_type' => 'authorization_code'
+    ];
 
-        $ch = curl_init('https://www.untone.uk/id/api/user/me.php'); // contact api
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    $ch = curl_init('https://id.untone.uk/api/oauth/token');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
-        $data = curl_exec($ch); // execute curl request
-        $response = json_decode($data, true); // decode json data into array
-        session_start(); // start session to store data
+    $response = curl_exec($ch);
 
-        $_SESSION['id'] = $response['id']; // set session vars
-        $_SESSION['username'] = $response['username'];
+    curl_close($ch);
+    echo "<pre>";
+    print_r($response);
+    echo "</pre>";
+
+    $response = json_decode($response, true);
+    updateData($response['access_token']);
+}
+
+function updateData($token)
+{
+    echo "updating data";
+    $headers = [
+        'Authorization: Bearer ' . $token,
+        'Content-Type: application/json'
+    ];
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, "https://id.untone.uk/api/users/me");
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    
+    $response = json_decode(curl_exec($curl), true);
+    $_SESSION['id'] = $response['id']; // set session vars
+    $_SESSION['username'] = $response['username'];
+}
+
+if ($request[0] == "auth") {
+    if (isset($_GET['code'])) {
+        logIn();
     }
     Redirect("/admin/gallery");
 } else {
     if (!isset($_SESSION['id'])) {
         echo "Please authorize.";
-        Redirect("https://www.untone.uk/id/utauth?client_id=14");
+        Redirect("https://id.untone.uk/oauth/authorize?client_id=86535999&redirect_uri=http://dev.tanza/admin/auth/");
         exit;
     }
     if ($_SESSION['id'] != 1) {
