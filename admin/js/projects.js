@@ -15,7 +15,7 @@ function updateData() {
     projectUploadItem['internalName'] = document.getElementById("internalName").value;
     projectUploadItem['description'] = document.getElementById("description").value;
     projectUploadItem['order'] = document.getElementById("order").value;
-
+    projectUploadItem['popupData'] = document.getElementById("click").value;
     var e = document.getElementById("size").value;
     projectUploadItem['size'] = e;
     if (document.getElementById("logo").files.length == 1) {
@@ -29,17 +29,19 @@ function updateData() {
 }
 
 function updateDataReverse() {
-    document.getElementById("date").value = projectUploadItem['date'];
+    document.getElementById("date").valueAsDate = new Date(projectUploadItem['date']);
     document.getElementById("name").value = projectUploadItem['name'];
     document.getElementById("badge").value = projectUploadItem['badge'];
     document.getElementById("internalName").value = projectUploadItem['internalName'];
     document.getElementById("description").value = projectUploadItem['description'];
     document.getElementById("order").value = projectUploadItem['order'];
+    document.getElementById("click").value = projectUploadItem['popupData'];
+
+    document.getElementById("size").value = projectUploadItem['size'];
 }
 
 function toggleUploadModal(clean = true) {
-    if (clean == true) 
-    {
+    if (clean == true) {
         projectUploadItem = null;
         projectUploadItem = clone(projectPanelTemplate);
         updateDataReverse();
@@ -47,11 +49,11 @@ function toggleUploadModal(clean = true) {
     }
 
     if (editing) {
-        for(item of document.querySelectorAll("[noshowineditor=\"\"]")) {
+        for (item of document.querySelectorAll("[noshowineditor=\"\"]")) {
             item.classList.add("hidden");
         }
     } else {
-        for(item of document.querySelectorAll("[noshowineditor=\"\"]")) {
+        for (item of document.querySelectorAll("[noshowineditor=\"\"]")) {
             item.classList.remove("hidden");
         }
     }
@@ -78,11 +80,8 @@ function uploadProject() {
     formData.append("size", projectUploadItem.size);
     formData.append("order", projectUploadItem.order);
     formData.append("date", projectUploadItem.date.toISOString().slice(0, 19).replace('T', ' '));
-    if (projectUploadItem.popupData.html == null) {
-        formData.append("popupData", "link:" + projectUploadItem.popupData.link);
-    } else {
-        formData.append("popupData", "html:" + projectUploadItem.popupData.html);
-    }
+    formData.append("popupData", projectUploadItem.popupData);
+
 
     xhr.onload = (event) => {
         toggleUploadModal();
@@ -104,7 +103,7 @@ var col2 = document.getElementById("col_2");
 function loadProjects() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "/api/projects/items");
-    xhr.onload = function () {
+    xhr.onload = function() {
         var json = JSON.parse(xhr.responseText);
         console.log(json);
         var clean = [];
@@ -147,7 +146,7 @@ function loadProjects() {
             var editButton = document.createElement("div");
             editButton.innerHTML = "Edit";
             editButton.classList.add("button");
-            editButton.addEventListener("click", function () {
+            editButton.addEventListener("click", function() {
                 editing = true;
                 console.log(item);
                 projectUploadItem = item;
@@ -169,4 +168,5 @@ function loadProjects() {
     }
     xhr.send()
 }
+
 loadProjects();

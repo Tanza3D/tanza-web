@@ -56,6 +56,9 @@
                     <option value="medium-centered">Medium Centered</option>
                     <option value="small">Small</option>
                 </select>
+                <p>OnClick</p>
+                <input type="text" name="badge" id="click" onkeyup="updateData()">
+                <br>
             </div>
         </div>
         <div class="modal-toolbar">

@@ -52,9 +52,8 @@ function loadProjects() {
     xhr.open("GET", "/api/projects/items");
     xhr.onload = function() {
         var json = JSON.parse(xhr.responseText);
-        console.log(json);
         var clean = [];
-        for(item of json) {
+        for (item of json) {
             clean.push(parseProject(item));
         }
 
@@ -63,13 +62,13 @@ function loadProjects() {
         var numSmall = 0;
         // 1 big = 1 medium = 2 small
         for (item of clean) {
-            if(item['size'] == "big") {
+            if (item['size'] == "big") {
                 numBig += 1;
             }
-            if(item['size'] == "medium" || item['size'] == "medium-centered") {
+            if (item['size'] == "medium" || item['size'] == "medium-centered") {
                 numMedium += 1;
             }
-            if(item['size'] == "small") {
+            if (item['size'] == "small") {
                 numSmall += 1;
             }
         }
@@ -78,41 +77,63 @@ function loadProjects() {
         var trackMedium = false;
         var trackSmall = false;
 
-        for (item of clean) {
+        for (let item of clean) {
             var col = false; // false = left, true = right
-            if(item['size'] == "big") {
+            if (item['size'] == "big") {
                 col = trackBig;
                 trackBig = !trackBig;
             }
-            if(item['size'] == "medium" || item['size'] == "medium-centered") {
-                if(trackBig == false) {
+            if (item['size'] == "medium" || item['size'] == "medium-centered") {
+                if (trackBig == false) {
                     trackMedium = true;
                     trackBig = true;
                 }
                 col = trackMedium;
-                if(!item['internalName'].includes("cubey")) {
+                if (!item['internalName'].includes("cubey")) {
                     // ? gotta keep those cubey's together
                     trackMedium = !trackMedium;
                 }
             }
-            if(item['size'] == "small") {
-                if(trackBig == true) trackSmall = true;
+            if (item['size'] == "small") {
+                if (trackBig == true) trackSmall = true;
                 col = trackSmall;
                 trackSmall = !trackSmall;
             }
 
             var el = createProjectPanel(item);
-            if(col == false) {
+            var el2 = createProjectPanel(item);
+            if (col == false) {
                 col1.appendChild(el);
             } else {
                 col2.appendChild(el);
             }
-            mobile.appendChild(createProjectPanel(item)); // have to do this twice.. :/
+            el.onclick = function() {
+                openProjectsPopup(item);
+            }
+            el2.onclick = function() {
+                openProjectsPopup(item);
+            }
+            mobile.appendChild(el2); // have to do this twice.. :/
             // TODO: don't
 
             console.log("column: " + col);
         }
     }
     xhr.send()
+}
+
+function openProjectsPopup(item) {
+    if (item['popupData'].startsWith("link:")) {
+        window.open(item['popupData'].replace("link:", ""), '_blank').focus();
+    } else {
+        item = cleanData(item); // the background does not exist, for some reason, if you don't do this
+        console.log(item);
+        document.getElementById("layer_info").style = `--background: url("${item['background']}")`
+        document.getElementById("layer_logo").src = item['logo'];
+        document.getElementById("layer_name").innerHTML = item['name'];
+        document.getElementById("layer_description").innerHTML = item['description'];
+        document.getElementById("layer_content").innerHTML = item['popupData'].replace("html:", "");
+        openLayer('layer_info')
+    }
 }
 loadProjects();

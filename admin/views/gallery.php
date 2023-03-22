@@ -24,7 +24,7 @@
                             <p>Tags</p>
                             <input type="text" id="edit_1671300616_tags" value="">
                             <p>Date</p>
-                            <input type="date" id="edit_1671300616_date" value="2022-12-17">
+                            <input type="datetime-local" id="edit_1671300616_date" value="2022-12-17">
                             <input type="text" id="edit_1671300616_filename" value="1671300616_1.5.png" hidden="">
                         </div>
                         <div style="margin-left: 10px; flex: 1;">
@@ -59,7 +59,7 @@
                 <input type="text" name="name" id="name">
                 <br>
                 <p>Date (will be automatically filled out)</p>
-                <input type="date" name="date" id="date">
+                <input type="datetime-local" name="date" id="date">
             </div>
         </div>
         <div class="modal-toolbar">

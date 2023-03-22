@@ -7,11 +7,7 @@ projectPanelTemplate = {
     "logo": "no logo?", // ! needs to be set, else it won't know what format the logo is in. background is always jpg (converted)
     "badge": "OWN", // ? preset to "OWN",
     "imageTypes": "link", // ? set to "link" by default, should not be set unless through admin panel (b64 images)
-    "popupData": {
-        "html": null,
-        // ! OR
-        "link": "/" // * redirects to osekai.net when clicking, instead of popup
-    },
+    "popupData": "",
     "size": "big",
     "date": new Date(),
     "order": 0
@@ -21,36 +17,25 @@ projectPanelTemplate = {
 function cleanDataDirect(data) {
     var finalData = clone(projectPanelTemplate);
 
-    if(data['internalName'] != undefined) finalData['internalName'] = data['internalName'];
-    else return {"error":"Internal Name not set"};
+    if (data['internalName'] != undefined) finalData['internalName'] = data['internalName'];
+    else return { "error": "Internal Name not set" };
 
-    if(data['name'] != undefined) finalData['name'] = data['name'];
-    else return {"error":"Name not set"};
+    if (data['name'] != undefined) finalData['name'] = data['name'];
+    else return { "error": "Name not set" };
 
-    if(data['logo'] != undefined) finalData['logo'] = data['logo'];
-    else return {"error":"Logo not set"};
+    if (data['logo'] != undefined) finalData['logo'] = data['logo'];
+    else return { "error": "Logo not set" };
 
-    if(data['description'] != undefined) finalData['description'] = data['description'];
-    else return {"error":"Description not set"};
+    if (data['description'] != undefined) finalData['description'] = data['description'];
+    else return { "error": "Description not set" };
 
-    if(data['badge'] != undefined) finalData['badge'] = data['badge'];
-    if(data['imageTypes'] != undefined) finalData['imageTypes'] = data['imageTypes'];
-    if(data['size'] != undefined) finalData['size'] = data['size'];
+    if (data['badge'] != undefined) finalData['badge'] = data['badge'];
+    if (data['imageTypes'] != undefined) finalData['imageTypes'] = data['imageTypes'];
+    if (data['size'] != undefined) finalData['size'] = data['size'];
 
-    if(data['popupData']['html'] != undefined) {
-        // we're using html :D
-        finalData['popupData']['html'] = data['popupData']['html'];
-        delete finalData['popupData']['link']; 
-    } else {
-        if(data['popupData']['link'] != undefined) {
-            finalData['popupData']['link'] = data['popupData']['link'];
-            delete finalData['popupData']['html']; 
-        } else {
-            return {"error":"Link or Html in popupData is not set"};
-        }
-    }
+    finalData['popupData'] = data['popupData'];
 
-    if(data['background'] != undefined && data['background'] != "") finalData['background'] = data['background'];
+    if (data['background'] != undefined && data['background'] != "") finalData['background'] = data['background'];
     else finalData['background'] = `/img/projects/${finalData['internalName']}/background.jpg`;
 
     return finalData;
@@ -58,7 +43,7 @@ function cleanDataDirect(data) {
 
 function cleanData(data) {
     var response = cleanDataDirect(data);
-    if(response['error'] != undefined) {
+    if (response['error'] != undefined) {
         console.error(response['error']);
         return null;
     } else {
@@ -76,16 +61,7 @@ function parseProject(item) {
     newItem.background = item['Background'];
     newItem.logo = item['Logo'];
     newItem.badge = item['Badge'];
-    newItem.popupData = {};
-    if(item['Popup'].startsWith("link:")) {
-        newItem.popupData = {
-            "link": item['Popup'].replace("link:", "")
-        }
-    } else {
-        newItem.popupData = {
-            "html": item['Popup'].replace("html:", "")
-        }
-    }
+    newItem.popupData = item['Popup'];
     newItem.size = item['Size'];
     newItem.date = item['Date'];
     newItem.order = item['Order'];
@@ -95,7 +71,7 @@ function parseProject(item) {
 
 function createProjectPanel(data) {
     data = cleanData(data);
-    console.log(data);
+    //console.log(data);
 
     var element = document.createElement("div");
     element.classList.add("project-panel");
@@ -106,7 +82,7 @@ function createProjectPanel(data) {
     badgeEl.classList.add("project-panel__badge");
     badgeEl.innerHTML = data['badge'];
 
-    if(data['logo'].includes("/img/") || data['logo'].includes("blob")) {
+    if (data['logo'].includes("/img/") || data['logo'].includes("blob")) {
         var logo = document.createElement("img");
         logo.src = data['logo'];
     } else {
@@ -114,7 +90,7 @@ function createProjectPanel(data) {
         logo.innerHTML = logo;
         console.log("If 'logo' url displayed not expected, use absolute url to image.");
     }
-    
+
     var text = document.createElement("p");
     text.innerHTML = data['description'];
 

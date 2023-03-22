@@ -2,7 +2,7 @@ var items = [];
 
 function loadGallery() {
     const req = new XMLHttpRequest();
-    req.addEventListener("load", function () {
+    req.addEventListener("load", function() {
         items = JSON.parse(req.responseText)
         html = "";
         for (var x = 0; x < items.length; x++) {
@@ -24,7 +24,7 @@ function loadGallery() {
                             <p>Tags</p>
                             <input type="text" selector="edit-tags" value="${quoteattr(item.Tags)}">
                             <p>Date</p>
-                            <input type="date" selector="edit-date" value="${quoteattr(item.Date)}">
+                            <input type="datetime-local" selector="edit-date" value="${quoteattr(item.Date)}">
                         </div>
                         <div style="margin-left: 10px;">
                             <p>Description</p>
@@ -58,7 +58,7 @@ function loadGallery() {
                 console.log("could not find referenced art item for id " + item.getAttribute("gallery-id"));
                 continue
             };
-            let updateData = function (galleryItem) {
+            let updateData = function(galleryItem) {
                 console.log("updating data");
 
                 var xhr = new XMLHttpRequest();
@@ -83,14 +83,14 @@ function loadGallery() {
                 item.querySelector("[selector='description']").innerHTML = galleryItem.Description;
             }
 
-            let beginEdit = function () {
+            let beginEdit = function() {
                 item.classList.add("gallery__item-editing");
                 item.querySelector(".gallery__item-controls").classList.remove("hidden");
                 item.querySelector(".gallery__item-buttons-edit").classList.remove("hidden");
                 item.querySelector(".gallery__item-info").classList.add("hidden");
                 item.querySelector(".gallery__item-buttons-info").classList.add("hidden");
             }
-            let finishEdit = function (refitem) {
+            let finishEdit = function(refitem) {
                 item.classList.remove("gallery__item-editing");
                 item.querySelector(".gallery__item-controls").classList.add("hidden");
                 item.querySelector(".gallery__item-buttons-edit").classList.add("hidden");
@@ -140,7 +140,7 @@ filepicker.addEventListener('change', (event) => {
         pickedFile = file;
         const date = new Date(file.lastModified);
         console.log(date);
-        output.valueAsDate = date;
+        output.value = date.toISOString().slice(0, 16);
         name.value = file.name.replace(/\.[^/.]+$/, "");
         document.getElementById('preview').src = window.URL.createObjectURL(file)
     }
@@ -156,7 +156,7 @@ function uploadImage() {
 
     xhr.onload = (event) => {
         var response = JSON.parse(xhr.responseText);
-        if(response['Id'] != undefined) {
+        if (response['Id'] != undefined) {
             let xhr2 = new XMLHttpRequest();
             xhr2.open("POST", `/global/php/resize_images.php?id=${response['Id']}`);
             xhr2.send();

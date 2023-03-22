@@ -1,30 +1,28 @@
 .project-panel {
     background: var(--background);
-    border: 1px solid #fff1;
+    box-shadow: inset 0px 0px 0px 1px #fff3;
     border-radius: 23.1578px;
-
     --padding-x: 28px;
     --padding-y: 32px;
-
     padding: var(--padding-y) var(--padding-x);
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     position: relative;
-
     width: 100%;
     align-items: flex-start;
 }
 
 .project-panel__big {
-    --padding-x: 46px; 
+    --padding-x: 46px;
     --padding-y: 36px;
     max-height: 449px;
     height: 449px;
 }
 
-.project-panel__medium, .project-panel__medium-centered {
+.project-panel__medium,
+.project-panel__medium-centered {
     max-height: 310px;
     height: 310px;
 }
@@ -54,26 +52,27 @@
     margin-top: auto;
 }
 
-.project-panel__medium h3, .project-panel__medium-centered h3, .project-panel__big h3 {
+.project-panel__medium h3,
+.project-panel__medium-centered h3,
+.project-panel__big h3 {
     margin-top: auto;
 }
-
 
 .project-panel__big img {
     width: 270px;
     height: auto;
     margin-top: auto;
 }
- 
-.project-panel__small  p {
+
+.project-panel__small p {
     margin-top: auto !important;
 }
 
 .project-panel p {
     font-weight: 500;
-font-size: 24px;
-color: rgba(255, 255, 255, 0.9);
-margin-top: 8px;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 8px;
 }
 
 .project-panel__badge {
@@ -81,14 +80,10 @@ margin-top: 8px;
     box-shadow: inset 0 0 2px #0004;
     border-radius: 20px;
     padding: 6px 20px;
-
     font-weight: 900;
     font-size: 17px;
     text-align: center;
-
     color: #000000cc;
-
-    
 }
 
 .project-panel__small .project-panel__badge,

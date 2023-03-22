@@ -12,7 +12,7 @@ function addendpoint($name, $file, $needskey = false, $keyperms = 0)
 
 addendpoint("projects/items", "endpoints/projects/items.php");
 
-
+addendpoint("gallery/webitems", "endpoints/gallery/webitems.php");
 
 $requestedPage = $_SERVER['REQUEST_URI'];
 $requestedPage = str_replace("/api/", "", $requestedPage);
