@@ -89,3 +89,15 @@
     background-color: #0004;
     border-radius: 18px;
 }
+
+@media (max-width: 900px) {
+    .portfolio-section-2x2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .portfolio-section-3x3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .image-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

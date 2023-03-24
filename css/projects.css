@@ -54,3 +54,19 @@
     transform: scale(0.99);
     box-shadow: inset 0px 0px 0px 3px #0005;
 }
+
+.page-inner#projects_mobile {
+    padding: 0px 20px;
+    padding-right: 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#projects_mobile .project-panel {
+    max-width: 85vw !important;
+}
+
+.project-panel__medium img {
+    max-width: 100%;
+}

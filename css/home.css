@@ -519,3 +519,61 @@
     justify-content: center;
     align-items: center;
 }
+
+.cover.mobile {
+    padding: 0px;
+    display: flex;
+    align-items: flex-end;
+    align-content: center;
+    --col1: #EB00FF;
+    --col2: #FFB800;
+    --col3: #EB00FF;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: -webkit-fill-available
+}
+
+.cover.mobile .cover-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home__cover-popup {
+    padding: 18px 73px;
+    font-size: 40px;
+    font-weight: 300;
+    color: #000d;
+    border-radius: 16px 16px 0px 0px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 72.92%, rgba(0, 0, 0, 0.4) 100%), linear-gradient(93.25deg, #EB00FF 3.44%, #FD3DBD 15.51%, #FF6B6B 27.58%, #FFAA3E 39.65%, #FFC32B 51.72%, #FFAA3E 63.79%, #FF6D6D 75.86%, #FD3DBD 87.93%, #EB00FF 100%);
+}
+
+.home__cover-popup strong {
+    font-weight: 900;
+}
+
+.home__cover-textarea-trim {
+    height: 4px;
+    width: 100%;
+    background: url(/public/img/general/waves-transparent.png), linear-gradient(102.13deg, var(--col1) 0%, var(--col2) 50%, var(--col3) 100%);
+}
+
+.home__cover-textarea-inner {
+    padding: 32px;
+    text-align: center;
+    background: linear-gradient(180deg, #3D1076 0%, rgba(61, 16, 118, 0.77) 100%);
+}
+
+.home__cover-textarea-inner p {
+    margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+    .home__panels {
+        flex-direction: column;
+    }
+    .home__panels-right {
+        margin-left: 0px;
+        width: 100%;
+    }
+}

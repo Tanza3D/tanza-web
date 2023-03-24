@@ -16,7 +16,6 @@ function loadGallery() {
                     <small selector="description">${item.Description}</small>
                 </div>
                 <div class="gallery__item-controls hidden">
-                    /* TODO: fix this inline style shit */
                     <div style="display: flex;">
                         <div>
                             <p>Name</p>

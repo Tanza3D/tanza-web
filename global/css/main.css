@@ -6,6 +6,7 @@
 
 body {
     color: white;
+    overflow-x: visible;
     font-family: 'Red Hat Display', sans-serif;
     --page-width: 1330px;
     --smooth: linear-gradient(93.25deg, #EB00FF 3.44%, #FD3DBD 15.51%, #FF6B6B 27.58%, #FFAA3E 39.65%, #FFC32B 51.72%, #FFAA3E 63.79%, #FF6D6D 75.86%, #FD3DBD 87.93%, #EB00FF 100%);
@@ -339,4 +340,25 @@ p a {
 
 .hovercursor {
     cursor: pointer !important;
+}
+
+@media (max-width: 900px) {
+    .navbar__inner {
+        flex-direction: column;
+    }
+    .navbar-button {
+        padding: 6px 20px;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    .navbar__right {
+        margin: 0px;
+    }
+    .cover-small {
+        padding: 30px;
+        padding-top: calc(30px + var(--navbar-height));
+    }
+    * {
+        backdrop-filter: none !important;
+    }
 }

@@ -23,8 +23,10 @@ function doLoad() {
 }
 
 function checkScroll() {
-    if (isInViewport(document.getElementById("homepanelsarea"))) {
+    if (isInViewport(document.getElementById("firstpanel"))) {
         doLoad();
+    } else {
+        console.log("not in vireport");
     }
 }
 

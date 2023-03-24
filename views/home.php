@@ -73,7 +73,24 @@ LIMIT 1");
 <div class="cover mobile">
     <div class="cover-background"></div>
     <div class="cover-inner">
-        COVER FOR MOBILE
+        <div class="home__cover-popup">
+            <p>Hey, I'm <strong>Tanza</strong>!</p>
+        </div>
+        <div class="home__cover-textarea">
+            <div class="home__cover-textarea-trim">
+            </div>
+            <div class="home__cover-textarea-inner">
+                <h1>I create 3D models, websites, designs, games, apps, and more!</h1>
+
+                <p>This page is your go-to place to find everything I do! There's a Gallery with all the 3D art I've
+                    created, a Portfolio page with all the designs I've made, and a Projects page with all the
+                    projects I've worked on over the years, such as Osekai, UNTONE ID, Cubey, and more!</p>
+
+                <p>Up there is my character<small style="font-size: 60%; opacity: 0.5">fursona</small>
+                    Tanza! I've modelled him over the past few years from scratch using Blender!
+                    (https://blender.org). I'm constantly improving the model!</p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -81,8 +98,9 @@ LIMIT 1");
     <div class="page-inner">
         <div class="home__panels" id="homepanelsarea">
             <div class="home__panels-left">
-                <a hover="big" click="big" class="home__panel home__panel-large home__panel-gallery" href="/gallery">
-                    <div class="home__panel-sheen"></div>
+                <a id="firstpanel" hover="big" click="big" class="home__panel home__panel-large home__panel-gallery"
+                    href="/gallery">
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fas fa-photo-video"></i></div>
                     <h1>Gallery</h1>
                     <?php
@@ -90,16 +108,19 @@ LIMIT 1");
                     $image_square = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'square' ORDER BY Date DESC LIMIT 1");
                     $image_tall = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'tall' ORDER BY Date DESC LIMIT 1");
                     ?>
-                    <img src="/img/gallery/small/<?= $image_wide[0]['Filename'] ?>" class="gallery-example-wide">
-                    <img src="/img/gallery/small/<?= $image_square[0]['Filename'] ?>" class="gallery-example-square">
-                    <img src="/img/gallery/small/<?= $image_tall[0]['Filename'] ?>" class="gallery-example-tall">
+                    <img src="/img/gallery/small/<?= $image_wide[0]['Filename'] ?>"
+                        class="gallery-example-wide desktop">
+                    <img src="/img/gallery/small/<?= $image_square[0]['Filename'] ?>"
+                        class="gallery-example-square desktop">
+                    <img src="/img/gallery/small/<?= $image_tall[0]['Filename'] ?>"
+                        class="gallery-example-tall desktop">
                 </a>
                 <a hover="big" click="big" class="home__panel home__panel-large home__panel-portfolio" style="
                 --col1: #2400FF;
                 --col2: #0094FF;
                 --col3: #2400FF;
                 " href="/portfolio">
-                    <div class="home__panel-sheen"></div>
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fas fa-layer-group"></i></div>
                     <h1>Portfolio</h1>
                     <?php
@@ -107,7 +128,7 @@ LIMIT 1");
                     foreach ($portfolios as $portfolio) {
                         $images = json_decode($portfolio['Images'], true);
 
-                        echo '<img class="home__portfolio-image" src="/img/portfolio/' . $portfolio['Id'] . '/' . $images[0]['path'] . '">';
+                        echo '<img class="home__portfolio-image desktop" src="/img/portfolio/' . $portfolio['Id'] . '/' . $images[0]['path'] . '">';
                     }
                     ?>
                 </a>
@@ -116,14 +137,14 @@ LIMIT 1");
                 --col2: #2FC37C;
                 --col3: #00FFE0;
                 " href="/projects">
-                    <div class="home__panel-sheen"></div>
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fas fa-project-diagram"></i></div>
                     <h1>Projects</h1>
                     <p>
                         <?php
                         $projects = Database::execSimpleSelect("SELECT * FROM Projects");
                         foreach ($projects as $project) {
-                            echo "<span>" . $project['Name'] . "</span>";
+                            echo "<span class=\"desktop\">" . $project['Name'] . "</span>";
                         }
                         ?>
                     </p>
@@ -136,7 +157,7 @@ LIMIT 1");
                 --col2: #F042FF;
                 --col3: #2400FF;
                 " onclick="openLayer('layer_aboutme')">
-                    <div class="home__panel-sheen"></div>
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fas fa-info-circle"></i></div>
                     <h1>About Me</h1>
                     <p>Learn all about me, my history, and my plans for the future!</p>
@@ -146,7 +167,7 @@ LIMIT 1");
                 --col2: #FF2F6D;
                 --col3: #FF5C00;
                 " onclick="openLayer('layer_refsheet')">
-                    <div class="home__panel-sheen"></div>
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fas fa-paint-brush"></i></div>
                     <h1>Refsheet</h1>
                     <p>Check out my Protogen’s refsheet here! It’s super long!</p>
@@ -156,7 +177,7 @@ LIMIT 1");
                 --col2: #9712FF;
                 --col3: #0047FF;
                 " onclick="openLayer('layer_contact')">
-                    <div class="home__panel-sheen"></div>
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fas fa-envelope"></i></div>
                     <h1>Work / Contact</h1>
                     <p>Want some design work done? Contact me here!</p>
@@ -166,7 +187,7 @@ LIMIT 1");
                 --col2: #469ACD;
                 --col3: #43C3B8;
                 " href="https://twitter.com/@tanza3d" target="_blank">
-                    <div class="home__panel-sheen"></div>
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fab fa-twitter"></i></div>
                     <h1>Twitter</h1>
                 </a>
@@ -175,7 +196,7 @@ LIMIT 1");
                 --col2: #6F7DD4;
                 --col3: #64ACBD;
                 " onclick="openLayer('layer_discord')">
-                    <div class="home__panel-sheen"></div>
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fab fa-discord"></i></div>
                     <h1>Discord</h1>
                 </a>
@@ -184,7 +205,7 @@ LIMIT 1");
                 --col2: #4E78E4;
                 --col3: #AB4EE4;
                 " href="https://social.untone.uk/@tanza" target="_blank">
-                    <div class="home__panel-sheen"></div>
+                    <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fab fa-mastodon"></i></div>
                     <h1>Mastodon</h1>
                 </a>
@@ -215,7 +236,8 @@ LIMIT 1");
             <img src="/img/gallery/small/1672686538_pfp-2023-2.png">
             <div class="home__discord-texts">
                 <p>Add me on Discord!</p>
-                <h1><strong>Tanza</strong><light>#6283</light>
+                <h1><strong>Tanza</strong>
+                    <light>#6283</light>
                 </h1>
             </div>
         </div>
