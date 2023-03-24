@@ -80,7 +80,7 @@ if ($request[0] == "auth") {
         Redirect("https://id.untone.uk/oauth/authorize?client_id=86535999&redirect_uri=http://dev.tanza/admin/auth/");
         exit;
     }
-    if ($_SESSION['id'] != 1) {
+    if ($_SESSION['id'] != 1 && $_SESSION['id'] != 24117032) {
         echo "Unauthorized.";
         exit;
     }

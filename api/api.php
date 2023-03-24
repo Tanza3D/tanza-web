@@ -14,6 +14,7 @@ addendpoint("projects/items", "endpoints/projects/items.php");
 
 addendpoint("gallery/webitems", "endpoints/gallery/webitems.php");
 
+addendpoint("portfolio/items", "endpoints/portfolio/items.php");
 $requestedPage = $_SERVER['REQUEST_URI'];
 $requestedPage = str_replace("/api/", "", $requestedPage);
 if (str_contains($requestedPage, "?")) {

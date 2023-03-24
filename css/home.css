@@ -29,7 +29,6 @@
     0% {
         backdrop-filter: blur(0px);
     }
-
     20% {
         backdrop-filter: blur(0px);
     }
@@ -48,7 +47,6 @@
 .loaded .home__cover-desktop-background {
     animation: 1.6s ease 0s 1 load-slidein;
 }
-
 
 .home__cover-desktop-background-image {
     background-image: url('/public/img/home/header_desktop-foreground.png');
@@ -107,7 +105,6 @@
     min-height: calc(20.7407407407vh / 1.35);
     min-width: calc(101.7vh / 1.35);
     margin-left: calc(20.7vh / 1.35 * 5);
-
     background-image: url('/public/img/home/header_desktop-textout.png');
     background-size: 100% 100%;
     transform: scaleX(-1);
@@ -118,7 +115,6 @@
     line-height: 89%;
     font-weight: 400;
     font-size: 3vh;
-
     padding-left: 5.7vh;
 }
 
@@ -126,7 +122,6 @@
     color: rgba(0, 0, 0, 0.9);
     font-weight: 900;
     font-size: 6.01851851852vh;
-
     padding-left: 5.5vh;
     line-height: 89%;
 }
@@ -181,9 +176,11 @@
     box-shadow: 0px 0px 500px #0000;
     opacity: 0;
 }
+
 .home__panel-animate {
-    animation: panel 2s cubic-bezier(0,.94,.45,.99) 0s 1;
+    animation: panel 2s cubic-bezier(0, .94, .45, .99) 0s 1;
 }
+
 .home__panel-finished:hover {
     filter: brightness(1.1);
     cursor: pointer;
@@ -198,6 +195,7 @@
     filter: blur(30px);
     opacity: 1;
 }
+
 .home__panel-sheen {
     position: absolute;
     top: 0;
@@ -215,13 +213,13 @@
     width: 25%;
     height: 700%;
     content: "";
-
     background: linear-gradient(to right, #fff, #fff0);
     z-index: 2;
     transform: rotate(45deg) translateX(-200%);
     opacity: 0;
     background-blend-mode: overlay;
 }
+
 .home__panel-finished:hover .home__panel-sheen:after {
     transform: rotate(45deg) translateX(250%);
     opacity: 0.3;
@@ -232,14 +230,13 @@
     width: 25%;
     height: 700%;
     content: "";
-
     background: linear-gradient(to right, #fff, #fff0);
     z-index: 2;
     transform: rotate(45deg) translateX(-300%);
     opacity: 0;
     background-blend-mode: overlay;
-    
 }
+
 .home__panel-finished:hover .home__panel-sheen:before {
     transform: rotate(45deg) translateX(300%);
     opacity: 0.15;
@@ -305,12 +302,14 @@
     font-size: 25px;
     font-weight: bold;
 }
+
 .home__panel-medium p {
     font-size: 20px;
     max-width: 270px;
     margin-top: -4px;
     line-height: 100%;
 }
+
 .home__panel-small h1 {
     margin-left: 16px;
     font-weight: normal;
@@ -333,32 +332,91 @@
     flex-direction: column;
 }
 
-
 .home__panels .home__panel:nth-child(1) {
     animation-delay: 0s;
     animation-duration: 1s;
 }
+
 .home__panels .home__panel:nth-child(2) {
     animation-delay: 0.1s;
     animation-duration: 1.2s;
 }
+
 .home__panels .home__panel:nth-child(3) {
     animation-delay: 0.2s;
     animation-duration: 1.4s;
 }
+
 .home__panels .home__panel:nth-child(4) {
     animation-delay: 0.3s;
     animation-duration: 1.6s;
 }
+
 .home__panels .home__panel:nth-child(5) {
     animation-delay: 0.4s;
     animation-duration: 1.8s;
 }
+
 .home__panels .home__panel:nth-child(6) {
     animation-delay: 0.5s;
     animation-duration: 2s;
 }
-.page-content { 
 
+.page-content {
     overflow: hidden;
+}
+
+.home__panel-gallery {
+    position: relative;
+}
+
+.home__panel-gallery img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    border-radius: 20px;
+}
+
+.gallery-example-wide {
+    height: 190px;
+    margin-right: 100px;
+    top: 68% !important;
+    transform: translateY(-50%) rotate(9deg) !important;
+    z-index: 4;
+}
+
+.gallery-example-square {
+    z-index: 3;
+    height: 200px;
+    margin-right: 14px;
+    top: 33% !important;
+    transform: translateY(-50%) rotate(14deg) !important;
+}
+
+.gallery-example-tall {
+    z-index: 5;
+    height: 290px;
+    margin-right: 300px;
+    transform: translateY(-50%) rotate(-9deg) !important;
+}
+
+.home__panel-projects {
+    overflow: hidden;
+}
+
+.home__panel-projects p {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%) rotate(8deg);
+    display: flex;
+    flex-direction: column;
+    text-align: right !important;
+    font-size: 60px;
+    line-height: 99.5%;
+    font-weight: 900;
+    opacity: 0.3;
+    mix-blend-mode: overlay;
+    -webkit-mask-image: -webkit-gradient(linear, left 90%, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)))
 }

@@ -76,10 +76,18 @@ LIMIT 1");
     <div class="page-inner">
         <div class="home__panels" id="homepanelsarea">
             <div class="home__panels-left">
-                <a hover="big" click="big" class="home__panel home__panel-large" href="/gallery">
+                <a hover="big" click="big" class="home__panel home__panel-large home__panel-gallery" href="/gallery">
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-photo-video"></i></div>
                     <h1>Gallery</h1>
+                    <?php
+                    $image_wide = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'wide' ORDER BY Date DESC LIMIT 1");
+                    $image_square = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'square' ORDER BY Date DESC LIMIT 1");
+                    $image_tall = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'tall' ORDER BY Date DESC LIMIT 1");
+                    ?>
+                    <img src="/img/gallery/small/<?= $image_wide[0]['Filename'] ?>" class="gallery-example-wide">
+                    <img src="/img/gallery/small/<?= $image_square[0]['Filename'] ?>" class="gallery-example-square">
+                    <img src="/img/gallery/small/<?= $image_tall[0]['Filename'] ?>" class="gallery-example-tall">
                 </a>
                 <a hover="big" click="big" class="home__panel home__panel-large" style="
                 --col1: #2400FF;
@@ -90,7 +98,7 @@ LIMIT 1");
                     <div class="icon"><i class="fas fa-layer-group"></i></div>
                     <h1>Portfolio</h1>
                 </a>
-                <a hover="big" click="big" class="home__panel home__panel-large" style="
+                <a hover="big" click="big" class="home__panel home__panel-large home__panel-projects" style="
                 --col1: #00D1FF;
                 --col2: #2FC37C;
                 --col3: #00FFE0;
@@ -98,7 +106,16 @@ LIMIT 1");
                     <div class="home__panel-sheen"></div>
                     <div class="icon"><i class="fas fa-project-diagram"></i></div>
                     <h1>Projects</h1>
+                    <p>
+    <?php
+    $projects = Database::execSimpleSelect("SELECT * FROM Projects");
+    foreach($projects as $project) {
+        echo "<span>" . $project['Name'] . "</span>";
+    }
+    ?>
+</p>
                 </a>
+                
             </div>
             <div class="home__panels-right">
                 <div hover="small" click="layer" class="home__panel home__panel-medium" style="
