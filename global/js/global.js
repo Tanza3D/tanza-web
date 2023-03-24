@@ -14,18 +14,29 @@ window.addEventListener("load", function() {
 
 
 var audioSystem = {
+    playAudio: true,
     play: function(file) {
         var audio = new Audio('/public/audio/' + file + ".mp3");
-        audio.play();
+        if (this.playAudio == true)
+            audio.play();
     },
     registerAudioDOM: function(files, attribute, defaultFile, callback) {
         var all = document.querySelectorAll(`[${attribute}]`);
         for (var x = 0; x < all.length; x++) {
+            //if (all[x].getAttribute("set_" + attribute) == undefined) {
+            //    all[x].setAttribute("set_" + attribute, "true")
+            //    var attr = all[x].getAttribute(attribute);
+            //    if (attr == null) {
+            //        attr = defaultFile;
+            //    }
+            //    callback(all[x], files[attr]);
+            //}
             var attr = all[x].getAttribute(attribute);
             if (attr == null) {
                 attr = defaultFile;
             }
             callback(all[x], files[attr]);
+            all[x].removeAttribute(attribute);
         }
     },
     registerAudios: function() {
@@ -34,7 +45,7 @@ var audioSystem = {
             "small": "tr_tz_sf_SmallHover",
             "smaller": "tr_tz_sf_SmallerHover"
         }, "hover", "small", function(el, file) {
-            el.addEventListener("mouseover", function() {
+            el.addEventListener("mouseenter", function() {
                 audioSystem.play(file);
             });
         });
@@ -51,6 +62,7 @@ var audioSystem = {
 
         this.registerAudioDOM({
             "home": "tr_tz_sf_HomeLoad",
+            "basic": "tr_tz_sf_LayerOpen",
         }, "aload", "home", function(el, file) {
             if (el.getAttribute("loadelement") == "window") {
                 window.addEventListener("load", function() {
@@ -88,6 +100,14 @@ document.body.addEventListener('keypress', function(e) {
         closeLayer();
     }
 });
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        closeLayer();
+    }
+}
+
 
 function clone(obj) {
     // Handle the 3 simple types, and null or undefined
@@ -148,4 +168,19 @@ function eraseCookie(name) {
 
 if (page != "home") {
     setCookie("do_load_anim", "false", 1);
+}
+
+var hrefs = document.querySelectorAll("[href]");
+for (var element of hrefs) {
+    console.log(element.tagName);
+    if (element.tagName == "A" && element.getAttribute("target") != "_blank") {
+        console.log(element);
+        let link = element.getAttribute("href");
+        element.removeAttribute("href");
+        element.classList.add("hovercursor");
+        element.addEventListener("click", function() {
+            document.body.classList.add("switchpage");
+            setTimeout(() => { window.location = link; }, 900);
+        });
+    }
 }

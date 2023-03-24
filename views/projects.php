@@ -1,10 +1,9 @@
 <div class="cover cover-small">
-    <h1>test</h1>
-    <p>test
-    <p>
+    <h1>Projects</h1>
+    <p>Projects I’ve made in the past, or am actively working on!<p>
 </div>
 
-<div class="page-content">
+<div class="page-content" aload="basic" loadelement="window">
     <div class="page-inner desktop">
         <div id="projects_col1" class="col">
 

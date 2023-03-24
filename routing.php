@@ -17,3 +17,4 @@ function addPage($name, $displayname, $page="404.php", $template="basic", $extra
 addPage("home", "Home", "home.php", "basic", ["page-with-cover"]);
 addPage("projects", "Projects", "projects.php", "basic", ["page-with-cover"], ["global/css/projects/projectPanel.css"], ["global/js/projects/projectPanel.js"]);
 addPage("gallery", "Gallery", "gallery.php", "basic", ["page-with-cover"]);
+addPage("portfolio", "Portfolio", "portfolio.php", "basic", ["page-with-cover"], ["global/css/projects/projectPanel.css"], ["global/js/projects/projectPanel.js"]);

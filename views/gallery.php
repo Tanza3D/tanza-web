@@ -1,12 +1,11 @@
 <div class="cover cover-small">
-    <h1>test</h1>
-    <p>test
-    <p>
+    <h1>Art Gallery</h1>
+    <p>All the art I’ve created, from 2019 to now! Enjoy!<p>
 </div>
 
 
 
-<div class="page-content">
+<div class="page-content" aload="basic" loadelement="window">
     <div id="gallery" class="gallery">
         <div class="gallery-sidebar" id="gallery-sidebar">
             <!-- <div class="sidebar-year sidebar-year-active">

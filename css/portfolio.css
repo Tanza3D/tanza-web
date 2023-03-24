@@ -1,0 +1,91 @@
+.portfolio-section {
+    grid-gap: 10px 14px;
+    display: grid;
+    margin-bottom: 10px;
+}
+
+.portfolio-item {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.portfolio-item img {
+    width: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.portfolio-item img.backdrop {
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transform: scale(1.2);
+    filter: blur(20px) saturate(2);
+}
+
+.portfolio-item h1,
+.portfolio-item h3 {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    font-size: 20px;
+    transition: all 0.4s ease;
+}
+
+.text-backdrop {
+    transition: all 0.2s ease;
+    opacity: 0;
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #2a0c31cc, #5A1B6900, #5A1B6900, #2a0c31cc);
+}
+
+.portfolio-item:hover h1,
+.portfolio-item:hover h3,
+.portfolio-item:hover .text-backdrop {
+    opacity: 1;
+}
+
+.portfolio-item h3 {
+    font-size: 14px;
+    top: auto;
+    bottom: 20px;
+    font-weight: 400;
+}
+
+.portfolio-section-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.portfolio-section-3x3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.page-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.image-container {
+    padding: 4px 22px;
+    background-color: #0004;
+    border-radius: 18px;
+}

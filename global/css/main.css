@@ -63,7 +63,6 @@ a {
 .navbar__inner {
     display: flex;
     align-items: center;
-    padding: 0px 13px;
     background: linear-gradient(0deg, rgba(61, 16, 118, 0.5), rgba(61, 16, 118, 0.5)), rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(16px);
 }
@@ -73,9 +72,44 @@ a {
     margin-left: auto;
 }
 
+.navbar__left {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar__left img {
+    height: 40px;
+}
+
+.navbar__left p {
+    font-size: 18px;
+    font-weight: 900;
+    margin-left: 8px;
+}
+
 .navbar__trim {
     height: 4px;
     background: linear-gradient(90deg, #EB00FF 3.64%, #FFB800 51.82%, #EB00FF 100%);
+}
+
+.navbar__right {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-button {
+    padding: 10px 24px;
+    margin-left: 10px;
+    border-radius: 9px;
+    background: #0002;
+}
+
+.navbar-button-active {
+    font-weight: 900;
+    color: #111;
+    background: linear-gradient(-45deg, #EB00FF 3.36%, #FFB800 51.68%, #EB00FF 100%), rgba(0, 0, 0, 0.25);
 }
 
 .page {
@@ -280,12 +314,29 @@ p a {
 }
 
 .cover-small {
-    height: 400px;
-}
-
-.cover-small {
+    height: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     padding-bottom: 30px;
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0px 2px 6px #0004;
+}
+
+.cover-small h1 {
+    font-size: 40px;
+}
+
+.cover-small p {
+    font-size: 26px;
+}
+
+.switchpage .page {
+    transition: opacity 0.9s ease;
+    opacity: 0;
+}
+
+.hovercursor {
+    cursor: pointer !important;
 }

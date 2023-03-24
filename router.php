@@ -20,7 +20,7 @@ $request = strtok($request, '?');
 
 $request = ltrim($request, "/");
 
-$request = (array)explode("/", $request);
+$request = (array) explode("/", $request);
 
 $arguments = $request;
 array_shift($arguments);
@@ -63,14 +63,21 @@ foreach ($pages as $page) {
     <script rel="preload" src="https://kit.fontawesome.com/91ad005f46.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <?php
     Css("global/css/main.css");
     Css("css/" . $ref_page['name'] . ".css");
     ?>
     <script>
-        const page = "<?=$ref_page['name']?>";
-        </script>
+        const page = "<?= $ref_page['name'] ?>";
+    </script>
+    <style>
+        .cover-small {
+            background-image: url("/public/img/covers/<?= $ref_page['name'] ?>.png");
+        }
+    </style>
 </head>
 
 <body>
@@ -108,11 +115,11 @@ foreach ($pages as $page) {
 </body>
 
 <?php
-foreach($ref_page['js'] as $js) {
+foreach ($ref_page['js'] as $js) {
     Js($js);
 }
 
-foreach($ref_page['css'] as $css) {
+foreach ($ref_page['css'] as $css) {
     Css($css);
 }
 Js("global/js/global.js");

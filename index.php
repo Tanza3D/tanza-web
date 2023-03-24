@@ -1,1 +1,2 @@
-should not be here! TODO: redirect to homepage
+<?php
+header('Location: /home');

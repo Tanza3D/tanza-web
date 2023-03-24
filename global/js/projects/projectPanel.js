@@ -78,6 +78,10 @@ function createProjectPanel(data) {
     element.classList.add(`project-panel__${data['size']}`);
     element.style = `--background: url("${data['background']}");`
 
+    element.setAttribute("hover", "small")
+    element.setAttribute("click", "layer")
+    audioSystem.registerAudios();
+
     var badgeEl = document.createElement("div");
     badgeEl.classList.add("project-panel__badge");
     badgeEl.innerHTML = data['badge'];

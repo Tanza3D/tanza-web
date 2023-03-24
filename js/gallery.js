@@ -43,7 +43,8 @@ function loadProjects() {
                 item.setAttribute("month", "m" + month);
                 item.setAttribute("filename", image['Filename']);
 
-
+                item.setAttribute("hover", "small")
+                item.setAttribute("click", "layer")
 
                 item.style = `--ratio: ${ratio[0]}/${ratio[1]}`;
                 item.classList.add("item");
@@ -96,6 +97,7 @@ function loadProjects() {
         var lazyLoadInstance = new LazyLoad({
             // Your custom settings go here
         });
+        audioSystem.registerAudios();
     }
     xhr.send()
 }
@@ -149,7 +151,7 @@ function generateSidebar() {
             month.appendChild(monthName);
             month.appendChild(monthCount);
             months.appendChild(month);
-
+            month.setAttribute("click", "layer") // TODO: custom sounds for this... this sounds wrong
             month.onclick = function() {
                 const element = document.querySelector(`[month=${xkey}][year=${key}]`);
                 doScrollTo(element);
@@ -157,12 +159,14 @@ function generateSidebar() {
         }
         year.appendChild(months);
 
-        year.onclick = function() {
+        year_h1.setAttribute("click", "layer")
+        year_h1.onclick = function() {
             const element = document.querySelector(`[year=${key}]`);
             doScrollTo(element);
         }
         sidebar.appendChild(year);
     }
+    audioSystem.registerAudios();
 }
 loadProjects();
 
