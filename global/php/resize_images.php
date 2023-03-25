@@ -113,7 +113,7 @@ function doResize($directory)
                 }
 
                 if (!file_exists($directory . "small/" . $image)) {
-                    $imgResize_small = imagescale($img, 720 * $widthMultiplier, 720);
+                    $imgResize_small = imagescale($img, 410 * $widthMultiplier, 410);
                     imagealphablending($imgResize_small, false);
                     imagesavealpha($imgResize_small, true);
                     $jpg = imagepng($imgResize_small, $directory . "small/" . $image, 2);
