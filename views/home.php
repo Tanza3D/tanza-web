@@ -32,7 +32,7 @@ LIMIT 1");
 </style>
 
 <img class="mobile" style="display: none" src="/img/gallery/small/<?= $images_mobile[0]['Filename']; ?>">
-<img class="desktop" style="display: none" src="/img/gallery/small/<?= $images[0]['Filename']; ?>">
+<img media="(orientation:portrait)" class="desktop" style="display: none" src="/img/gallery/small/<?= $images[0]['Filename']; ?>">
 
 <svg width="0" height="0" style="position: absolute;">
     <!-- even though its 0x0 width it still shoves the cover down around 30px, so have to hide it. idk -->
@@ -111,11 +111,11 @@ LIMIT 1");
                     $image_square = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'square' ORDER BY Date DESC LIMIT 1");
                     $image_tall = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'tall' ORDER BY Date DESC LIMIT 1");
                     ?>
-                    <img data-src="/img/gallery/thumbnail/<?= $image_wide[0]['Filename'] ?>"
+                    <img loading="lazy" data-src="/img/gallery/thumbnail/<?= $image_wide[0]['Filename'] ?>"
                         class="lazy gallery-example-wide desktop">
-                    <img data-src="/img/gallery/thumbnail/<?= $image_square[0]['Filename'] ?>"
+                    <img loading="lazy" data-src="/img/gallery/thumbnail/<?= $image_square[0]['Filename'] ?>"
                         class="lazy gallery-example-square desktop">
-                    <img data-src="/img/gallery/thumbnail/<?= $image_tall[0]['Filename'] ?>"
+                    <img loading="lazy" data-src="/img/gallery/thumbnail/<?= $image_tall[0]['Filename'] ?>"
                         class="lazy gallery-example-tall desktop">
                 </a>
                 <a hover="big" click="big" class="home__panel home__panel-large home__panel-portfolio" style="
@@ -131,7 +131,7 @@ LIMIT 1");
                     foreach ($portfolios as $portfolio) {
                         $images = json_decode($portfolio['Images'], true);
 
-                        echo '<img class="lazy home__portfolio-image desktop" data-src="/img/portfolio/' . $portfolio['Id'] . '/' . $images[0]['path'] . '">';
+                        echo '<img loading="lazy" class="lazy home__portfolio-image desktop" data-src="/img/portfolio/' . $portfolio['Id'] . '/' . $images[0]['path'] . '">';
                     }
                     ?>
                 </a>
@@ -227,7 +227,7 @@ LIMIT 1");
         <div class="layer-text-content">
             <p>This is the refsheet for Tanza! The colours can be a bit confusing. For more reference, please check <a
                     href="/gallery">the Gallery</a> for more references!</a>
-                <img src="/public/img/refsheet.png">
+                <img loading="lazy" src="/public/img/refsheet.png">
         </div>
     </div>
 </div>
