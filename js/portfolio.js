@@ -3,6 +3,9 @@ const pageEl = document.getElementById("portfolio-page");
 function generatePortfolioPanel(item) {
     console.log(item);
     var div = document.createElement("div");
+    div.setAttribute("hover", "small")
+    div.setAttribute("click", "layer")
+
     div.className = "portfolio-item";
     var img = document.createElement("img");
     img.src = "/img/portfolio/" + item.Id + "/" + item.Images[0].path;
@@ -69,6 +72,7 @@ function loadPortfolio() {
             }
             pageEl.appendChild(sectionEl)
         }
+        audioSystem.registerAudios();
     }
     xhr.send()
 }

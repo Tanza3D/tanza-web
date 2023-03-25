@@ -80,7 +80,7 @@ function createProjectPanel(data) {
 
     element.setAttribute("hover", "small")
     element.setAttribute("click", "layer")
-    audioSystem.registerAudios();
+
 
     var badgeEl = document.createElement("div");
     badgeEl.classList.add("project-panel__badge");

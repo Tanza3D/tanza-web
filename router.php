@@ -52,14 +52,35 @@ foreach ($pages as $page) {
     }
 }
 
+$embed = new Embed();
 
+$func = array($embed, $ref_page['name']);
+$func();
 
 ?>
 
 <head>
+    <meta name="title" content="<?= $embed->embed_name ?>">
+    <meta name="description" content="<?= $embed->embed_description ?>">
+    <meta name="keywords" content="<?= $embed->embed_keywords ?>">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Tanza">
+    <meta name="theme-color" content="#EC0DEE" />
+
+    <meta name="twitter:site" content="@tanza3d">
+    <meta name="twitter:title" content="<?= $embed->embed_name ?>">
+    <meta name="twitter:description" content="<?= $embed->embed_description ?>">
+    <meta name="twitter:card" content="summary_large_image">
+
+
     <?php
-    // TODO: print meta here
+    if ($embed->embed_thumbnail != "") {
+        echo '<meta name="twitter:image:src" content="' . $embed->embed_thumbnail . '">';
+    }
     ?>
+
     <meta name="viewport" content="width=device-width, initial-scale=0.9" />
     <script rel="preload" src="https://kit.fontawesome.com/91ad005f46.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
