@@ -53,7 +53,7 @@ function loadProjects() {
                 dimage.classList.add("lazy");
                 dimage.classList.add("gallery-imgel");
                 dimage.src = `/public/img/gallery/${image['SimpleRatio']}.png`;
-                if (items.length == 1 && alreadyBig == true) {
+                if (items.length == 1 && alreadyBig == false) {
                     alreadyBig = true;
                     dimage.setAttribute("data-src", `/img/gallery/original/${image['Filename']}`)
                 } else {
