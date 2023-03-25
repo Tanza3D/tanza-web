@@ -40,7 +40,7 @@ LIMIT 1");
 </svg>
 
 
-<div class="cover desktop">
+<div class="cover desktop" id="loadDetector">
     <div class="cover-background"></div>
     <div class="cover-inner">
         <div class="home__cover-desktop-background">

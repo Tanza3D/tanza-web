@@ -8,17 +8,21 @@ function positionNav() {
 positionNav();
 window.onresize = positionNav;
 window.onload = positionNav();
-
-//window.addEventListener("load", function() {
-document.body.classList.add("loaded");
-document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
-    //})
+if (document.getElementById("loadDetector") != null) {
+    document.getElementById("loadDetector").addEventListener("load", function() {
+        document.body.classList.add("loaded");
+        document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
+    })
+} else {
+    document.body.classList.add("loaded");
+    document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
+}
 
 setTimeout(
     function() {
         document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
         document.body.classList.add("loaded"); // sometimes the event doens't call
-    }, 5000);
+    }, 15000);
 
 
 var audioSystem = {
