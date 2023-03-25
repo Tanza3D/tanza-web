@@ -108,11 +108,11 @@ LIMIT 1");
                     $image_square = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'square' ORDER BY Date DESC LIMIT 1");
                     $image_tall = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'tall' ORDER BY Date DESC LIMIT 1");
                     ?>
-                    <img src="/img/gallery/small/<?= $image_wide[0]['Filename'] ?>"
+                    <img src="/img/gallery/thumbnail/<?= $image_wide[0]['Filename'] ?>"
                         class="gallery-example-wide desktop">
-                    <img src="/img/gallery/small/<?= $image_square[0]['Filename'] ?>"
+                    <img src="/img/gallery/thumbnail/<?= $image_square[0]['Filename'] ?>"
                         class="gallery-example-square desktop">
-                    <img src="/img/gallery/small/<?= $image_tall[0]['Filename'] ?>"
+                    <img src="/img/gallery/thumbnail/<?= $image_tall[0]['Filename'] ?>"
                         class="gallery-example-tall desktop">
                 </a>
                 <a hover="big" click="big" class="home__panel home__panel-large home__panel-portfolio" style="
