@@ -1,4 +1,3 @@
-document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
 document.body.classList.add("loaded"); // sometimes the event doens't call
 
 function quoteattr(s, preserveCR) {
