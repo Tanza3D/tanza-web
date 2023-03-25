@@ -78,7 +78,7 @@ if ($request[0] == "auth") {
 } else {
     if (!isset($_SESSION['id'])) {
         echo "Please authorize.";
-        Redirect(OAUTH_REDIRECT_URL);
+        //Redirect(OAUTH_REDIRECT_URL);
         exit;
     }
     if ($_SESSION['id'] != 1 && $_SESSION['id'] != 24117032) {
