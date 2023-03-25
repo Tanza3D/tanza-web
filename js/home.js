@@ -45,3 +45,9 @@ if (getCookie("do_load_anim") == "false") {
     console.log("probably came back from another page, skipping load anim...");
     eraseCookie("do_load_anim");
 }
+window.addEventListener("load", function() {
+    document.getElementById("covers").innerHTML = document.getElementById("covers").innerHTML.replace("/small/", "/original/");
+    document.getElementById("highq-bg").addEventListener("load", function() {
+        document.getElementById("highq-bg").classList.remove("hidden");
+    })
+});

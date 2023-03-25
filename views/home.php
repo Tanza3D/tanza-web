@@ -31,6 +31,28 @@ LIMIT 1");
     }
 </style>
 
+<style id="covers">
+    .cover-background-2 {
+        background-image: url('/img/gallery/small/<?= $images[0]['Filename']; ?>');
+        background-size: cover;
+        background-position: center;
+        <?php if ($images[0]['ForHomepage'] == 2) {
+            echo 'transform: scaleX(-1);';
+        }
+        ?>
+    }
+
+    .mobile .cover-background-2 {
+        background-image: url('/img/gallery/small/<?= $images_mobile[0]['Filename']; ?>') !important;
+        <?php if ($images_mobile[0]['ForHomepage'] == 2) {
+            echo 'transform: scaleX(-1) !important;';
+        } else {
+            echo 'transform: none !important;';
+        }
+        ?>
+    }
+</style>
+
 <img class="mobile" style="display: none" src="/img/gallery/small/<?= $images_mobile[0]['Filename']; ?>">
 <img media="(orientation:portrait)" class="desktop" style="display: none" src="/img/gallery/small/<?= $images[0]['Filename']; ?>">
 
@@ -45,6 +67,7 @@ LIMIT 1");
 
 <div class="cover desktop" id="loadDetector">
     <div class="cover-background" onload="document.getElementById('loadDetector').classList.add('home-loaded');"></div>
+    <div class="cover-background cover-background-2 hidden" id="highq-bg"></div>
     <div class="cover-inner">
         <div class="home__cover-desktop-background">
             <div class="home__cover-desktop-background-image">
