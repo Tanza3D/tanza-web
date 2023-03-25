@@ -52,7 +52,11 @@ function loadProjects() {
                 dimage.classList.add("lazy");
                 dimage.classList.add("gallery-imgel");
                 dimage.src = `/public/img/gallery/${image['SimpleRatio']}.png`;
-                dimage.setAttribute("data-src", `/img/gallery/small/${image['Filename']}`)
+                if (items.length > 1) {
+                    dimage.setAttribute("data-src", `/img/gallery/small/${image['Filename']}`)
+                } else {
+                    dimage.setAttribute("data-src", `/img/gallery/original/${image['Filename']}`)
+                }
 
                 let overlay = document.createElement("div");
                 overlay.classList.add("item-overlay")
