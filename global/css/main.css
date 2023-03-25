@@ -362,3 +362,46 @@ p a {
         backdrop-filter: none !important;
     }
 }
+
+.loadingoverlay {
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.loadingoverlay-hidden {
+    opacity: 0;
+}
+
+.loadingoverlay p {
+    font-weight: 900;
+    font-size: 25px;
+    margin-top: -50px;
+}
+
+.loadingoverlay svg path {
+    stroke-dasharray: 140;
+    animation-delay: 0.13s !important;
+    animation: dashoffset 1.5s cubic-bezier(.17, .39, .98, .52) infinite;
+    text-shadow: 0px 4px 78px #A3B7FF, 0px 4px 78px #A3B7FF, 0px 4px 62px #7B5AFF, 0px 4px 62px #7B5AFF, 0px 4px 35px #6B79FA, 0px 4px 35px #6B79FA, 0px 4px 17px #4A5CFF, 0px 4px 17px #4A5CFF;
+}
+
+svg path.loader-thin {
+    animation: dashoffset 1.5s cubic-bezier(.23, .39, .88, .52) infinite !important;
+    animation-delay: 0.1s !important;
+}
+
+@keyframes dashoffset {
+    to {
+        stroke-dashoffset: 280;
+    }
+}

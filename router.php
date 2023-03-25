@@ -103,6 +103,43 @@ $func();
 </head>
 
 <body>
+    <div id="page_loading_overlay" class="loadingoverlay">
+        <svg width="252" height="243" viewBox="0 0 252 243" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_dddddddd_505_43)">
+                <path class="loader-thin"
+                    d="M136.825 81.75L170.6 140.25C175.412 148.583 169.397 159 159.775 159H92.225C82.6025 159 76.5884 148.583 81.3997 140.25L115.175 81.75C119.986 73.4167 132.014 73.4167 136.825 81.75Z"
+                    stroke="#D8A3FF" stroke-width="3"></path>
+            </g>
+            <g>
+                <path opacity="0.25"
+                    d="M136.825 81.75L170.6 140.25C175.412 148.583 169.397 159 159.775 159H92.225C82.6025 159 76.5884 148.583 81.3997 140.25L115.175 81.75C119.986 73.4167 132.014 73.4167 136.825 81.75Z"
+                    stroke="#D8A3FF" stroke-width="16"></path>
+            </g>
+            <defs>
+                <filter id="filter0_dddddddd_505_43" x="0.204102" y="0" width="251.592" height="242.5"
+                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"></feColorMatrix>
+                    <feOffset dy="4"></feOffset>
+                    <feGaussianBlur stdDeviation="8.5"></feGaussianBlur>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.291667 0 0 0 0 0.3625 0 0 0 0 1 0 0 0 1 0">
+                    </feColorMatrix>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_505_43"></feBlend>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"></feColorMatrix>
+                    <feOffset dy="4"></feOffset>
+                    <feGaussianBlur stdDeviation="8.5"></feGaussianBlur>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.291667 0 0 0 0 0.3625 0 0 0 0 1 0 0 0 1 0">
+                    </feColorMatrix>
+
+                    <feBlend mode="normal" in2="effect7_dropShadow_505_43" result="effect8_dropShadow_505_43"></feBlend>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect8_dropShadow_505_43" result="shape"></feBlend>
+                </filter>
+            </defs>
+        </svg>
+        <p>Loading</p>
+    </div>
     <div class="background"></div>
     <?php
     include("components/navbar.php");
