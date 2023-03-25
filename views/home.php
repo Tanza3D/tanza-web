@@ -66,8 +66,8 @@ LIMIT 1");
 
 
 <div class="cover desktop" id="loadDetector">
-    <div class="cover-background" onload="document.getElementById('loadDetector').classList.add('home-loaded');"></div>
-    <div class="cover-background cover-background-2 hidden" id="highq-bg"></div>
+    <div class="cover-background" id="lowq-bg" ></div>
+    <div class="cover-background cover-background-2" id="highq-bg"></div>
     <div class="cover-inner">
         <div class="home__cover-desktop-background">
             <div class="home__cover-desktop-background-image">
