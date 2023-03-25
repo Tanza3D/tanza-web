@@ -8,15 +8,11 @@ function positionNav() {
 positionNav();
 window.onresize = positionNav;
 window.onload = positionNav();
-if (document.getElementById("loadDetector") != null) {
-    document.getElementById("loadDetector").addEventListener("load", function() {
-        document.body.classList.add("loaded");
-        document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
-    })
-} else {
+
+window.addEventListener("DOMContentLoaded", function() {
     document.body.classList.add("loaded");
     document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
-}
+})
 
 setTimeout(
     function() {
