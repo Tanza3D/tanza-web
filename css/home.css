@@ -68,22 +68,18 @@
     transform: scale(var(--scale));
 }
 
-.home__cover-desktop-background-blur {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 8;
-    clip-path: url(#svgclip);
-    background-color: #3d107666;
-    /* backdrop-filter: blur(20px); */
-    margin-left: 10px;
-    transform: scale(var(--scale));
-}
-
 @-moz-document url-prefix() {
+    /* ! having this on chrome breaks everything ?? */
     .home__cover-desktop-background-blur {
-        /* very lags on chrome, this makes it only do it on firefox */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 8;
+        clip-path: url(#svgclip);
+        background-color: #3d107666;
         backdrop-filter: blur(20px);
+        margin-left: 10px;
+        transform: scale(var(--scale));
     }
 }
 
