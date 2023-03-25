@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html>
+
 
 <?php
 $time_start = microtime(true);
 $request_time = $_SERVER['REQUEST_TIME_FLOAT'];
-
-include_once($_SERVER['DOCUMENT_ROOT'] . "/global/php/functions.php");
 session_start();
-
+include_once($_SERVER['DOCUMENT_ROOT'] . "/global/php/functions.php");
+?>
+<!DOCTYPE html>
+<html>
+<?php
 ini_set('display_errors', '0');
 ini_set('display_startup_errors', '0');
 error_reporting(E_ALL);
