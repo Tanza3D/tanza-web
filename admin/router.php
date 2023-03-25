@@ -77,7 +77,7 @@ if ($request[0] == "auth") {
 } else {
     if (!isset($_SESSION['id'])) {
         echo "Please authorize.";
-        Redirect("https://id.untone.uk/oauth/authorize?client_id=86535999&redirect_uri=http://dev.tanza/admin/auth/");
+        Redirect(OAUTH_REDIRECT_URL);
         exit;
     }
     if ($_SESSION['id'] != 1 && $_SESSION['id'] != 24117032) {
