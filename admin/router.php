@@ -1,9 +1,8 @@
-
-
 <?php
+session_start();
 $time_start = microtime(true);
 $request_time = $_SERVER['REQUEST_TIME_FLOAT'];
-session_start();
+
 include_once($_SERVER['DOCUMENT_ROOT'] . "/global/php/functions.php");
 ?>
 <!DOCTYPE html>
@@ -78,7 +77,7 @@ if ($request[0] == "auth") {
 } else {
     if (!isset($_SESSION['id'])) {
         echo "Please authorize.";
-        //Redirect(OAUTH_REDIRECT_URL);
+        Redirect(OAUTH_REDIRECT_URL);
         exit;
     }
     if ($_SESSION['id'] != 1 && $_SESSION['id'] != 24117032) {
