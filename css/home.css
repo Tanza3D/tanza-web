@@ -20,7 +20,6 @@
 @keyframes load-slidein-blur {
     0% {
         opacity: 0;
-        filter: blur(20px);
         transform: translateX(20%) scale(1.04);
     }
 }
@@ -31,6 +30,16 @@
     }
     20% {
         backdrop-filter: blur(0px);
+    }
+}
+
+@-moz-document url-prefix() {
+    @keyframes load-slidein-blur {
+        0% {
+            opacity: 0;
+            filter: blur(20px);
+            transform: translateX(20%) scale(1.04);
+        }
     }
 }
 
@@ -65,9 +74,16 @@
     z-index: 8;
     clip-path: url(#svgclip);
     background-color: #3d107666;
-    backdrop-filter: blur(20px);
+    /* backdrop-filter: blur(20px); */
     margin-left: 10px;
     transform: scale(var(--scale));
+}
+
+@-moz-document url-prefix() {
+    .home__cover-desktop-background-blur {
+        /* very lags on chrome, this makes it only do it on firefox */
+        backdrop-filter: blur(20px);
+    }
 }
 
 .loaded .home__cover-desktop-background-blur {
@@ -447,10 +463,12 @@
     -webkit-mask-image: -webkit-gradient(linear, left 90%, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)))
 }
 
-.home__panel-projects:hover p {
-    transform: translateY(-50%) translateX(60px) rotate(12deg) scale(0.8);
-    opacity: 0.8;
-    line-height: 115%;
+@-moz-document url-prefix() {
+    .home__panel-projects:hover p {
+        transform: translateY(-50%) translateX(60px) rotate(12deg) scale(0.8);
+        opacity: 0.8;
+        line-height: 115%;
+    }
 }
 
 .home__panel-portfolio img {

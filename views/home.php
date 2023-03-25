@@ -98,7 +98,7 @@ LIMIT 1");
     <div class="page-inner">
         <div class="home__panels" id="homepanelsarea">
             <div class="home__panels-left">
-                <a id="firstpanel" hover="big" click="big" class="home__panel home__panel-large home__panel-gallery"
+                <a hover="big" click="big" class="home__panel home__panel-large home__panel-gallery"
                     href="/gallery">
                     <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fas fa-photo-video"></i></div>
@@ -132,7 +132,7 @@ LIMIT 1");
                     }
                     ?>
                 </a>
-                <a hover="big" click="big" class="home__panel home__panel-large home__panel-projects" style="
+                <a id="firstpanel" hover="big" click="big" class="home__panel home__panel-large home__panel-projects" style="
                 --col1: #00D1FF;
                 --col2: #2FC37C;
                 --col3: #00FFE0;
