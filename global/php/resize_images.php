@@ -106,7 +106,7 @@ function doResize($directory)
 
 
                 if (!file_exists($directory . "thumbnail/" . $image)) {
-                    $imgResize = imagescale($img, 200, 200 * $heightMultiplier);
+                    $imgResize = imagescale($img, 338, 338 * $heightMultiplier);
                     $jpg = imagepng($imgResize, $directory . "thumbnail/" . $image, 2);
                 } else {
                     doLog("Skipping Thumbnail because already processed", "info", "#2f6", false);
