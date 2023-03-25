@@ -59,7 +59,8 @@ var audioSystem = {
         this.registerAudioDOM({
             "normal": "tr_tz_sf_Click",
             "big": "tr_tz_sf_TriumphantLoad",
-            "layer": "tr_tz_sf_LayerOpen"
+            "layer": "tr_tz_sf_LayerOpen",
+            "slide": "tr_tz_sf_Slide",
         }, "click", "normal", function(el, file) {
             el.addEventListener("click", function() {
                 audioSystem.play(file);

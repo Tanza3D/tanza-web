@@ -151,7 +151,7 @@ function generateSidebar() {
             month.appendChild(monthName);
             month.appendChild(monthCount);
             months.appendChild(month);
-            month.setAttribute("click", "layer") // TODO: custom sounds for this... this sounds wrong
+            month.setAttribute("click", "slide")
             month.onclick = function() {
                 const element = document.querySelector(`[month=${xkey}][year=${key}]`);
                 doScrollTo(element);
@@ -159,7 +159,7 @@ function generateSidebar() {
         }
         year.appendChild(months);
 
-        year_h1.setAttribute("click", "layer")
+        year_h1.setAttribute("click", "slide")
         year_h1.onclick = function() {
             const element = document.querySelector(`[year=${key}]`);
             doScrollTo(element);
