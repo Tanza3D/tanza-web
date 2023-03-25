@@ -108,12 +108,12 @@ LIMIT 1");
                     $image_square = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'square' ORDER BY Date DESC LIMIT 1");
                     $image_tall = Database::execSimpleSelect("SELECT * FROM Gallery WHERE SimpleRatio = 'tall' ORDER BY Date DESC LIMIT 1");
                     ?>
-                    <img src="/img/gallery/thumbnail/<?= $image_wide[0]['Filename'] ?>"
-                        class="gallery-example-wide desktop">
-                    <img src="/img/gallery/thumbnail/<?= $image_square[0]['Filename'] ?>"
-                        class="gallery-example-square desktop">
-                    <img src="/img/gallery/thumbnail/<?= $image_tall[0]['Filename'] ?>"
-                        class="gallery-example-tall desktop">
+                    <img data-src="/img/gallery/thumbnail/<?= $image_wide[0]['Filename'] ?>"
+                        class="lazy gallery-example-wide desktop">
+                    <img data-src="/img/gallery/thumbnail/<?= $image_square[0]['Filename'] ?>"
+                        class="lazy gallery-example-square desktop">
+                    <img data-src="/img/gallery/thumbnail/<?= $image_tall[0]['Filename'] ?>"
+                        class="lazy gallery-example-tall desktop">
                 </a>
                 <a hover="big" click="big" class="home__panel home__panel-large home__panel-portfolio" style="
                 --col1: #2400FF;
@@ -128,7 +128,7 @@ LIMIT 1");
                     foreach ($portfolios as $portfolio) {
                         $images = json_decode($portfolio['Images'], true);
 
-                        echo '<img class="home__portfolio-image desktop" src="/img/portfolio/' . $portfolio['Id'] . '/' . $images[0]['path'] . '">';
+                        echo '<img class="lazy home__portfolio-image desktop" data-src="/img/portfolio/' . $portfolio['Id'] . '/' . $images[0]['path'] . '">';
                     }
                     ?>
                 </a>
@@ -311,3 +311,11 @@ LIMIT 1");
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+
+<script>
+    var lazyLoadInstance = new LazyLoad({
+            // Your custom settings go here
+        });
+        </script>
