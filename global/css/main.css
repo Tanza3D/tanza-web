@@ -161,6 +161,10 @@ a {
     height: 100%;
 }
 
+.cover-background-2 {
+    z-index: 1;
+}
+
 .loaded .cover-background {
     animation: 1.5s ease 0s 1 load-cover;
 }
