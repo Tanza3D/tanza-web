@@ -11,7 +11,7 @@ LIMIT 1");
 ?>
 <style>
     .cover-background {
-        background-image: url('/img/gallery/original/<?= $images[0]['Filename']; ?>');
+        background-image: url('/img/gallery/small/<?= $images[0]['Filename']; ?>');
         background-size: cover;
         background-position: center;
         <?php if ($images[0]['ForHomepage'] == 2) {
@@ -21,7 +21,7 @@ LIMIT 1");
     }
 
     .mobile .cover-background {
-        background-image: url('/img/gallery/original/<?= $images_mobile[0]['Filename']; ?>') !important;
+        background-image: url('/img/gallery/small/<?= $images_mobile[0]['Filename']; ?>') !important;
         <?php if ($images_mobile[0]['ForHomepage'] == 2) {
             echo 'transform: scaleX(-1) !important;';
         } else {
@@ -30,6 +30,9 @@ LIMIT 1");
         ?>
     }
 </style>
+
+<img class="mobile" style="display: none" src="/img/gallery/small/<?= $images_mobile[0]['Filename']; ?>">
+<img class="desktop" style="display: none" src="/img/gallery/small/<?= $images[0]['Filename']; ?>">
 
 <svg width="0" height="0" style="position: absolute;">
     <!-- even though its 0x0 width it still shoves the cover down around 30px, so have to hide it. idk -->
@@ -41,7 +44,7 @@ LIMIT 1");
 
 
 <div class="cover desktop" id="loadDetector">
-    <div class="cover-background"></div>
+    <div class="cover-background" onload="document.getElementById('loadDetector').classList.add('home-loaded');"></div>
     <div class="cover-inner">
         <div class="home__cover-desktop-background">
             <div class="home__cover-desktop-background-image">

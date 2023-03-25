@@ -9,10 +9,10 @@ positionNav();
 window.onresize = positionNav;
 window.onload = positionNav();
 
-window.addEventListener("DOMContentLoaded", function() {
+window.onload = function() {
     document.body.classList.add("loaded");
     document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
-})
+};
 
 setTimeout(
     function() {
