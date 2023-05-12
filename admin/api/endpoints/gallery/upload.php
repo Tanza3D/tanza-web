@@ -18,6 +18,7 @@ if (is_dir($target_dir) && is_writable($target_dir)) {
     if (move_uploaded_file($_FILES["Image"]["tmp_name"], $target_file)) {
         //echo json_encode("The file " . htmlspecialchars(basename($_FILES["file"]["name"])) . " has been uploaded.");
     } else {
+        print_r($_FILES);
         echo json_encode("Sorry, there was an error uploading your file.");
         echo $_FILES["Image"]["error"];
         exit;

@@ -24,8 +24,9 @@ foreach($_FILES as $file) {
     $counter++;
 }
 
+
 Database::execOperation("INSERT INTO `Portfolio` (`Id`, `Images`, `Name`, `Description`, `Date`)
-VALUES (?,?,?,?,?);", "isssi", [
+VALUES (?,?,?,?,?);", "issss", [
     $id,
     json_encode($files),
     $name,
