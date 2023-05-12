@@ -37,6 +37,8 @@ function loadPortfolio() {
     xhr.open("GET", "/api/portfolio/items");
     xhr.onload = function() {
         var json = JSON.parse(xhr.responseText);
+        console.log("UWU");
+        console.log(json);
         var sorted = [];
         var curel = {
             "items": [],
@@ -45,8 +47,10 @@ function loadPortfolio() {
         var counter = 0;
         for (var item of json) {
             item.Images = JSON.parse(item.Images);
+            console.log("pushing to type " + curel.type);
             curel.items.push(item);
             if (curel.items.length >= 4 && curel.type == "2x2") {
+                console.log("switching to 3x3");
                 sorted.push(curel);
                 curel = {
                     "items": [],
@@ -55,6 +59,7 @@ function loadPortfolio() {
             }
             if (curel.items.length >= 9 && curel.type == "3x3") {
                 sorted.push(curel);
+                console.log("switching to 2x2");
                 curel = {
                     "items": [],
                     "type": "2x2"
@@ -62,6 +67,7 @@ function loadPortfolio() {
             }
             counter++;
         }
+        sorted.push(curel);
         console.log(sorted);
         for (var section of sorted) {
             var sectionEl = document.createElement("div");
