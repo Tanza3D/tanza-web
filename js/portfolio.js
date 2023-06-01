@@ -90,18 +90,44 @@ function openItem(item) {
     document.getElementById("name").innerHTML = item.Name;
     document.getElementById("description").innerHTML = item.Description;
     document.getElementById("image-list").innerHTML = "";
+
+    var imagecont = document.createElement("div");
+    var counter = 0;
+    var first = 2;
     for (var image of item.Images) {
+        if(counter == 2 || first == 1) {
+            first = 0;
+            counter = 0;
+            document.getElementById("image-list").appendChild(imagecont);
+            var imagecont = document.createElement("div");
+        }
+        imagecont.className = "image-container";
         console.log(image);
-        var imageContainer = document.createElement("div");
-        var title = document.createElement("h1");
-        var imageEl = document.createElement("img");
-        title.innerHTML = image.name;
+        if(image.name != undefined) {
+        var text = document.createElement("h1");
+        text.innerText = image.name;
+        }
+        let imageElOuter = document.createElement("div");
+        imageElOuter.classList.add("image-loading");
+        if(image.name != undefined) {
+        imageElOuter.appendChild(text);
+        }
+        let imageEl = document.createElement("img");
+        imageEl.addEventListener("load", function() {
+            console.log(imageEl);
+            imageElOuter.style = "--ratio: " + imageEl.clientWidth / imageEl.clientHeight
+            imageElOuter.classList.add("image-outer");
+            imageElOuter.classList.remove("image-loading");
+        });
         imageEl.src = "/img/portfolio/" + item.Id + "/" + image.path;
-        imageContainer.className = "image-container";
-        imageContainer.appendChild(title);
-        imageContainer.appendChild(imageEl);
-        document.getElementById("image-list").appendChild(imageContainer);
+        imageElOuter.appendChild(imageEl);
+        imagecont.appendChild(imageElOuter);
+        counter++;
+        if(first == 2) first = 1;
+        
     }
+
+    document.getElementById("image-list").appendChild(imagecont);
 
     openLayer("layer_info");
 }

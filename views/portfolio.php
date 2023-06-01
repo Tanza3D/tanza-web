@@ -10,7 +10,7 @@
 </div>
 
 
-<div class="layer layer-closed" id="layer_info">
+<div class="layer layer-closed layer-portoflio" id="layer_info">
     <div class="layer__close-layer" onclick="closeLayer()"></div>
     <div class="layer__content">
         <div class="layer__header">

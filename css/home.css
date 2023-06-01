@@ -374,6 +374,11 @@
     animation-duration: 2s;
 }
 
+.home__panels .home__panel:nth-child(7) {
+    animation-delay: 0.6s;
+    animation-duration: 2.2s;
+}
+
 .page-content {
     overflow: hidden;
 }

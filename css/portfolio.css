@@ -79,25 +79,56 @@
 }
 
 .image-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
 }
 
 .image-container {
-    padding: 4px 22px;
-    background-color: #0004;
-    border-radius: 18px;
+    --modifier: calc((30rem - 100%) * 999);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.image-outer {
+    background-color: #0002;
+    border-radius: 12px;
+    margin: 4px;
+}
+
+.image-outer h1 {
+    font-size: 18px;
+    margin: 8px;
+    margin-left: 14px;
+}
+
+.image-container img {
+    margin: 0px;
+    width: calc(100% - 8px);
+    margin-left: 4px;
+    border-radius: 8px;
+    padding: 0px;
+}
+
+.image-container .image-outer {
+	flex-basis: max(var(--modifier), 0px);
+	flex-grow: var(--ratio);
 }
 
 @media (max-width: 900px) {
     .portfolio-section-2x2 {
         grid-template-columns: repeat(1, 1fr);
     }
+
     .portfolio-section-3x3 {
         grid-template-columns: repeat(1, 1fr);
     }
-    .image-list {
-        grid-template-columns: repeat(1, 1fr);
-    }
+}
+
+.layer-portoflio .layer__content {
+    max-width: 1000px;
 }

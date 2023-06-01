@@ -234,6 +234,14 @@ LIMIT 1");
                     <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fab fa-mastodon"></i></div>
                     <h1>Mastodon</h1>
+                    <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
+                --col1: #191C44;
+                --col2: #161B22;
+                --col3: #394049;
+                " href="https://github.com/tanza3d" target="_blank">
+                    <div class="home__panel-sheen desktop"></div>
+                    <div class="icon"><i class="fab fa-github"></i></div>
+                    <h1>Github</h1>
                 </a>
             </div>
         </div>
