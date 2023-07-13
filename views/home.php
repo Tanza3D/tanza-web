@@ -54,7 +54,8 @@ LIMIT 1");
 </style>
 
 <img class="mobile" style="display: none" src="/img/gallery/small/<?= $images_mobile[0]['Filename']; ?>">
-<img media="(orientation:portrait)" class="desktop" style="display: none" src="/img/gallery/small/<?= $images[0]['Filename']; ?>">
+<img media="(orientation:portrait)" class="desktop" style="display: none"
+    src="/img/gallery/small/<?= $images[0]['Filename']; ?>">
 
 <svg width="0" height="0" style="position: absolute;">
     <!-- even though its 0x0 width it still shoves the cover down around 30px, so have to hide it. idk -->
@@ -66,7 +67,7 @@ LIMIT 1");
 
 
 <div class="cover desktop" id="loadDetector">
-    <div class="cover-background" id="lowq-bg" ></div>
+    <div class="cover-background" id="lowq-bg"></div>
     <div class="cover-background cover-background-2" id="highq-bg"></div>
     <div class="cover-inner">
         <div class="home__cover-desktop-background">
@@ -124,8 +125,7 @@ LIMIT 1");
     <div class="page-inner">
         <div class="home__panels" id="homepanelsarea">
             <div class="home__panels-left">
-                <a hover="big" click="big" class="home__panel home__panel-large home__panel-gallery"
-                    href="/gallery">
+                <a hover="big" click="big" class="home__panel home__panel-large home__panel-gallery" href="/gallery">
                     <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fas fa-photo-video"></i></div>
                     <h1>Gallery</h1>
@@ -158,7 +158,8 @@ LIMIT 1");
                     }
                     ?>
                 </a>
-                <a id="firstpanel" hover="big" click="big" class="home__panel home__panel-large home__panel-projects" style="
+                <a id="firstpanel" hover="big" click="big" class="home__panel home__panel-large home__panel-projects"
+                    style="
                 --col1: #00D1FF;
                 --col2: #2FC37C;
                 --col3: #00FFE0;
@@ -239,10 +240,10 @@ LIMIT 1");
                 --col2: #161B22;
                 --col3: #394049;
                 " href="https://github.com/tanza3d" target="_blank">
-                    <div class="home__panel-sheen desktop"></div>
-                    <div class="icon"><i class="fab fa-github"></i></div>
-                    <h1>Github</h1>
-                </a>
+                        <div class="home__panel-sheen desktop"></div>
+                        <div class="icon"><i class="fab fa-github"></i></div>
+                        <h1>Github</h1>
+                    </a>
             </div>
         </div>
     </div>
@@ -350,6 +351,6 @@ LIMIT 1");
 
 <script>
     var lazyLoadInstance = new LazyLoad({
-            // Your custom settings go here
-        });
-        </script>
+        // Your custom settings go here
+    });
+</script>

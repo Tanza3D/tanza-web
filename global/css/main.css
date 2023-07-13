@@ -414,3 +414,27 @@ svg path.loader-thin {
         stroke-dashoffset: 280;
     }
 }
+
+.donate-button {
+    width: 100%;
+    background: linear-gradient(90deg, #EB00FF 3.64%, #FFB800 51.82%, #EB00FF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: #222;
+    padding: 14px;
+    font-size: 18px;
+    margin-top: 14px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+#donate-button img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

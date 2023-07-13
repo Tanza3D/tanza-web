@@ -5,8 +5,8 @@
 
 $time_start = microtime(true);
 $request_time = $_SERVER['REQUEST_TIME_FLOAT'];
-
 include_once($_SERVER['DOCUMENT_ROOT'] . "/global/php/functions.php");
+if(HAS_SHARED) include("/var/www/share/untoneShared.php");
 
 ini_set('display_errors', '0');
 ini_set('display_startup_errors', '0');
@@ -170,6 +170,19 @@ $func();
             echo "404";
         }
         ?>
+    </div>
+
+    <div hover="smaller" click="normal" class="donate-button" style="
+                --col1: #EB00FF;
+                --col2: #F7AF01;
+                --col3: #EB00FF;
+                " target="_blank">
+                <p>Like what I do? Send over a donation! It'll help me to keep doing what I love to do, and making cool things for everyone :3</p>
+        <?php if (HAS_SHARED)
+            UNTONE\Shared::DonationButton(
+                "",
+                "Thanks alot for the donation! It really helps me to keep doing what I like to do :3",
+            ); ?>
     </div>
 </body>
 
