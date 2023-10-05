@@ -1,0 +1,47 @@
+
+.pw__collapsable {
+    margin-top: 35px;
+    background-color: #1114;
+    border-radius: 12px;
+}
+.pw__collapsable-top {
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    background-color: #fff2;
+}
+.pw__collapsable-top img {
+    height: 28px;
+    margin-left: auto;
+    filter: contrast(0) brightness(90);
+}
+.pw__collapsable-top[href] {
+    outline: 2px solid #fff5;
+    text-decoration: underline;
+}
+.pw__collapsable-content {
+    width: 100%;
+    background-color: #2224;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    padding: 20px;
+    border-radius: 12px;
+}
+.pw__collapsable-content  img {
+    max-width: 70%;
+    margin: 15px auto;
+    border-radius: 6px;
+}
+
+.pw__collapsable-content  img:last-child {
+    margin-bottom: 0px;
+}
+.pw__collapsable-content p {
+    margin: 12px 0px;
+    line-height: 1.4;
+    font-size: 17px;
+}
+.pw__collapsable-content p:last-child {
+    margin-bottom: 0px;
+}

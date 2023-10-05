@@ -12,20 +12,24 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    aspect-ratio: 16 / 9;
 }
 
 .portfolio-item img {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    height: 100%;
     z-index: 2;
 }
 
 .portfolio-item img.backdrop {
     height: 100%;
+    object-fit: cover;
     position: absolute;
     z-index: 1;
     transform: scale(1.2);
-    filter: blur(20px) saturate(2);
+    filter: blur(20px) saturate(2) brightness(0.5);
+    opacity: 0.4;
 }
 
 .portfolio-item h1,
@@ -132,3 +136,48 @@
 .layer-portoflio .layer__content {
     max-width: 1000px;
 }
+
+#layer_info {
+    backdrop-filter: none;
+}
+
+#layer_info .layer__content {
+    position: absolute;
+    border-radius: 0px;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    max-width: 600px;
+    max-height: 100vh;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+#layer_info .image-outer {
+    background-color: #0000;
+    padding: 0px;
+    margin: 0px;
+}
+
+#layer_info .image-outer img {
+    border: 0px solid white;
+    margin: 0px;
+}
+
+#layer_info .image-outer h1 {
+    display: none;
+}
+
+.image-container {
+    margin-top: 8px;
+    gap: 8px;
+}
+.layer__content, #layer_info {
+    transition: all 0.5s ease;
+}
+.layer-closed .layer__content {
+    transform: translateX(90px);
+}
+.layer__header h1 {
+    line-height: 1.1;
+} */

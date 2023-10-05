@@ -3,6 +3,7 @@ projectPanelTemplate = {
     "internalName": "project-name",
     "name": "Project Name",
     "description": "",
+    "extraDescription": "",
     "background": "/public/img/projects/noBackground.jpg", // ? optional, shouldn't be used beyond admin
     "logo": "no logo?", // ! needs to be set, else it won't know what format the logo is in. background is always jpg (converted)
     "badge": "OWN", // ? preset to "OWN",
@@ -28,6 +29,9 @@ function cleanDataDirect(data) {
 
     if (data['description'] != undefined) finalData['description'] = data['description'];
     else return { "error": "Description not set" };
+
+    if (data['extraDescription'] != undefined) finalData['extraDescription'] = data['extraDescription'];
+    else return { "error": "extraDescription not set" };
 
     if (data['badge'] != undefined) finalData['badge'] = data['badge'];
     if (data['imageTypes'] != undefined) finalData['imageTypes'] = data['imageTypes'];
@@ -58,6 +62,7 @@ function parseProject(item) {
     newItem.internalName = item['InternalName'];
     newItem.name = item['Name'];
     newItem.description = item['Description'];
+    newItem.extraDescription = item['ExtraDescription'];
     newItem.background = item['Background'];
     newItem.logo = item['Logo'];
     newItem.badge = item['Badge'];
@@ -91,7 +96,7 @@ function createProjectPanel(data) {
         logo.src = data['logo'];
     } else {
         var logo = document.createElement("h3");
-        logo.innerHTML = logo;
+        logo.innerHTML = data['name'];
         console.log("If 'logo' url displayed not expected, use absolute url to image.");
     }
 

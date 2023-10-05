@@ -97,6 +97,9 @@ LIMIT 1");
         </div>
     </div>
 </div>
+<?php
+include("work.html");
+?>
 <div class="cover mobile">
     <div class="cover-background"></div>
     <div class="cover-inner">
@@ -213,10 +216,10 @@ LIMIT 1");
                 --col1: #6261E1;
                 --col2: #469ACD;
                 --col3: #43C3B8;
-                " href="https://twitter.com/@tanza3d" target="_blank">
+                " href="https://bsky.app/profile/tanza.me" target="_blank">
                     <div class="home__panel-sheen desktop"></div>
-                    <div class="icon"><i class="fab fa-twitter"></i></div>
-                    <h1>Twitter</h1>
+                    <div class="icon"><i class="fas fa-box"></i></div>
+                    <h1>Bluesky</h1>
                 </a>
                 <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #8B3DE7;
@@ -227,7 +230,7 @@ LIMIT 1");
                     <div class="icon"><i class="fab fa-discord"></i></div>
                     <h1>Discord</h1>
                 </a>
-                <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
+<!--                 <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #5C4EE4;
                 --col2: #4E78E4;
                 --col3: #AB4EE4;
@@ -235,19 +238,24 @@ LIMIT 1");
                     <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fab fa-mastodon"></i></div>
                     <h1>Mastodon</h1>
-                    <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
+                </a> -->
+                <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #191C44;
                 --col2: #161B22;
                 --col3: #394049;
                 " href="https://github.com/tanza3d" target="_blank">
-                        <div class="home__panel-sheen desktop"></div>
-                        <div class="icon"><i class="fab fa-github"></i></div>
-                        <h1>Github</h1>
-                    </a>
+                    <div class="home__panel-sheen desktop"></div>
+                    <div class="icon"><i class="fab fa-github"></i></div>
+                    <h1>Github</h1>
+                </a>
             </div>
         </div>
-    </div>
+    </div>   
 </div>
+<div class="page-content" aload="home" loadelement="window">
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="archie-williams-06171b190" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/archie-williams-06171b190?trk=profile-badge"></a></div>
+</div>           
 
 <div class="layer layer-closed" id="layer_refsheet">
     <div class="layer__close-layer" onclick="closeLayer()"></div>

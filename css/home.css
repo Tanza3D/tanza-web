@@ -597,3 +597,36 @@
         width: 100%;
     }
 }
+.cover-inner.work {
+    padding: 40px;
+    margin: 0px !important;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+    width: auto !important;
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+    background: linear-gradient(#60266122, #490C67ee);
+    border-radius: 20px;
+}
+
+.cover.work {
+    min-height: 600px;
+    height: 40vh !important;
+}
+.cover-inner.work h1 {
+    background: var(--smooth);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-size: 40px;
+    font-weight: 100;
+}
+.cover-inner.work p {
+    font-size: 20px;
+}
+.cover-inner.work h1 strong {
+    font-weight: 900;
+}

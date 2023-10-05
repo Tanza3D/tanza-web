@@ -1,9 +1,14 @@
 <div class="navbar">
     <div class="navbar__inner">
+        <?php
+        if(!$isWork) { ?>
         <a class="navbar__left" href="/">
             <img src="/public/img/logo.svg">
             <p>Tanza</p>
 </a>
+<?php
+        }
+        ?>
         <div class="navbar__right">
             <?php
             foreach($pages as $page) {

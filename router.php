@@ -172,6 +172,7 @@ $func();
         ?>
     </div>
 
+    <?php if(!$isWork) { ?>
     <div hover="smaller" click="normal" class="donate-button" style="
                 --col1: #EB00FF;
                 --col2: #F7AF01;
@@ -184,6 +185,7 @@ $func();
                 "Thanks alot for the donation! It really helps me to keep doing what I like to do :3",
             ); ?>
     </div>
+    <?php } ?>
 </body>
 
 <?php

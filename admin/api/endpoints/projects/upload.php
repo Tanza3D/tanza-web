@@ -77,8 +77,8 @@ if ($_FILES["background"] != null) {
 
 echo $date;
 
-Database::execOperation("INSERT INTO `Projects` (`InternalName`, `Name`, `Description`, `Background`, `Logo`, `Badge`, `Popup`, `Size`, `Date`, `Order`)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", "sssssssssi",
+Database::execOperation("INSERT INTO `Projects` (`InternalName`, `Name`, `Description`, `Background`, `Logo`, `Badge`, `Popup`, `Size`, `Date`, `Order`, `ExtraDescription`)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", "sssssssssis",
 [
     $internalName,
     $name,
@@ -89,5 +89,6 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", "sssssssssi",
     $popup,
     $size,
     $date,
-    $order
+    $order,
+    $_REQUEST['extraDescription']
 ]);

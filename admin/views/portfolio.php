@@ -22,7 +22,10 @@
                 <input type="text" name="description" id="description" onkeyup="updateData()">
                 <br>
                 <p>Date</p>
-                <input type="date" name="date" id="date" onkeyup="updateData()">
+                <input type="datetime-local" name="date" id="date_up" onkeyup="updateData()">
+                <br>
+                <p>Link</p>
+                <input type="text" name="link" id="link" onkeyup="updateData()">
                 <br>
                 <p>Image</p>
                 <div class="images">

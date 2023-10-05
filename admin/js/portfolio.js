@@ -4,6 +4,7 @@ var baseItem = {
     date: "",
     images: [],
     imageDescriptions: [],
+    link: ""
 }
 
 var portfolioUploadItem = clone(baseItem);
@@ -13,7 +14,8 @@ var editing = false;
 function updateData() {
     portfolioUploadItem['name'] = document.getElementById("name").value;
     portfolioUploadItem['description'] = document.getElementById("description").value;
-    portfolioUploadItem['date'] = document.getElementById("date").value;
+    portfolioUploadItem['date'] = document.getElementById("date_up").value;
+    portfolioUploadItem['link'] = document.getElementById("link").value;
     if (portfolioUploadItem['images'].length == 0) {
         var parent = document.getElementById("image-grid");
         while (parent.firstChild) {
@@ -26,7 +28,8 @@ function updateData() {
 function updateDataReverse() {
     document.getElementById("name").value = portfolioUploadItem['name'];
     document.getElementById("description").value = portfolioUploadItem['description'];
-    document.getElementById("date").value = portfolioUploadItem['date'];
+    document.getElementById("date_up").value = portfolioUploadItem['date'];
+    document.getElementById("link").value = portfolioUploadItem['link'];
 
     // fuck you i can't be arsed to implement image editing
 }
@@ -71,6 +74,7 @@ function uploadProject() {
     formData.append("name", portfolioUploadItem.name);
     formData.append("description", portfolioUploadItem.description);
     formData.append("date", portfolioUploadItem.date);
+    formData.append("link", portfolioUploadItem.link);
     if (editing == false) {
         //formData.append("logo", document.getElementById("logo").files[0]);
         var dumdum = 0;
@@ -109,6 +113,11 @@ function dropHandler(ev) {
                 portfolioUploadItem.images.push(file);
 
                 console.log(`:3 … file[${i}].name = ${file.name}`);
+
+                console.log("setting date");
+                const update = new Date(file.lastModified);
+                document.getElementById("date_up").value = update.toISOString().slice(0, 16);
+
                 let imgContainer = document.createElement("div");
 
                 let img = document.createElement("img");

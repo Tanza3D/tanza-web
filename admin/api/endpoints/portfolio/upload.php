@@ -24,12 +24,15 @@ foreach($_FILES as $file) {
     $counter++;
 }
 
+$link = $_POST['link'];
 
-Database::execOperation("INSERT INTO `Portfolio` (`Id`, `Images`, `Name`, `Description`, `Date`)
-VALUES (?,?,?,?,?);", "issss", [
+
+Database::execOperation("INSERT INTO `Portfolio` (`Id`, `Images`, `Name`, `Description`, `Date`, `Link`)
+VALUES (?,?,?,?,?,?);", "isssss", [
     $id,
     json_encode($files),
     $name,
     $description,
-    $date
+    $date,
+    $link
 ]);

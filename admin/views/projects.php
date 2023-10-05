@@ -39,6 +39,8 @@
                 <br>
                 <p>Project Description</p>
                 <input type="text" name="description" id="description" onkeyup="updateData()">
+                <p>Extra Description</p>
+                <textarea type="text" name="extraDescription" id="extraDescription" onkeyup="updateData()"></textarea>
                 <br>
                 <p>Badge</p>
                 <input type="text" name="badge" id="badge" onkeyup="updateData()">

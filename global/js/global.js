@@ -185,15 +185,6 @@ for (var element of hrefs) {
     if (element.tagName == "A" && element.getAttribute("target") != "_blank") {
         console.log(element);
         let link = element.getAttribute("href");
-        element.removeAttribute("href");
         element.classList.add("hovercursor");
-        element.addEventListener("click", function(e) {
-            document.body.classList.add("switchpage");
-            setTimeout(() => { window.location = link; }, 900);
-        });
-
-        element.addEventListener("auxclick", function(e) {
-            window.open(link, "_blank");
-        });
     }
 }

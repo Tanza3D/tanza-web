@@ -8,10 +8,17 @@ function generatePortfolioPanel(item) {
 
     div.className = "portfolio-item";
     var img = document.createElement("img");
-    img.src = "/img/portfolio/" + item.Id + "/" + item.Images[0].path;
+    img.classList.add("lazy");
+    
+    img.src = `/public/img/gallery/wide.png`;
+    img.setAttribute("data-src", "/img/portfolio/" + item.Id + "/" + item.Images[0].path)
+ 
     var imgBackdrop = document.createElement("img");
     imgBackdrop.classList.add("backdrop");
-    imgBackdrop.src = "/img/portfolio/" + item.Id + "/" + item.Images[0].path;
+    imgBackdrop.classList.add("lazy");
+    
+    imgBackdrop.src = `/public/img/gallery/wide.png`;
+    imgBackdrop.setAttribute("data-src", "/img/portfolio/" + item.Id + "/" + item.Images[0].path)
     div.appendChild(img);
     div.appendChild(imgBackdrop);
 
@@ -79,6 +86,10 @@ function loadPortfolio() {
             pageEl.appendChild(sectionEl)
         }
         audioSystem.registerAudios();
+
+        var lazyLoadInstance = new LazyLoad({
+            // Your custom settings go here
+        });
     }
     xhr.send()
 }

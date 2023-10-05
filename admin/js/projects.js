@@ -14,6 +14,7 @@ function updateData() {
     projectUploadItem['badge'] = document.getElementById("badge").value;
     projectUploadItem['internalName'] = document.getElementById("internalName").value;
     projectUploadItem['description'] = document.getElementById("description").value;
+    projectUploadItem['extraDescription'] = document.getElementById("extraDescription").value;
     projectUploadItem['order'] = document.getElementById("order").value;
     projectUploadItem['popupData'] = document.getElementById("click").value;
     var e = document.getElementById("size").value;
@@ -34,6 +35,7 @@ function updateDataReverse() {
     document.getElementById("badge").value = projectUploadItem['badge'];
     document.getElementById("internalName").value = projectUploadItem['internalName'];
     document.getElementById("description").value = projectUploadItem['description'];
+    document.getElementById("extraDescription").innerHTML = projectUploadItem['extraDescription'];
     document.getElementById("order").value = projectUploadItem['order'];
     document.getElementById("click").value = projectUploadItem['popupData'];
 
@@ -76,6 +78,7 @@ function uploadProject() {
     formData.append("internalName", projectUploadItem.internalName);
     formData.append("name", projectUploadItem.name);
     formData.append("description", projectUploadItem.description);
+    formData.append("extraDescription", projectUploadItem.extraDescription);
     formData.append("badge", projectUploadItem.badge);
     formData.append("size", projectUploadItem.size);
     formData.append("order", projectUploadItem.order);

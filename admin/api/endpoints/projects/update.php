@@ -5,6 +5,7 @@ echo $internalName;
 
 $name = $_REQUEST['name'];
 $description = $_REQUEST['description'];
+$extraDescription = $_REQUEST['extraDescription'];
 
 $badge = $_REQUEST['badge'];
 $popup = $_REQUEST['popupData'];
@@ -13,7 +14,7 @@ $date = $_REQUEST['date'];
 $order = $_REQUEST['order'];
 
 
-Database::execOperation("UPDATE `Projects` SET `Name` = ?,`Description` = ?,`Badge` = ?,`Popup` = ?,`Size` = ?,`Date` = ?,`Order` = ? WHERE InternalName = ?", "ssssssis",
+Database::execOperation("UPDATE `Projects` SET `Name` = ?,`Description` = ?,`Badge` = ?,`Popup` = ?,`Size` = ?,`Date` = ?,`Order` = ?, `ExtraDescription` = ? WHERE InternalName = ?", "ssssssiss",
 [
     $name,
     $description,
@@ -22,5 +23,6 @@ Database::execOperation("UPDATE `Projects` SET `Name` = ?,`Description` = ?,`Bad
     $size,
     $date,
     $order,
+    $extraDescription,
     $internalName,
 ]);
