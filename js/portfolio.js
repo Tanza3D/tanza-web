@@ -1,6 +1,6 @@
 const pageEl = document.getElementById("portfolio-page");
 
-function generatePortfolioPanel(item) {
+function generatePortfolioPanel(item, largePopup = false) {
     console.log(item);
     var div = document.createElement("div");
     div.setAttribute("hover", "small")
@@ -34,7 +34,7 @@ function generatePortfolioPanel(item) {
     div.appendChild(title);
     div.appendChild(description);
 
-    div.onclick = function() { openItem(item) };
+    div.onclick = function() { openItem(item, largePopup) };
 
     return div;
 }
@@ -91,7 +91,7 @@ function loadPortfolio() {
             if(item.Website == "0") continue;
             item.Images = JSON.parse(item.Images);
             var sectionEl = document.getElementById("portfolio-page-web");
-            sectionEl.appendChild(generatePortfolioPanel(item));
+            sectionEl.appendChild(generatePortfolioPanel(item, true));
         }
         audioSystem.registerAudios();
 
@@ -103,13 +103,17 @@ function loadPortfolio() {
 }
 loadPortfolio();
 
-function openItem(item) {
+function openItem(item, largePopup = false) {
     var layer = document.getElementById("layer_content");
 
     document.getElementById("name").innerHTML = item.Name;
     document.getElementById("description").innerHTML = item.Description;
     document.getElementById("image-list").innerHTML = "";
-
+    if(largePopup) {
+        layer.parentElement.parentElement.classList.add("large");
+    } else {
+        layer.parentElement.parentElement.classList.remove("large");
+    }
     var imagecont = document.createElement("div");
     var counter = 0;
     var first = 2;
