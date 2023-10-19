@@ -180,4 +180,34 @@
 }
 .layer__header h1 {
     line-height: 1.1;
-} */
+}
+
+.page-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.portfolio_left {
+    flex: 1.5;
+    margin-right: 40px;
+}
+.portfolio_right {
+    flex: 1;
+}
+
+.portfolio_left-content, 
+.portfolio_right-content {
+    margin-top: 20px;
+}
+
+.portfolio_right-content .portfolio-item {
+    margin-bottom: 10px;
+    aspect-ratio: auto;
+}
+.portfolio_right-content .portfolio-item img.backdrop {
+    display: none;
+}
+.portfolio_right-content .portfolio-item img {
+    width: 100%;
+    height: auto;
+}

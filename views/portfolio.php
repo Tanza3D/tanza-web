@@ -1,10 +1,25 @@
 <div class="cover cover-small">
     <h1>Portfolio</h1>
-    <p>Designs I’ve worked on. Click on them to learn more!<p>
+    <p>Designs I’ve worked on. Click on them to learn more!
+    <p>
 </div>
 
 <div class="page-content" aload="basic" loadelement="window">
-    <div class="page-inner" id="portfolio-page">
+    <div class="page-inner">
+
+        <div class="portfolio_left">
+            <h1>Branding & Misc</h1>
+            <div class="portfolio_left-content" id="portfolio-page">
+
+            </div>
+        </div>
+
+        <div class="portfolio_right">
+            <h1>Web Design</h1>
+            <div class="portfolio_right-content" id="portfolio-page-web">
+
+            </div>
+        </div>
 
     </div>
 </div>

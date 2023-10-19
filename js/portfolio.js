@@ -49,27 +49,28 @@ function loadPortfolio() {
         var sorted = [];
         var curel = {
             "items": [],
-            "type": "2x2"
+            "type": "1x1"
         };
         var counter = 0;
         for (var item of json) {
+            if(item.Website == "1") continue;
             item.Images = JSON.parse(item.Images);
             console.log("pushing to type " + curel.type);
             curel.items.push(item);
-            if (curel.items.length >= 4 && curel.type == "2x2") {
-                console.log("switching to 3x3");
+            if (curel.items.length >= 1 && curel.type == "1x1") {
+                console.log("switching to 2x2 with " + curel.items.length);
                 sorted.push(curel);
-                curel = {
-                    "items": [],
-                    "type": "3x3"
-                }
-            }
-            if (curel.items.length >= 9 && curel.type == "3x3") {
-                sorted.push(curel);
-                console.log("switching to 2x2");
                 curel = {
                     "items": [],
                     "type": "2x2"
+                }
+            }
+            if (curel.items.length >= 4 && curel.type == "2x2") {
+                sorted.push(curel);
+                console.log("switching to 1x1");
+                curel = {
+                    "items": [],
+                    "type": "1x1"
                 }
             }
             counter++;
@@ -84,6 +85,13 @@ function loadPortfolio() {
                 sectionEl.appendChild(generatePortfolioPanel(item));
             }
             pageEl.appendChild(sectionEl)
+        }
+
+        for (var item of json) {
+            if(item.Website == "0") continue;
+            item.Images = JSON.parse(item.Images);
+            var sectionEl = document.getElementById("portfolio-page-web");
+            sectionEl.appendChild(generatePortfolioPanel(item));
         }
         audioSystem.registerAudios();
 
