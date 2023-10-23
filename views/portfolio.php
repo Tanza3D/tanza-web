@@ -34,6 +34,7 @@
         </div>
         <div class="layer-text-content" id="layer_content">
             <p id="description"></p>
+            <a class="button" id="websiteview">View website!</a>
             <div class="image-list" id="image-list"></div>
         </div>
     </div>

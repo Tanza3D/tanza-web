@@ -97,9 +97,7 @@ LIMIT 1");
         </div>
     </div>
 </div>
-<?php
-include("work.html");
-?>
+
 <div class="cover mobile">
     <div class="cover-background"></div>
     <div class="cover-inner">
@@ -123,7 +121,9 @@ include("work.html");
         </div>
     </div>
 </div>
-
+<?php
+include("work.html");
+?>
 <div class="page-content" aload="home" loadelement="window">
     <div class="page-inner">
         <div class="home__panels" id="homepanelsarea">
@@ -295,10 +295,11 @@ include("work.html");
             <i class="fas fa-times-circle" onclick="closeLayer()"></i>
         </div>
         <div class="layer-text-content">
-            <p>The best way to contact me is through Discord. You can do so by adding me at Tanza#6283.</p>
-            <p>If you would prefer, you can also commission a logo through <a
-                    href="https://www.fiverr.com/hubzii/">Fiverr</a>!</a>
-            <p>You can also send me an email at archie@untone.uk if that's preferred.</p>
+            <h1>Commisions</h1>
+            <p>Hi there! If you're looking to commission me for work, the best way to contact me is either through Discord at <strong>@tanza3d</strong>, or through Email at <strong>archie@untone.uk</strong>!</p>
+            <p>Please keep in mind I cannot take large scale projects at the moment! I'll happily work on branding. Payment will be discussed private but for a basic logo set would be around £30-£60 depending on what you're looking for.</p>
+            <h1>Work</h1>
+            <p>Want to hire me? Please <a href="https://www.linkedin.com/in/archie-">Take a look at my LinkedIn</a> or contact me through <strong>archie@untone.uk</strong>, I'm actively looking for work!</p>
         </div>
     </div>
 </div>

@@ -9,16 +9,8 @@ positionNav();
 window.onresize = positionNav;
 window.onload = positionNav();
 
-window.onload = function() {
-    document.body.classList.add("loaded");
-    document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
-};
-
-setTimeout(
-    function() {
-        document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
-        document.body.classList.add("loaded"); // sometimes the event doens't call
-    }, 15000);
+document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
+document.body.classList.add("loaded");
 
 
 var audioSystem = {

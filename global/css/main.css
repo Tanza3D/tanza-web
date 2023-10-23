@@ -21,6 +21,9 @@ a {
     opacity: 0;
     pointer-events: none;
 }
+.hidden-full {
+    display: none !important;
+}
 
 .page {
     opacity: 0.01;
@@ -238,7 +241,6 @@ a {
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #160c22aa;
-    backdrop-filter: blur(20px);
     z-index: 822;
     transition: all 0.5s ease;
 }
@@ -255,9 +257,10 @@ a {
 .layer__content {
     z-index: 824;
     width: 100%;
-    max-width: calc(var(--page-width) + 20px);
-    background: linear-gradient(#3F006F, #602560, #68067A);
-    border-radius: 30px;
+    max-width: calc(var(--page-width)  - 200px);
+    background: #57136Add;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
     margin: auto;
     height: auto;
     transition: all 0.75s ease;
@@ -270,16 +273,13 @@ a {
     font-size: 18px;
     margin-top: -6px;
     margin-bottom: 10px;
-    padding: 30px;
+    padding-top: 35px;
+    padding: 20px 25px;
     padding-bottom: 0px;
 }
 
 .layer__header h1 {
-    background: var(--smooth);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+    color: #f479ff;
 }
 
 .layer__header i {
@@ -298,7 +298,9 @@ p a {
     border-radius: 12px;
     border: 1px solid #fff4;
 }
-
+.layer-text-content h1 {
+    font-weight: 200;
+}
 .layer-closed {
     opacity: 0;
     pointer-events: none;
@@ -309,7 +311,7 @@ p a {
 }
 
 .layer-text-content {
-    padding: 30px;
+    padding: 20px 25px;
     padding-top: 0px;
 }
 
@@ -439,11 +441,14 @@ svg path.loader-thin {
     height: 100%;
 }
 .work-intro {
-    margin-bottom: 15px;
+    margin-bottom: 50px;
     font-size: 20px;
 }
-.work-intro:last-child {
-    margin-bottom: 40px;
+.work-intro p {
+    margin-bottom: 12px;
+}
+.work-intro p:last-child {
+    margin-bottom: 0px;
 }
 
 .work-banner-trim {
@@ -479,8 +484,11 @@ width: 100%;
 height: 100%;
     background: linear-gradient(#fffa, #fff6), var(--smooth);
 }
-.work-banner .button {
-    background-color: #222;
-    color: white;
+.work-banner .left {
     margin-left: auto;
+}
+.work-banner .button {
+
+    background-color: #222d;
+    color: white;
 }

@@ -30,6 +30,9 @@ addPage("gallery", "Gallery", "gallery.php", "basic", ["page-with-cover"]);
 addPage("portfolio", "Portfolio", "portfolio.php", "basic", ["page-with-cover"], ["global/css/projects/projectPanel.css"], ["global/js/projects/projectPanel.js"]);
 addPage("past_work", "Past Work", "past-work.php", "basic", ["page-with-cover"], ["global/css/projects/projectPanel.css"], ["global/js/projects/projectPanel.js"]);
 
+if ($_SERVER['SERVER_NAME'] == "tanza.work") {
+    //addPage("home_new", "New home", "home-work-new.php", "basic");
+}
 class Embed
 {
     public $embed_name = "";
@@ -71,6 +74,12 @@ class Embed
     {
         $this->embed_name = "Tanza / Past Work";
         $this->embed_description = "Past Work";
+        $this->embed_thumbnail = "/public/img/covers/portfolio.png";
+    }
+    public function home_new()
+    {
+        $this->embed_name = "Tanza / temp";
+        $this->embed_description = "temp";
         $this->embed_thumbnail = "/public/img/covers/portfolio.png";
     }
 }

@@ -39,7 +39,7 @@
     <div class="cover-background" id="lowq-bg"></div>
     <div class="cover-background cover-background-2" id="highq-bg"></div>
     <div class="cover-inner work">
-        <h1>Hey, I'm <strong>Archie Williams</strong> - also known as Tanza</h1>
+        <h1>Hey, I'm <strong>Archie Williams</strong></h1>
         <p>I do graphic design, programming, 3d art, and more. Please look below to see my work!</p>
     </div>
 </div>
@@ -49,8 +49,8 @@ include("work.html");
 ?>
 <div class="page-content" aload="home" loadelement="window">
     <div class="page-inner">
-        <div>
-            <p class="work-intro">
+        <div class="work-intro">
+            <!-- <p class="work-intro">
                 I primarily do design work, for websites, apps, games, brands, and various other things!</p>
             <p class="work-intro">
                 Most notably, I've done official designs for <a href="https://osu.ppy.sh">osu!</a>, along with various
@@ -61,7 +61,15 @@ include("work.html");
                 <a href="https://osekai.net">Osekai</a>, <a href="https://id.untone.uk/">UNTONE ID</a>, and of course
                 this
                 website itself!
-            </p>
+            </p> -->
+            <p>I'm a UI/UX Designer and Developer. I've been doing programming for 5 years or so now,
+                and UI/UX design for 6 if not more.</p>
+            <p>Most of my work is done on a volunteer basis on community projects or other small projects.</p>
+            <p>I've done official designs for osu! (https://osu.ppy.sh), and also worked on Osekai, GTS, and more. I've
+                also worked on various design projects for tournaments and events, and have also created various brand
+                designs. Please check my portfolio!</p>
+            <p>I also created Reddark, which was referenced in news sites worldwide from CNN to The Verge, and was
+                watched by 18,000 people concurrently in it's peak.</p>
         </div>
         <div class="home__panels" id="homepanelsarea">
             <div class="home__panels-left">
@@ -111,7 +119,7 @@ include("work.html");
 
             </div>
             <div class="home__panels-right">
-            <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
+                <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #5C4EE4;
                 --col2: #4E78E4;
                 --col3: #AB4EE4;
@@ -119,7 +127,7 @@ include("work.html");
                     <div class="home__panel-sheen desktop"></div>
                     <div class="icon"><i class="fab fa-linkedin"></i></div>
                     <h1>LinkedIn</h1>
-                    </a>
+                </a>
                 <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #8B3DE7;
                 --col2: #6F7DD4;
@@ -129,35 +137,37 @@ include("work.html");
                     <div class="icon"><i class="fab fa-discord"></i></div>
                     <h1>Discord</h1>
                 </a>
-                    <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
+                <a hover="smaller" click="normal" class="home__panel home__panel-small" style="
                 --col1: #191C44;
                 --col2: #161B22;
                 --col3: #394049;
                 " href="https://github.com/tanza3d" target="_blank">
-                        <div class="home__panel-sheen desktop"></div>
-                        <div class="icon"><i class="fab fa-github"></i></div>
-                        <h1>Github</h1>
-                    </a>
-                    <div hover="small" click="layer" class="home__panel home__panel-medium" style="
+                    <div class="home__panel-sheen desktop"></div>
+                    <div class="icon"><i class="fab fa-github"></i></div>
+                    <h1>Github</h1>
+                </a>
+                <div hover="small" click="layer" class="home__panel home__panel-medium" style="
                 --col1: #FF007A;
                 --col2: #9712FF;
                 --col3: #0047FF;
                 " onclick="openLayer('layer_contact')">
-                        <div class="home__panel-sheen desktop"></div>
-                        <div class="icon"><i class="fas fa-envelope"></i></div>
-                        <h1>Work / Contact</h1>
-                        <p>Want some design work done? You can contact me here.</p>
-                    </div>
-                    <div hover="small" click="layer" class="home__panel home__panel-medium" style="
-                --col1: #FFC700;
-                --col2: #FFD770;
-                --col3: #FFC700;
-                " href="https://untone.uk">
-                        <div class="home__panel-sheen desktop"></div>
-                        <div class="icon"><i class="fas fa-smile"></i></div>
-                        <h1>UNTONE</h1>
-                        <p>UNTONE</p>
-                    </div>
+                    <div class="home__panel-sheen desktop"></div>
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h1>Work / Contact</h1>
+                    <p>Want some design work done? You can contact me here.</p>
+                </div>
+
+                <a hover="small" click="layer" class="home__panel home__panel-medium" style="
+                --col1: #ff66aa;
+                --col2: #ffaa66;
+                --col3: #ff66aa;
+                " href="/public/cv.pdf">
+                    <div class="home__panel-sheen desktop"></div>
+                    <div class="icon"><i class="fas fa-file"></i></div>
+                    <h1>CV</h1>
+                    <p>Download my CV here!</p>
+                </a>
+
             </div>
         </div>
     </div>
@@ -184,8 +194,15 @@ include("work.html");
             <i class="fas fa-times-circle" onclick="closeLayer()"></i>
         </div>
         <div class="layer-text-content">
-            <p>The best way to contact me is through Discord. You can do so by adding me at @Tanza3D.</p>
-            <p>You can also send me an email at archie@untone.uk if that's preferred!</p>
+            <h1>Commisions</h1>
+            <p>Hi there! If you're looking to commission me for work, the best way to contact me is either through
+                Discord at <strong>@tanza3d</strong>, or through Email at <strong>archie@untone.uk</strong>!</p>
+            <p>Please keep in mind I cannot take large scale projects at the moment! I'll happily work on branding.
+                Payment will be discussed private but for a basic logo set would be around £30-£60 depending on what
+                you're looking for.</p>
+            <h1>Work</h1>
+            <p>Want to hire me? Please <a href="https://www.linkedin.com/in/archie-">Take a look at my LinkedIn</a> or
+                contact me through <strong>archie@untone.uk</strong>, I'm actively looking for work!</p>
         </div>
     </div>
 </div>

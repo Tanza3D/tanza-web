@@ -1,3 +1,10 @@
+body {
+    --page-width: 1920px;
+}
+.page-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+}
 .portfolio-section {
     grid-gap: 10px 14px;
     display: grid;
@@ -168,6 +175,22 @@
     display: none;
 }
 
+#layer_info .button {
+    width: 100%;
+    padding: 18px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    display: block;
+    background-color: #fffa;
+    outline: 3px solid #fffb !important;
+    color: #111;
+}
+#layer_info .button:hover {
+    background-color: white;
+}
+
 .image-container {
     margin-top: 8px;
     gap: 8px;
@@ -221,4 +244,8 @@
 
 .large .layer__content {
     max-width: 900px !important;
+}
+
+.layer__content h1 {
+    margin-top: 15px;
 }

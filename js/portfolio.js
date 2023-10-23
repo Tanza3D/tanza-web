@@ -49,7 +49,7 @@ function loadPortfolio() {
         var sorted = [];
         var curel = {
             "items": [],
-            "type": "1x1"
+            "type": "2x2"
         };
         var counter = 0;
         for (var item of json) {
@@ -57,20 +57,20 @@ function loadPortfolio() {
             item.Images = JSON.parse(item.Images);
             console.log("pushing to type " + curel.type);
             curel.items.push(item);
-            if (curel.items.length >= 1 && curel.type == "1x1") {
-                console.log("switching to 2x2 with " + curel.items.length);
+            if (curel.items.length >= 2 && curel.type == "2x2") {
+                console.log("switching to 3x3 with " + curel.items.length);
                 sorted.push(curel);
+                curel = {
+                    "items": [],
+                    "type": "3x3"
+                }
+            }
+            if (curel.items.length >= 6 && curel.type == "3x3") {
+                sorted.push(curel);
+                console.log("switching to 2x2");
                 curel = {
                     "items": [],
                     "type": "2x2"
-                }
-            }
-            if (curel.items.length >= 4 && curel.type == "2x2") {
-                sorted.push(curel);
-                console.log("switching to 1x1");
-                curel = {
-                    "items": [],
-                    "type": "1x1"
                 }
             }
             counter++;
@@ -114,6 +114,16 @@ function openItem(item, largePopup = false) {
     } else {
         layer.parentElement.parentElement.classList.remove("large");
     }
+
+    if(item.Link != "") {
+        document.getElementById("websiteview").classList.remove("hidden-full");
+
+        document.getElementById("websiteview").href = item.Link;
+        document.getElementById("websiteview").innerHTML = "View website at <strong>" + item.Link.replace("https://", "") + "</strong>";
+    } else {
+        console.log("hiding");
+        document.getElementById("websiteview").classList.add("hidden-full");
+    }
     var imagecont = document.createElement("div");
     var counter = 0;
     var first = 2;
@@ -145,6 +155,7 @@ function openItem(item, largePopup = false) {
         imageEl.src = "/img/portfolio/" + item.Id + "/" + image.path;
         imageElOuter.appendChild(imageEl);
         imagecont.appendChild(imageElOuter);
+
         counter++;
         if(first == 2) first = 1;
         
