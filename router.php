@@ -90,6 +90,9 @@ $func();
         rel="stylesheet">
     <?php
     Css("global/css/main.css");
+    if ($isWork) {
+        Css("global/css/work.css");
+    }
     Css("css/" . $ref_page['name'] . ".css");
     ?>
     <script>
@@ -102,7 +105,7 @@ $func();
     </style>
 </head>
 
-<body>
+<body class="body-<?= $ref_page['name'] ?>">
     <div id="page_loading_overlay" class="loadingoverlay">
         <svg width="252" height="243" viewBox="0 0 252 243" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_dddddddd_505_43)">
@@ -197,6 +200,9 @@ foreach ($ref_page['css'] as $css) {
     Css($css);
 }
 Js("global/js/global.js");
+if ($isWork) {
+    Css("global/js/work.js");
+}
 Js("js/" . $ref_page['name'] . ".js");
 
 $time = microtime(true) - $time_start;

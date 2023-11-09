@@ -1,7 +1,6 @@
 const pageEl = document.getElementById("portfolio-page");
 
 function generatePortfolioPanel(item, largePopup = false) {
-    console.log(item);
     var div = document.createElement("div");
     div.setAttribute("hover", "small")
     div.setAttribute("click", "layer")
@@ -34,7 +33,15 @@ function generatePortfolioPanel(item, largePopup = false) {
     div.appendChild(title);
     div.appendChild(description);
 
-    div.onclick = function() { openItem(item, largePopup) };
+    div.onclick = function() { 
+        openItem(item, largePopup)
+    };
+    
+
+    if(parseInt(item.Id) == parseInt(window.location.hash.replace("#", ""))) {
+        console.log("opening");
+        openItem(item, largePopup)
+    }
 
     return div;
 }
@@ -44,8 +51,7 @@ function loadPortfolio() {
     xhr.open("GET", "/api/portfolio/items");
     xhr.onload = function() {
         var json = JSON.parse(xhr.responseText);
-        console.log("UWU");
-        console.log(json);
+
         var sorted = [];
         var curel = {
             "items": [],
@@ -55,10 +61,8 @@ function loadPortfolio() {
         for (var item of json) {
             if(item.Website == "1") continue;
             item.Images = JSON.parse(item.Images);
-            console.log("pushing to type " + curel.type);
             curel.items.push(item);
             if (curel.items.length >= 2 && curel.type == "2x2") {
-                console.log("switching to 3x3 with " + curel.items.length);
                 sorted.push(curel);
                 curel = {
                     "items": [],
@@ -67,7 +71,6 @@ function loadPortfolio() {
             }
             if (curel.items.length >= 6 && curel.type == "3x3") {
                 sorted.push(curel);
-                console.log("switching to 2x2");
                 curel = {
                     "items": [],
                     "type": "2x2"
@@ -76,7 +79,6 @@ function loadPortfolio() {
             counter++;
         }
         sorted.push(curel);
-        console.log(sorted);
         for (var section of sorted) {
             var sectionEl = document.createElement("div");
             sectionEl.classList.add("portfolio-section")
@@ -121,7 +123,6 @@ function openItem(item, largePopup = false) {
         document.getElementById("websiteview").href = item.Link;
         document.getElementById("websiteview").innerHTML = "View website at <strong>" + item.Link.replace("https://", "") + "</strong>";
     } else {
-        console.log("hiding");
         document.getElementById("websiteview").classList.add("hidden-full");
     }
     var imagecont = document.createElement("div");
@@ -135,7 +136,6 @@ function openItem(item, largePopup = false) {
             var imagecont = document.createElement("div");
         }
         imagecont.className = "image-container";
-        console.log(image);
         if(image.name != undefined) {
         var text = document.createElement("h1");
         text.innerText = image.name;
@@ -147,7 +147,6 @@ function openItem(item, largePopup = false) {
         }
         let imageEl = document.createElement("img");
         imageEl.addEventListener("load", function() {
-            console.log(imageEl);
             imageElOuter.style = "--ratio: " + imageEl.clientWidth / imageEl.clientHeight
             imageElOuter.classList.add("image-outer");
             imageElOuter.classList.remove("image-loading");

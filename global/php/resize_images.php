@@ -25,7 +25,7 @@
 </style>
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . "/global/php/functions.php");
-function doLog($text, $title = "log", $color = "#000", $big = false)
+function doLog($text, $title = "log", $color = "#eee", $big = false)
 {
     echo "<p style='color: $color;'";
     if ($big) {
@@ -106,14 +106,14 @@ function doResize($directory)
 
 
                 if (!file_exists($directory . "thumbnail/" . $image)) {
-                    $imgResize = imagescale($img, 338, 338 * $heightMultiplier);
+                    $imgResize = imagescale($img, 338, 338 * $heightMultiplier, IMG_BILINEAR_FIXED|IMG_BICUBIC);
                     $jpg = imagepng($imgResize, $directory . "thumbnail/" . $image, 2);
                 } else {
                     doLog("Skipping Thumbnail because already processed", "info", "#2f6", false);
                 }
 
                 if (!file_exists($directory . "small/" . $image)) {
-                    $imgResize_small = imagescale($img, 550 * $widthMultiplier, 550);
+                    $imgResize_small = imagescale($img, 550 * $widthMultiplier, 550, IMG_BILINEAR_FIXED|IMG_BICUBIC);
                     imagealphablending($imgResize_small, false);
                     imagesavealpha($imgResize_small, true);
                     $jpg = imagepng($imgResize_small, $directory . "small/" . $image, 2);
@@ -131,4 +131,43 @@ function doResize($directory)
     }
 }
 
-doResize("../../img/gallery/");
+function portfolioResize($path) {
+    $files = scandir($path);
+    foreach ($files as $file) {
+        if($file == ".." || $file == ".") {
+            continue;
+        }
+        $dir_files = scandir($path . $file);
+
+        $file1 = $dir_files[2];
+        $file1_path = $path . $file . "/" . $file1;
+        doLog($file1_path);
+
+        $format = "png";
+        if(str_contains($file1, "jpg")) {
+            $format = "jpg";
+        }
+        
+        $img = null;
+        if($format == "png") {
+            $img = imagecreatefrompng($file1_path);
+        } else {
+            $img = imagecreatefromjpeg($file1_path);
+        }
+        if($img == null) {
+            log("oh no");
+            continue;
+        }
+
+        $widthMultiplier = imagesx($img) / imagesy($img);
+        $heightMultiplier = imagesy($img) / imagesx($img);
+        $aspectRatio = getAspectRatio(imagesx($img), imagesy($img));
+
+        $imgResize_small = imagescale($img, 250 * $widthMultiplier, 250, IMG_BILINEAR_FIXED|IMG_BICUBIC);
+        $jpg = imagepng($imgResize_small, $path . $file . "/small.png", 2);
+    }
+}
+
+//doResize("../../img/gallery/");
+portfolioResize("../../img/portfolio/");
+
