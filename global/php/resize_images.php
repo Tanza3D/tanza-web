@@ -137,6 +137,9 @@ function portfolioResize($path) {
         if($file == ".." || $file == ".") {
             continue;
         }
+        if(file_exists($file . "small.png")) {
+            continue;
+        }
         $dir_files = scandir($path . $file);
 
         $file1 = $dir_files[2];
@@ -168,6 +171,6 @@ function portfolioResize($path) {
     }
 }
 
-//doResize("../../img/gallery/");
+doResize("../../img/gallery/");
 portfolioResize("../../img/portfolio/");
 
