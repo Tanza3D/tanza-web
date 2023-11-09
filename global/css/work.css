@@ -340,3 +340,15 @@ html {
         ;
     }
 }
+
+.pw__collapsable-top {
+    background-color: #222 !important;
+    color: white;
+    border: 0px solid white;
+    outline: 0px solid white;
+}
+
+.pw__collapsable-content {
+    background-color: #fafafa !important;
+    margin: 0px !important;
+}
