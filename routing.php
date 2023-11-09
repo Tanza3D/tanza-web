@@ -20,7 +20,7 @@ $isWork = false;
 if ($_SERVER['SERVER_NAME'] == "tanza.work") {
     $isWork = true;
 }
-$isWork = true;
+
 if ($isWork) {
     addPage("home", "Home", "home-work.php", "basic", ["page-with-cover"]);
 } else {
