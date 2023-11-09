@@ -16,6 +16,9 @@ document.body.classList.add("loaded");
 var audioSystem = {
     playAudio: true,
     play: function(file) {
+        if(location.hostname == "tanza.work"){
+            return;
+        }
         var audio = new Audio('/public/audio/' + file + ".mp3");
         if (this.playAudio == true)
             audio.play();
