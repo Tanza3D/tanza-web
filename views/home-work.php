@@ -35,14 +35,24 @@
                 shuffle($portfolios);
                 foreach ($portfolios as $portfolio) {
                     $images = json_decode($portfolio['Images'], true);
-                    echo '<a href="/portfolio#'.$portfolio['Id'].'"><img loading="lazy" class="lazy carousel-image" data-src="/img/portfolio/' . $portfolio['Id'] . '/small.png"></a>';
+                    echo '<a href="/portfolio#' . $portfolio['Id'] . '"><img loading="lazy" class="lazy carousel-image" data-src="/img/portfolio/' . $portfolio['Id'] . '/small.png"></a>';
                 }
                 foreach ($portfolios as $portfolio) {
                     $images = json_decode($portfolio['Images'], true);
-                    echo '<a href="/portfolio#'.$portfolio['Id'].'"><img loading="lazy" class="lazy carousel-image" data-src="/img/portfolio/' . $portfolio['Id'] . '/small.png"></a>';
+                    echo '<a href="/portfolio#' . $portfolio['Id'] . '"><img loading="lazy" class="lazy carousel-image" data-src="/img/portfolio/' . $portfolio['Id'] . '/small.png"></a>';
                 }
                 ?>
             </div>
+        </div>
+    </div>
+    <div class="home__work-footer">
+        <div class="home__work-footer-left">
+            <p>(C) Archie Williams / Tanza</p>
+            <a href="https://github.com/Tanza3D/tanza-web/">This site is open source!</a>
+        </div>
+        <div class="home__work-footer-right">
+            <a href="https://bsky.app/profile/tanza.me"><i class="fas fa-square"></i></a>
+            <a href="https://www.linkedin.com/in/archie-"><i class="fab fa-linkedin"></i></a>
         </div>
     </div>
 </div>
