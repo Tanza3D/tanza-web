@@ -21,7 +21,7 @@ html {
 }
 
 .navbar__inner h1 {
-    margin-left: 15px;
+    margin-left: 0px;
     font-size: 18px;
 }
 
@@ -30,6 +30,7 @@ html {
 }
 
 .navbar {
+    height: 60px;
     background-color: #f6f6f6aa;
     position: sticky;
     top: 0;
@@ -351,4 +352,43 @@ html {
 .pw__collapsable-content {
     background-color: #fafafa !important;
     margin: 0px !important;
+}
+
+.page {
+    max-width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+.page-content {
+    margin: 30px;
+    margin-top: 10px;
+    max-width: var(--page-width);
+    margin: auto;
+}
+.navbar__inner {
+    align-items: center;
+}
+.navbar-button {
+    margin: 0px;
+    padding: 0px;
+    margin-left: 20px;
+    border-bottom: 0px solid white;;
+}
+.navbar-button-active {
+    border-bottom: 0px solid white !important;
+}
+
+
+.markdown {
+    background-color: #eee !important;
+}
+.blogpost-item {
+    background-color: #eee !important;
+}
+
+#post {
+    max-width: var(--page-width);
+    margin: 30px auto;
+    padding: 0px 30px;
 }

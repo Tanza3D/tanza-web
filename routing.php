@@ -29,8 +29,10 @@ if ($isWork) {
 
 addPage("projects", "Projects", "projects.php", "basic", ["page-with-cover"], ["global/css/projects/projectPanel.css"], ["global/js/projects/projectPanel.js"]);
 if (!$isWork) {
-addPage("gallery", "Gallery", "gallery.php", "basic", ["page-with-cover"]);
+    addPage("gallery", "Gallery", "gallery.php", "basic", ["page-with-cover"]);
 }
+addPage("blog", "Blog", "blog.php", "basic", ["page-with-cover"]);
+
 addPage("portfolio", "Portfolio", "portfolio.php", "basic", ["page-with-cover"], ["global/css/projects/projectPanel.css"], ["global/js/projects/projectPanel.js"]);
 addPage("past_work", "Past Work", "past-work.php", "basic", ["page-with-cover"], ["global/css/projects/projectPanel.css"], ["global/js/projects/projectPanel.js"]);
 
@@ -89,6 +91,13 @@ class Embed
     {
         $this->embed_name = "Tanza / temp";
         $this->embed_description = "temp";
+        $this->embed_thumbnail = "/public/img/covers/portfolio.png";
+    }
+
+    public function blog()
+    {
+        $this->embed_name = "Tanza / Blog";
+        $this->embed_description = "Blogposts about design, development, or other cool things";
         $this->embed_thumbnail = "/public/img/covers/portfolio.png";
     }
 }

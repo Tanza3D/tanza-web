@@ -1,6 +1,6 @@
-.page-content {
+/* .page-content {
     max-width: 100vw;
-}
+} */
 
 .gallery {
     width: 100%;
@@ -11,26 +11,24 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin: 20px;
 }
 
 .gallery-sidebar {
+    padding-right: 15px;
+    margin-right: 15px;
     width: 40vw;
     max-width: 330px;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.108) 100%);
-    border-radius: 0px 19px 19px 0px;
     position: -webkit-sticky;
     position: sticky;
     top: 20px;
     height: calc(100vh - 40px);
-    padding: 20px;
     align-self: flex-start;
     overflow: hidden;
     overflow-y: scroll;
 }
 
 .item .gallery-imgel {
-    border-radius: 9px;
+    border-radius: 16px;
     display: block;
     width: 100%;
     height: auto;
@@ -165,12 +163,12 @@
 }
 
 .sidebar-year-month {
-    color: #B280DA;
+    color: #d4c9dd;
     font-weight: 400;
 }
 
 .sidebar-year h1 {
-    color: #d299fd;
+    color: #eddff8;
     font-weight: 300;
 }
 
@@ -197,14 +195,18 @@
 
 .sidebar-year-month span {
     padding: 3px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #fff2;
     border-radius: 90px;
     margin-left: auto;
     color: #fffa;
+    width: 40px;
 }
 
 .sidebar-year-month-active span {
-    color: #521756;
+    color: #503e52;
     background-color: #fff;
     font-weight: 900;
 }

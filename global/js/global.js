@@ -9,10 +9,6 @@ positionNav();
 window.onresize = positionNav;
 window.onload = positionNav();
 
-document.getElementById("page_loading_overlay").classList.add("loadingoverlay-hidden")
-document.body.classList.add("loaded");
-
-
 var audioSystem = {
     playAudio: true,
     play: function(file) {
