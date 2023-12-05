@@ -9,74 +9,7 @@ positionNav();
 window.onresize = positionNav;
 window.onload = positionNav();
 
-var audioSystem = {
-    playAudio: true,
-    play: function(file) {
-        if(location.hostname == "tanza.work"){
-            return;
-        }
-        var audio = new Audio('/public/audio/' + file + ".mp3");
-        if (this.playAudio == true)
-            audio.play();
-    },
-    registerAudioDOM: function(files, attribute, defaultFile, callback) {
-        var all = document.querySelectorAll(`[${attribute}]`);
-        for (var x = 0; x < all.length; x++) {
-            //if (all[x].getAttribute("set_" + attribute) == undefined) {
-            //    all[x].setAttribute("set_" + attribute, "true")
-            //    var attr = all[x].getAttribute(attribute);
-            //    if (attr == null) {
-            //        attr = defaultFile;
-            //    }
-            //    callback(all[x], files[attr]);
-            //}
-            var attr = all[x].getAttribute(attribute);
-            if (attr == null) {
-                attr = defaultFile;
-            }
-            callback(all[x], files[attr]);
-            all[x].removeAttribute(attribute);
-        }
-    },
-    registerAudios: function() {
-        this.registerAudioDOM({
-            "big": "tr_tz_sf_BigHover",
-            "small": "tr_tz_sf_SmallHover",
-            "smaller": "tr_tz_sf_SmallerHover"
-        }, "hover", "small", function(el, file) {
-            el.addEventListener("mouseenter", function() {
-                audioSystem.play(file);
-            });
-        });
 
-        this.registerAudioDOM({
-            "normal": "tr_tz_sf_Click",
-            "big": "tr_tz_sf_TriumphantLoad",
-            "layer": "tr_tz_sf_LayerOpen",
-            "slide": "tr_tz_sf_Slide",
-        }, "click", "normal", function(el, file) {
-            el.addEventListener("click", function() {
-                audioSystem.play(file);
-            });
-        });
-
-        this.registerAudioDOM({
-            "home": "tr_tz_sf_HomeLoad",
-            "basic": "tr_tz_sf_LayerOpen",
-        }, "aload", "home", function(el, file) {
-            if (el.getAttribute("loadelement") == "window") {
-                window.addEventListener("load", function() {
-                    audioSystem.play(file);
-                });
-            } else {
-                el.addEventListener("load", function() {
-                    audioSystem.play(file);
-                });
-            }
-        });
-    }
-}
-audioSystem.registerAudios();
 
 function closeLayer() {
     document.body.classList.remove("noscroll");
@@ -84,7 +17,6 @@ function closeLayer() {
     for (var element of layers) {
         if (!element.classList.contains("layer-closed")) {
             element.classList.add("layer-closed");
-            audioSystem.play("tr_tz_sf_LayerClose"); // this has to be done in here, because this function can be called when hitting ESC even if there's none open
         }
     }
 

@@ -95,7 +95,7 @@ function loadPortfolio() {
             var sectionEl = document.getElementById("portfolio-page-web");
             sectionEl.appendChild(generatePortfolioPanel(item, true));
         }
-        audioSystem.registerAudios();
+        
 
         var lazyLoadInstance = new LazyLoad({
             // Your custom settings go here

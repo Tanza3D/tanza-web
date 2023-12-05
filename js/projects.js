@@ -114,7 +114,7 @@ function loadProjects() {
                 openProjectsPopup(item);
             }
             mobile.appendChild(el2); // have to do this twice.. :/
-            audioSystem.registerAudios();
+            
             // TODO: don't
 
             console.log("column: " + col);

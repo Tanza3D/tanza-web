@@ -103,7 +103,6 @@ function loadProjects() {
         var lazyLoadInstance = new LazyLoad({
             // Your custom settings go here
         });
-        audioSystem.registerAudios();
     }
     xhr.send()
 }
@@ -172,7 +171,7 @@ function generateSidebar() {
         }
         sidebar.appendChild(year);
     }
-    audioSystem.registerAudios();
+    
 }
 loadProjects();
 
