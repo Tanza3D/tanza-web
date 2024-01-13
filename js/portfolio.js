@@ -162,14 +162,14 @@ function openItem(item, largePopup = false) {
             var imagecont = document.createElement("div");
         }
         imagecont.className = "image-container";
-        if (image.name != undefined) {
+        if (image.name != "undefined") {
             var text = document.createElement("h1");
             text.innerText = image.name;
         }
         let imageElOuter = document.createElement("div");
         imageElOuter.classList.add("image-loading");
-        if (image.name != undefined) {
-            imageElOuter.appendChild(text);
+        if (image.name != "undefined") {
+            imagecont.appendChild(text);
         }
         let imageEl = document.createElement("img");
         imageEl.addEventListener("load", function () {
