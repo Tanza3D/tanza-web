@@ -15,6 +15,8 @@ function generatePortfolioPanel(item, largePopup = false, original = false) {
     if (original == true) {
         img.setAttribute("data-src", "/img/portfolio/" + item.Id + "/" + item.Images[0].path)
     }
+
+    img.src = `/public/img/gallery/${image['SimpleRatio']}.png`;
     div.appendChild(img);
 
     var title = document.createElement("h1");
