@@ -137,11 +137,15 @@ function portfolioResize($path) {
         if($file == ".." || $file == ".") {
             continue;
         }
-        if(file_exists($path . $file . "/original.png")) {
+        if(file_exists($path . $file . "/medium.png")) {
             continue;
         }
         $dir_files = scandir($path . $file);
 
+        print_r($dir_files);
+        if(count($dir_files) == 2) {
+            continue;
+        } 
         $file1 = $dir_files[2];
         $file1_path = $path . $file . "/" . $file1;
         doLog($file1_path);
@@ -149,6 +153,16 @@ function portfolioResize($path) {
         $format = "png";
         if(str_contains($file1, "jpg")) {
             $format = "jpg";
+        }
+        
+
+        $id = $file;
+
+        if(isset($_REQUEST['id'])) {
+            if($id != $_REQUEST['id']) {
+                doLog("ignoring " . $id);
+                continue;
+            }
         }
         
         $img = null;
@@ -168,6 +182,25 @@ function portfolioResize($path) {
 
         $imgResize_small = imagescale($img, 250 * $widthMultiplier, 250, IMG_BILINEAR_FIXED|IMG_BICUBIC);
         $jpg = imagepng($imgResize_small, $path . $file . "/small.png", 2);
+
+        $imgResize_medium = imagescale($img, 640 * $widthMultiplier, 640, IMG_BILINEAR_FIXED|IMG_BICUBIC);
+        $jpg2 = imagepng($imgResize_medium, $path . $file . "/medium.png", 2);
+
+        $w = floor(imagesx($img) / 10) * 10;  // Output:700
+        $h = ceil(imagesy($img) / 10) * 10;  // Output:800
+        if($w > $h) {
+            $simpleAspectRatio = "wide";
+        } else if($h > $w) {
+            $simpleAspectRatio = "tall";
+        }
+
+        if ($w == $h) {
+            $simpleAspectRatio = "square";
+        }
+
+        $width = imagesx($img);
+        $height = imagesy($img);
+        Database::execOperation("UPDATE `Portfolio` SET `SimpleRatio`=?, `Ratio`=?, `Width`=?, `Height`=? WHERE `Id`=?", "ssiii", [$simpleAspectRatio, $aspectRatio, $width, $height, $id]);
     }
 }
 
