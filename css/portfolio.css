@@ -12,8 +12,14 @@
 .portfolio-item {
     overflow: hidden;
     border-radius: 10px;
-    aspect-ratio: var(--aspect);
+    aspect-ratio: var(--ratio);
     position: relative;
+
+    border-radius: 16px;
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: #fff2;
 }
 
 .portfolio-item img {
@@ -292,7 +298,33 @@
 
 
 .portfolio__row {
-    display: flex;
+    width: 100%;
     margin-bottom: 20px;
-    gap: 20px;
+
+    --modifier: calc((30rem - 100%) * 999);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.portfolio-item {
+    flex-basis: max(var(--modifier), 0px);
+    flex-grow: calc(var(--ratio));
+}
+
+
+.lazy {
+    opacity: 0;
+}
+
+*[data-ll-status="loading"] {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+*[data-ll-status="loaded"] {
+    opacity: 1;
+    transition: opacity 0.2s ease;
 }
