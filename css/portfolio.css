@@ -20,6 +20,7 @@
     width: 100%;
     height: auto;
     background-color: #fff2;
+    cursor: pointer;
 }
 
 .portfolio-item img {
@@ -165,10 +166,6 @@
     margin: 0px;
 }
 
-#layer_info .image-outer h1 {
-    display: none;
-}
-
 #layer_info .button {
     width: 100%;
     padding: 18px;
@@ -253,6 +250,7 @@
     width: 200px;
     font-size: 18px;
     text-align: center;
+    cursor: pointer;
 }
 
 .portfolio_section-button.active {
@@ -344,8 +342,8 @@
 }
 
 .image-container {
-    padding: 25px;
     background-color: #261D30;
+    display: flex;
 }
 
 .image-container h1 {
@@ -353,4 +351,13 @@
     margin-bottom: 10px;
     font-size: 22px;
     font-weight: 600;
+    margin-left: 0px;
+}
+
+.image-outer {
+    padding: 25px !important
+}
+
+.image-outer:nth-child(2) {
+    padding-left: 0px !important;
 }

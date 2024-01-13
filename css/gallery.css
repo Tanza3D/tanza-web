@@ -34,6 +34,7 @@
     height: auto;
     aspect-ratio: var(--ratio);
     background-color: #fff2;
+    cursor: pointer;
 }
 
 .item-batch-single {

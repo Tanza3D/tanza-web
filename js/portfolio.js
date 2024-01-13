@@ -162,19 +162,17 @@ function openItem(item, largePopup = false) {
             var imagecont = document.createElement("div");
         }
         imagecont.className = "image-container";
+        let imageElOuter = document.createElement("div");
+        imageElOuter.classList.add("image-loading");
+        imageElOuter.classList.add("image-outer");
         if (image.name != "undefined") {
             var text = document.createElement("h1");
             text.innerText = image.name;
-        }
-        let imageElOuter = document.createElement("div");
-        imageElOuter.classList.add("image-loading");
-        if (image.name != "undefined") {
-            imagecont.appendChild(text);
+            imageElOuter.appendChild(text);
         }
         let imageEl = document.createElement("img");
         imageEl.addEventListener("load", function () {
             imageElOuter.style = "--ratio: " + imageEl.clientWidth / imageEl.clientHeight
-            imageElOuter.classList.add("image-outer");
             imageElOuter.classList.remove("image-loading");
         });
         imageEl.src = "/img/portfolio/" + item.Id + "/" + image.path;
