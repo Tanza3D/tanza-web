@@ -84,9 +84,9 @@ $func();
     <meta name="viewport" content="width=device-width, initial-scale=0.9" />
     <script rel="preload" src="https://kit.fontawesome.com/91ad005f46.js" crossorigin="anonymous"></script>
     <?php
-    Css("global/css/main.css?v3");
+    Css("global/css/main.css");
     if ($isWork) {
-        Css("global/css/work.css?v3");
+        Css("global/css/work.css");
     }
     Css("css/" . $ref_page['name'] . ".css");
     ?>
@@ -145,15 +145,15 @@ $func();
 
 <?php
 foreach ($ref_page['js'] as $js) {
-    Js($js."?v3");
+    Js($js."");
 }
 
 foreach ($ref_page['css'] as $css) {
-    Css($css."?v3");
+    Css($css."");
 }
-Js("global/js/global.js?v3");
+Js("global/js/global.js");
 if ($isWork) {
-    Css("global/js/work.js?v3");
+    Css("global/js/work.js");
 }
 Js("js/" . $ref_page['name'] . ".js");
 
