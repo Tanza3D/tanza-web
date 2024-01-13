@@ -6,18 +6,24 @@
 
 <div class="page-content" aload="basic" loadelement="window">
     <div class="page-inner">
-
-        <div class="portfolio_left">
-            <h1>Branding & Misc</h1>
+        <div class="portfolio_section-picker">
+            <div class="portfolio_section-button" id="button-branding" onclick="setActive('branding')">
+                Branding
+            </div>
+            <div class="portfolio_section-button" id="button-web" onclick="setActive('web')">
+                Web Design
+            </div>
+        </div>
+        <div class="portfolio-page" id="page-branding">
             <div class="portfolio_left-content" id="portfolio-page">
 
             </div>
         </div>
 
-        <div class="portfolio_right">
-            <h1>Web Design</h1>
+        <div class="portfolio-page" id="page-web">
             <div class="portfolio_right-content" id="portfolio-page-web">
-
+                <div id="web-left"></div>
+                <div id="web-right"></div>
             </div>
         </div>
 

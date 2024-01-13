@@ -16,9 +16,6 @@ html {
     font-family: sans-serif;
 }
 
-.body-portfolio {
-    --page-width: 1600px !important;
-}
 
 .navbar__inner h1 {
     margin-left: 0px;
@@ -417,4 +414,12 @@ html {
     max-width: var(--page-width);
     margin: 30px auto;
     padding: 0px 30px;
+}
+
+.portfolio_section-button {
+    border: 1px solid #222 !important;
+}
+.portfolio_section-button.active {
+    background-color: #222 !important;
+    color: white !important;
 }

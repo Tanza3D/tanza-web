@@ -87,8 +87,18 @@ function uploadProject() {
     // TODO: images
 
     xhr.onload = (event) => {
-        toggleUploadModal();
         var response = JSON.parse(xhr.responseText);
+        setTimeout(() => {
+            let xhr2 = new XMLHttpRequest();
+            xhr2.open("POST", `/global/php/resize_images.php?id=${response['Id']}`);
+            xhr2.send();
+            xhr2.onload = (event) => {
+                //location.reload();
+            }
+            xhr2.send();
+        }, 500);
+        //toggleUploadModal();
+        //var response = JSON.parse(xhr.responseText);
     }
     if (editing) {
         xhr.open("POST", "/admin/api/portfolio/update");
