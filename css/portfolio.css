@@ -20,6 +20,7 @@
     width: 100%;
     height: auto;
     background-color: #fff2;
+    cursor: pointer;
 }
 
 .portfolio-item img {
@@ -165,10 +166,6 @@
     margin: 0px;
 }
 
-#layer_info .image-outer h1 {
-    display: none;
-}
-
 #layer_info .button {
     width: 100%;
     padding: 18px;
@@ -187,7 +184,7 @@
 }
 
 .image-container {
-    margin-top: 8px;
+    margin-top: 2px;
     gap: 8px;
 }
 
@@ -253,6 +250,7 @@
     width: 200px;
     font-size: 18px;
     text-align: center;
+    cursor: pointer;
 }
 
 .portfolio_section-button.active {
@@ -327,4 +325,39 @@
 *[data-ll-status="loaded"] {
     opacity: 1;
     transition: opacity 0.2s ease;
+}
+
+.layer-text-content {
+    padding: 0px;
+}
+
+
+.layer-text-content #description {
+    padding: 5px 25px;
+    padding-bottom: 15px;
+}
+
+.image-outer img {
+    width: 100%;
+}
+
+.image-container {
+    background-color: #261D30;
+    display: flex;
+}
+
+.image-container h1 {
+    margin-top: -8px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 0px;
+}
+
+.image-outer {
+    padding: 25px !important
+}
+
+.image-outer:nth-child(2) {
+    padding-left: 0px !important;
 }
