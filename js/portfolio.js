@@ -46,7 +46,14 @@ function generatePortfolioPanel(item, largePopup = false, original = false) {
 
 function loadPortfolio() {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/api/portfolio/items");
+    var url = "/api/portfolio/items";
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const filterTag = urlParams.get('filter')
+    if(filterTag != null) {
+        url = "/api/portfolio/items?filter=" + filterTag
+    }
+    xhr.open("GET",  url);
     xhr.onload = function () {
         var json = JSON.parse(xhr.responseText);
 

@@ -2,3 +2,4 @@
 /img/*
 config.php
 .well-known
+int

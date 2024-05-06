@@ -1,6 +1,14 @@
 <div class="cover cover-small">
     <h1>Portfolio</h1>
+    <?php
+    if(isset($_GET['filter'])) {
+        ?>
+        <p>Filtered to: <strong><?= $_GET['filter'] ?></strong></p>
+        <?php
+    } else { 
+    ?>
     <p>Designs I’ve worked on. Click on them to learn more!
+        <?php } ?>
     <p>
 </div>
 
