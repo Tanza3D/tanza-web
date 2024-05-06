@@ -182,7 +182,7 @@ include("work.html");
 
             </div>
             <div class="home__panels-right">
-                <div hover="small" click="layer" class="home__panel home__panel-medium" style="
+                <!-- <div hover="small" click="layer" class="home__panel home__panel-medium hidden" style="
                 --col1: #0066FF;
                 --col2: #F042FF;
                 --col3: #2400FF;
@@ -191,7 +191,7 @@ include("work.html");
                     <div class="icon"><i class="fas fa-info-circle"></i></div>
                     <h1>About Me</h1>
                     <p>Learn all about me, my history, and my plans for the future!</p>
-                </div>
+                </div> -->
                 <div hover="small" click="layer" class="home__panel home__panel-medium" style="
                 --col1: #8F00FF;
                 --col2: #FF2F6D;
@@ -279,8 +279,7 @@ include("work.html");
             <img src="/img/gallery/small/1672686538_pfp-2023-2.png">
             <div class="home__discord-texts">
                 <p>Add me on Discord!</p>
-                <h1><strong>Tanza</strong>
-                    <light>#6283</light>
+                <h1><strong>tanza3d</strong>
                 </h1>
             </div>
         </div>
