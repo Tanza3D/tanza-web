@@ -15,4 +15,4 @@ var images = <?= json_encode($array); ?>;
 
 <img src="img/0001.png" id="mainimg" draggable="false">
 
-<script src="main.js?v2"></script>
+<script src="main.js?v3"></script>

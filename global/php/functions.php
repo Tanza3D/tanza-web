@@ -5,10 +5,10 @@ function Js($path, $local = true) {
     if($local == true) {
         $path = "/" . $path;
     }
-    echo '<script src="'.$path.'?v=6"></script>';
+    echo '<script src="'.$path.'?v=7"></script>';
 }
 function Css($path) {
-    echo '<link rel="stylesheet" href="/'.$path.'?v=6">';
+    echo '<link rel="stylesheet" href="/'.$path.'?v=7">';
 }
 function Redirect($url) {
     // redirects by placing js on the page
