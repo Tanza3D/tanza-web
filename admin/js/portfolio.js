@@ -4,7 +4,8 @@ var baseItem = {
     date: "",
     images: [],
     imageDescriptions: [],
-    link: ""
+    link: "",
+    type: "0"
 }
 
 var portfolioUploadItem = clone(baseItem);
@@ -16,6 +17,7 @@ function updateData() {
     portfolioUploadItem['description'] = document.getElementById("description").value;
     portfolioUploadItem['date'] = document.getElementById("date_up").value;
     portfolioUploadItem['link'] = document.getElementById("link").value;
+    portfolioUploadItem['type'] = document.getElementById("type").value;
     if (portfolioUploadItem['images'].length == 0) {
         var parent = document.getElementById("image-grid");
         while (parent.firstChild) {
@@ -30,6 +32,7 @@ function updateDataReverse() {
     document.getElementById("description").value = portfolioUploadItem['description'];
     document.getElementById("date_up").value = portfolioUploadItem['date'];
     document.getElementById("link").value = portfolioUploadItem['link'];
+    document.getElementById("type").value = portfolioUploadItem['type'];
 
     // fuck you i can't be arsed to implement image editing
 }
@@ -75,6 +78,7 @@ function uploadProject() {
     formData.append("description", portfolioUploadItem.description);
     formData.append("date", portfolioUploadItem.date);
     formData.append("link", portfolioUploadItem.link);
+    formData.append("type", portfolioUploadItem.type);
     if (editing == false) {
         //formData.append("logo", document.getElementById("logo").files[0]);
         var dumdum = 0;
@@ -95,7 +99,7 @@ function uploadProject() {
             xhr2.onload = (event) => {
                 //location.reload();
             }
-            xhr2.send();
+            //xhr2.send();
         }, 500);
         //toggleUploadModal();
         //var response = JSON.parse(xhr.responseText);

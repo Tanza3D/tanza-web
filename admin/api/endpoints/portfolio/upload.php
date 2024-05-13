@@ -29,14 +29,15 @@ foreach($_FILES as $file) {
 $link = $_POST['link'];
 
 
-Database::execOperation("INSERT INTO `Portfolio` (`Id`, `Images`, `Name`, `Description`, `Date`, `Link`)
-VALUES (?,?,?,?,?,?);", "isssss", [
+Database::execOperation("INSERT INTO `Portfolio` (`Id`, `Images`, `Name`, `Description`, `Date`, `Link`, `Website`)
+VALUES (?,?,?,?,?,?,?);", "isssssi", [
     $id,
     json_encode($files),
     $name,
     $description,
     $date,
-    $link
+    $link,
+    $_POST['type']
 ]);
 
 

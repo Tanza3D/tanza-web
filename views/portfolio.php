@@ -18,12 +18,21 @@
             <div class="portfolio_section-button" id="button-branding" onclick="setActive('branding')">
                 Branding
             </div>
+            <div class="portfolio_section-button" id="button-covers" onclick="setActive('covers')">
+                Cover Art
+            </div>
             <div class="portfolio_section-button" id="button-web" onclick="setActive('web')">
                 Web Design
             </div>
         </div>
         <div class="portfolio-page" id="page-branding">
             <div class="portfolio_left-content" id="portfolio-page">
+
+            </div>
+        </div>
+
+        <div class="portfolio-page" id="page-covers">
+            <div class="portfolio_left-content" id="portfolio-page-covers">
 
             </div>
         </div>

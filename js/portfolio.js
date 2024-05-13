@@ -15,8 +15,12 @@ function generatePortfolioPanel(item, largePopup = false, original = false) {
     if (original == true) {
         img.setAttribute("data-src", "/img/portfolio/" + item.Id + "/" + item.Images[0].path)
     }
+    if(typeof(item['imageurl']) != "undefined") {
+        img.setAttribute("data-src", item.imageurl);
+    }
 
     img.src = `/public/img/gallery/${item['SimpleRatio']}.png`;
+   
     div.appendChild(img);
 
     var title = document.createElement("h1");
@@ -44,17 +48,78 @@ function generatePortfolioPanel(item, largePopup = false, original = false) {
     return div;
 }
 
+async function DoRequest(method, url, data = null, headers = {}) {
+    if (url == null) {
+        url = method;
+        method = "GET";
+    }
+    return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        for (var header in headers) {
+            xhr.setRequestHeader(header, headers[header]);
+        }
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                try {
+                    resolve(resolve(JSON.parse(xhr.responseText, function (k, v) {
+                        // Check if the value is an object
+                        if (typeof v === "object" && v !== null) {
+                            return v;  // Return the object as is
+                        }
+
+                        // Check if the value is a boolean (true or false)
+                        if (v === true || v === false) {
+                            return v;
+                        }
+
+                        // Check if the value is a non-numeric string
+                        if (isNaN(v)) {
+                            return v;  // Return the string as is
+                        }
+
+                        // Otherwise, parse the value as an integer
+                        return parseInt(v, 10);
+                    })));
+                } catch {
+                    resolve(resolve(xhr.responseText));
+                }
+            } else {
+                reject({
+                    status: xhr.status,
+                    statusText: xhr.statusText
+                });
+            }
+        };
+        xhr.onerror = function () {
+            reject({
+                status: xhr.status,
+                statusText: xhr.statusText
+            });
+        };
+        if (data) {
+            var formData = new FormData();
+            for (var key in data) {
+                formData.append(key, data[key]);
+            }
+            xhr.send(formData);
+        } else {
+            xhr.send()
+        }
+    });
+}
+
 function loadPortfolio() {
     var xhr = new XMLHttpRequest();
     var url = "/api/portfolio/items";
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const filterTag = urlParams.get('filter')
-    if(filterTag != null) {
+    if (filterTag != null) {
         url = "/api/portfolio/items?filter=" + filterTag
     }
-    xhr.open("GET",  url);
-    xhr.onload = function () {
+    xhr.open("GET", url);
+    xhr.onload = async function () {
         var json = JSON.parse(xhr.responseText);
 
         var counter = 0;
@@ -70,7 +135,7 @@ function loadPortfolio() {
 
         var curAspect = 0;
         for (var item of json) {
-            if (item.Website == "1") continue;
+            if (item.Website != "0") continue;
             section.push(item);
 
             let ratio = item['Ratio'].split(":");
@@ -105,7 +170,7 @@ function loadPortfolio() {
         var leftHeight = 0;
         var rightHeight = 0;
         for (var item of json) {
-            if (item.Website == "0") continue;
+            if (item.Website != "1") continue;
             item.Images = JSON.parse(item.Images);
 
             let ratio = item['Ratio'].split(":");
@@ -127,6 +192,22 @@ function loadPortfolio() {
 
 
 
+        }
+
+
+        var covers = [];
+
+        var moreCovers = await DoRequest("GET", "/api/portfolio/covers")
+
+        for (var item of json) {
+            if (item.Website == "2") covers.push(item)
+        }
+        for(var cover of moreCovers) covers.push(cover);
+
+        console.log(covers);
+
+        for (var cover of covers) {
+            document.getElementById("portfolio-page-covers").appendChild(generatePortfolioPanel(cover, true));
         }
 
 
@@ -183,6 +264,9 @@ function openItem(item, largePopup = false) {
             imageElOuter.classList.remove("image-loading");
         });
         imageEl.src = "/img/portfolio/" + item.Id + "/" + image.path;
+        if(image.path.startsWith("https")) {
+            imageEl.src = image.path;
+        }
         imageElOuter.appendChild(imageEl);
         imagecont.appendChild(imageElOuter);
 
@@ -200,7 +284,11 @@ function openItem(item, largePopup = false) {
 function checkParams() {
     if (getParam("page") != null && getParam("page") == "web") {
         setActive("web", 0, false);
-    } else {
+    }
+    else if (getParam("page") != null && getParam("page") == "covers") {
+        setActive("covers", 0, false);
+    }
+    else {
         setActive("branding", 0, false);
     }
 }
@@ -211,18 +299,35 @@ function setActive(page, wait = 500, history = true) {
     if (page == "branding") {
         document.getElementById("button-branding").classList.add("active");
         document.getElementById("button-web").classList.remove("active");
+        document.getElementById("button-covers").classList.remove("active");
+
+        document.getElementById("page-web").classList.remove("active");
+        document.getElementById("page-covers").classList.remove("active");
+    }
+    else if (page == "covers") {
+        document.getElementById("button-branding").classList.remove("active");
+        document.getElementById("button-web").classList.remove("active");
+        document.getElementById("button-covers").classList.add("active");
+
+        document.getElementById("page-branding").classList.remove("active");
         document.getElementById("page-web").classList.remove("active");
     }
     else {
         document.getElementById("button-branding").classList.remove("active");
-        document.getElementById("button-web").classList.add("active"); document.getElementById("page-branding").classList.remove("active");
-        document.getElementById("page-branding").classList.remove("active");
+        document.getElementById("button-covers").classList.remove("active");
+        document.getElementById("button-web").classList.add("active");
 
+
+        document.getElementById("page-branding").classList.remove("active");
+        document.getElementById("page-covers").classList.remove("active");
     }
 
     setTimeout(() => {
         if (page == "branding") {
             document.getElementById("page-branding").classList.add("active");
+        }
+        else if (page == "covers") {
+            document.getElementById("page-covers").classList.add("active");
         }
         else {
             document.getElementById("page-web").classList.add("active");

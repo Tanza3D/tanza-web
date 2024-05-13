@@ -21,6 +21,9 @@
                 <p>Description</p>
                 <input type="text" name="description" id="description" onkeyup="updateData()">
                 <br>
+                <p>Type (0 = branding, 1 = web, 2 = cover)</p>
+                <input type="text" name="type" id="type" onkeyup="updateData()">
+                <br>
                 <p>Date</p>
                 <input type="datetime-local" name="date" id="date_up" onkeyup="updateData()">
                 <br>
