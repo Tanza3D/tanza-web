@@ -58,7 +58,8 @@
 }
 
 .project-panel__big img {
-    width: 270px;
+    max-width: 270px;
+    max-height: 132px;
     height: auto;
     margin-top: auto;
 }
